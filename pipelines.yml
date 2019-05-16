@@ -16,6 +16,9 @@ pipelines:
 
        - name: selected_version
          type: bash
+         requires:
+           steps:
+             - none_language
          setup:
            runtime:
              type: image
@@ -31,6 +34,9 @@ pipelines:
              
        - name: default_version
          type: bash
+         requires:
+           steps:
+             - none_language
          setup:
            runtime:
              type: image
