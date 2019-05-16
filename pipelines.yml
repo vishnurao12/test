@@ -12,7 +12,7 @@ pipelines:
          execution:
            onExecute:
              - echo TEST_FOR_NONE
-             - node -v
+#              - node -v
 
        - name: selected_version
          type: bash
