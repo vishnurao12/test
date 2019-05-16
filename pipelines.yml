@@ -6,8 +6,8 @@ pipelines:
          setup:
            runtime:
              type: image
-             image:
-               auto:
+            # image:
+               #auto:
 #                  language: none            
          execution:
            onExecute:
