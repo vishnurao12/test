@@ -8,7 +8,7 @@ pipelines:
              type: image
              image:
                auto:
-                 language: none            
+#                  language: none            
          execution:
            onExecute:
              - echo TEST_FOR_NONE
