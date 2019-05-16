@@ -29,7 +29,7 @@ pipelines:
                    - 8.16.0                      
          execution:
            onExecute:
-             - echo - echo TEST_FOR_SELECTED_VERSION
+             - echo TEST_FOR_SELECTED_VERSION
              - node -v
              
        - name: default_version
