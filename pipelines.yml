@@ -1,215 +1,33 @@
 resources:
-  - name: sample_scriptrepo
+  - name: app1
     type: gitRepo
-    repoPath: jpline/sample-script
+    repoPath: Ranjansingh41/test
     configuration:
       integrationName: github
       branches:
-        except: test_*
-      #  only: master_*
-      #files:
-       # except: tes*
-       # only: nod*
-      tags:
-        except: tes*
-       # only: tag*
+        only: master
     initialVersion:
       sha: master
-    buildOn:
-      tagPush: true
-      
-  - name: imageDocker
-    type: image
-    imageName: shippabledocker/sample-node
-    configuration:
-      integrationName: dockerInt
-    initialVersion:
-      imageTag: latest
- 
+
 pipelines:
-  - name: pipeline1
-    steps:  
-      - name: testJob1
+
+  - name: test_pipeline
+    steps:
+      - name: test_func
         type: bash
         configuration:
-          timeoutSeconds: 360
+          affinityGroup: build
         setup:
-          environmentVariables:
-            normal:
-              ENV1: value1
-              ENV3: value3
-              STEP_TYPE: update
-              PIPELINE_NAME: update
-              STEP_NAME: update
-         #     RUNNING_IN_CONTAINER: container #this throw error when i update this
-            secure:
-              ENV2: EpEMlpUSs85U6Y5WmsV5xXUr/GkDpuKP0qH6yy4qPoTbZUSRwmIwWhez+bNSmDJe7lkZN1+syxU1LFmt09QqtSVQpy69brIW1L6vLaHVtBn7hcYGC3dJhmvXUYn/ohpasFj/sab6lwXHQSs+nRYyFRF+ICRzoTB6M17JW/KoLpqJrLL1hBYC1gPSXuWgJT/ZqKWcg+GWhCZT1o9L6IrHrgaMYR3aSmWwGAZoUBWGuTw7/datT6NDhxD6nX64dRdcR+4X0yRnTLPzbxqiMC9qTBw4ChIw5CenyH0tE/AF6YlhoavkyyRBkgd18AQKVNpQneaRN7htnIe+fLEsbKEkwQ==
+          runtime:
+            type: image
+            image:
+              auto:
+                language: nodeJs
+                versions:
+                  - 10.15.3
         triggeredBy:
           resources:
-            - sample_scriptrepo
-          integrations:
-            - dockerInt
-        runtime:            
-          type: image
-          image:
-            custom:
-              name: drydock/u16all
-              tag: v7.2.4
-              options: 'privileged: true'
-        execution:
-          onExecute:
-            - printenv
-            - echo "hello!"
-            - echo "ENV1=$ENV1"
-            - echo "ENV2=$ENV2"
-            - echo "ENV3=$ENV3"
-            - echo "STEP_TYPE=$STEP_TYPE"
-            - echo "PIPELINE_NAME=$PIPELINE_NAME"
-            - echo "STEP_NAME=$STEP_NAME"
-            - mkdir -p shippable/testresults
-            - mkdir -p shippable/codecoverage
-            - grunt
-            - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-            - ./node_modules/.bin/istanbul report cobertura --dir shippable/codecoverage/
-          #  - echo "RUNNING_IN_CONTAINER=$RUNNING_IN_CONTAINER"
-          onSuccess:
-            - echo "ENV1=$ENV1"
-            - echo "ENV2=$ENV2"
-            - echo "ENV3=$ENV3"
-            - echo "STEP_TYPE=$STEP_TYPE"
-            - echo "PIPELINE_NAME=$PIPELINE_NAME"
-            - echo "STEP_NAME=$STEP_NAME"
-          onComplete:
-            - echo "ENV1=$ENV1"
-            - echo "ENV2=$ENV2"
-            - echo "ENV3=$ENV3"
-            - echo "STEP_TYPE=$STEP_TYPE"
-            - echo "PIPELINE_NAME=$PIPELINE_NAME"
-            - echo "STEP_NAME=$STEP_NAME"
-          onStart:
-            - echo "ENV1=$ENV1"
-            - echo "ENV2=$ENV2"
-            - echo "ENV3=$ENV3"
-          onFailure:
-            - echo "ENV1=$ENV1"
-            - echo "ENV2=$ENV2"
-            - echo "ENV3=$ENV3"
-          onCancel:
-            - echo "ENV1=$ENV1"
-            - echo "ENV2=$ENV2"
-            - echo "ENV3=$ENV3"
-            
-      - name: step_2
-        type: bash
-        triggeredBy:
-          resources:
-            - imageDocker
-        execution:
-          onExecute:
-            - printenv
-            - test "$key1" == "value1"
-            - test "$key2" == "value2"
-            
-      - name: step_3
-        type: bash
-        configuration:
-          priority: 4
-          timeoutSeconds: 360
-        triggeredBy:
-          steps:
-            - testJob1
-        setup:
-          environmentVariables:
-            normal:
-              ENV1: value1
-              ENV2: value2
-            encrypted:
-              SECURE_ENV1: AEb8pmfA/dlxbrphotPCm4t6p9QCbsnMxREHbGaAE0k6ce6wU8NAU4cNTqa4vtM3iYBHe2cUQfcVY9xRSvJig8HQ8McEqBN1gEPhsUwiDXLYmjV7qRihZfRJdRwykkXd9TE6aghY4fgtxhvpqaLfSxa1RBu/7reOxLljBwzNff2Yaqj09glxXd8wo4RRwYXX17FBwaY8Jc88dyTVKEHPEmgi9hId4+Nr3U4WhHkXUZaE1ZiTjbNCbsDq530UK4s8vKO0fpOUT4uIeMZr52KPe6wRvYqf1ykU+NgzVPK2ClFzSc8AQiEKqxCuFrQY0j9qM74JfMIrOamWBvWEc9uenw==
-              SECURE_ENV3: KsG4kx2e6vuqJPx0m4PUnEG2kTxVxhDOaKiksfdefibTQtX49GmdMu4dAdxq0R2x8sh6pP6PYynPK4e/j5HQPOYfWRiMEdLwJ2p1UPcFcNfDq6Q5kWB8MDmQP6OikVguNOj8Iu/yicpca+ilNzMRTmVNX5jyn6bjySaIlXeyrGZYaWex3XxxcZfuM8544tktEUiHwMBTPEZV8aL9d1K5dco67IQFgdRfDtnkCfvresi+uTCvE3GULO2vbloXz+J1Bcc/pm+ufUyh2m1ivvsA3nhBFYTcyGz5AWm2qEI/v0ujK9fMLkgLMnjOl3l/X7dI6n8lvHFoI7QYDlpYt4cR3Q==
-        execution:
-          onExecute:
-            - printenv
-            - test "$ENV1" == "value1"
-            - test "$ENV2" == "value2"
-            - test "$SECURE_ENV3" == "secure_value3" 
-            - test "$SECURE_ENV1" == "secure_value1"
-            - echo "STEP_TYPE=$STEP_TYPE"
-            - echo "PIPELINE_NAME=$PIPELINE_NAME"
-            - echo "STEP_NAME=$STEP_NAME"
-          onStart:
-            - echo "on start"
-            - test "$ENV1" == "value1"
-            - test "$ENV2" == "value2"
-            - test "$SECURE_ENV3" == "secure_value3" 
-            - test "$SECURE_ENV1" == "secure_value1"
-          onSuccess:
-            - echo "on success!"
-            - test "$ENV1" == "value1"
-            - test "$ENV2" == "value2"
-            - test "$SECURE_ENV3" == "secure_value3" 
-            - test "$SECURE_ENV1" == "secure_value1"
-          onFailure:
-            - echo "something went wrong"
-            - test "$ENV1" == "value1"
-            - test "$ENV2" == "value2"
-            - test "$SECURE_ENV3" == "secure_value3" 
-            - test "$SECURE_ENV1" == "secure_value1"
-          onComplete: 
-            - echo "step is done!"
-            - test "$ENV1" == "value1"
-            - test "$ENV2" == "value2"
-            - test "$SECURE_ENV3" == "secure_value3" 
-            - test "$SECURE_ENV1" == "secure_value1"
-          onCancel:
-            - echo "cancelled this job"
-            - test "$ENV1" == "value1"
-            - test "$ENV2" == "value2"
-            - test "$SECURE_ENV3" == "secure_value3" 
-            - test "$SECURE_ENV1" == "secure_value1"
-            
-      - name: step_4
-        type: bash
-        configuration:
-          priority: 5
-        triggeredBy:
-          steps:
-            - testJob1
-        execution:
-          onExecute:
-            - echo "ENV1=$ENV1"
-            - echo "ENV2=$ENV2"
-            - echo "ENV3=$ENV3"
-            - echo "STEP_TYPE=$STEP_TYPE"
-            - echo "PIPELINE_NAME=$PIPELINE_NAME"
-            - echo "STEP_NAME=$STEP_NAME"
-          
-            
-  - name: pipeline2
-    steps:    
-      - name: step_pl2
-        type: bash
-        execution:
-          onExecute:
-            - printenv
-  
-      - name: step2_pl2
-        type: bash
-        configuration:
-          priority: 1
-        triggeredBy:
-          steps:
-            - step_pl2
-        execution:
-          onExecute:
-            - printenv
-             
-      - name: step3_pl2
-        type: bash
-        configuration:
-          priority: 2
-        triggeredBy:
-          steps:
-            - step_pl2
+            - app1
         execution:
           onExecute:
             - printenv
