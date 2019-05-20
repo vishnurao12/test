@@ -53,7 +53,10 @@ pipelines:
              type: image
              image:
                auto:
-                 language: nodejs                  
+                 language: nodejs   
+         triggeredBy:
+          resources:
+            - app1
          execution:
            onExecute:
              - echo - echo TEST_FOR_DEFAULT_VERSION
