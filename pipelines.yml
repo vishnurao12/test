@@ -69,5 +69,4 @@ pipelines:
              - app1
          execution:
            onExecute:
-             - docker pull drydock/u16node:master
              - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
