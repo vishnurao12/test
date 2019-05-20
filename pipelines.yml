@@ -67,6 +67,10 @@ pipelines:
          triggeredBy:
            resources:
              - app1
+         requires:
+           integrations:
+             - slackNotify
          execution:
            onExecute:
              - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
+             - send_notification slackNotify
