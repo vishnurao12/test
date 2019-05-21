@@ -14,9 +14,9 @@ pipelines:
     steps:
        - name: step1
          type: bash
-#          configuration:
-# #           affinityGroup: bldGroup 
-#             priority: 1
+         configuration:
+#           affinityGroup: bldGroup 
+            priority: 1
 
          setup:
            runtime:
@@ -54,7 +54,7 @@ pipelines:
          type: bash
          configuration:
 #           affinityGroup: bldGroup 
-            priority: 1
+            priority: 3
          triggeredBy:
            steps:
              - step1
