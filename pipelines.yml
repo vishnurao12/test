@@ -101,9 +101,9 @@ pipelines:
 
         - name: selected_version
           type: bash
-           triggeredBy:
-           steps:
-             - none_language
+          triggeredBy:
+            steps:
+               - none_language
           requires:
             steps:
               - none_language
