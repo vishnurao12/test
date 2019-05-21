@@ -4,10 +4,10 @@ resources:
     repoPath: ranjansingh41/test
     configuration:
       integrationName: github
-      files:
-        only: README|install.sh|node
+#       files:
+#         only: README|install.sh|node
       branches:
-        only: test
+        only: master
       tags:
         only: tagv*
 #       shallowDepth: 2
