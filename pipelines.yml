@@ -6,9 +6,9 @@ resources:
       integrationName: github
       branches:
         only: master
-      tags:
-        only: tagv*
-      shallowDepth: 2
+#       tags:
+#         only: tagv*
+#       shallowDepth: 2
     initialVersion:
       sha: master
     buildOn:
@@ -44,9 +44,9 @@ pipelines:
 #                  language: none            
          execution:
            onExecute:
-             - cd $res_app2_resourcePath
-             - sudo apt-get install tree
-             - git log
+             - printenv
+#              - sudo apt-get install tree
+#              - git log
 #              - node -v
 
 #        - name: trigger1
