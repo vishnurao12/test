@@ -79,7 +79,7 @@ pipelines2:
   - name: pipeline
     steps:
         - name: none_language
-           type: bash
+          type: bash
           setup:
             runtime:
               type: image
