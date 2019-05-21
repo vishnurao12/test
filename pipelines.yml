@@ -31,7 +31,7 @@ pipelines:
 
        - name: selected_version
          type: bash
-         requires:
+          triggeredBy:
            steps:
              - none_language
          setup:
@@ -49,7 +49,7 @@ pipelines:
              
        - name: default_version
          type: bash
-         requires:
+         triggeredBy:
            steps:
              - none_language
          setup:
