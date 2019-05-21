@@ -11,8 +11,8 @@ resources:
 #       shallowDepth: 2
     initialVersion:
       sha: master
-    buildOn:
-      tagPush: true
+#     buildOn:
+#       tagPush: true
       
 #   - name: app1
 #     type: gitRepo
@@ -32,7 +32,7 @@ pipelines:
 #          configuration:
 #           affinityGroup: bldGroup 
 #             priority: 1
-         requires:
+         triggeredBy:
            resources:
              - app2
 
