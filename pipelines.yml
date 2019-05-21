@@ -62,18 +62,18 @@ pipelines1:
              - echo - echo TEST_FOR_DEFAULT_VERSION
              - node -v
              
-       - name: utility_step
-         type: bash
-         triggeredBy:
-           resources:
-             - app1
-         requires:
-           integrations:
-             - slackNotify
-         execution:
-           onExecute:
-             - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
-             - send_notification slackNotify
+#        - name: utility_step
+#          type: bash
+#          triggeredBy:
+#            resources:
+#              - app1
+#          requires:
+#            integrations:
+#              - slackNotify
+#          execution:
+#            onExecute:
+#              - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
+#              - send_notification slackNotify
 
              pipelines:
                - name: pipeline
@@ -259,18 +259,18 @@ pipelines2:
              - echo - echo TEST_FOR_DEFAULT_VERSION
              - node -v
 
-       - name: utility_step
-         type: bash
-         triggeredBy:
-           resources:
-             - app1
-         requires:
-           integrations:
-             - slackNotify
-         execution:
-           onExecute:
-             - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
-             - send_notification slackNotify 
+#        - name: utility_step
+#          type: bash
+#          triggeredBy:
+#            resources:
+#              - app1
+#          requires:
+#            integrations:
+#              - slackNotify
+#          execution:
+#            onExecute:
+#              - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
+#              - send_notification slackNotify 
 
              
              
