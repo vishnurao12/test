@@ -23,50 +23,50 @@ resources:
 #     initialVersion:
 #       sha: master    
 
-# pipelines:
-#   - name: pipeline1
-#     steps:
-#        - name: step1
-#          type: bash
-# #          configuration:
-# #           affinityGroup: bldGroup 
-# #             priority: 1
-#          requires:
-#            resources:
-#              - app1
+pipelines:
+  - name: pipeline1
+    steps:
+       - name: step1
+         type: bash
+#          configuration:
+#           affinityGroup: bldGroup 
+#             priority: 1
+         requires:
+           resources:
+             - app1
 
-#          setup:
-#            runtime:
-#              type: image
-#             # image:
-#                #auto:
-# #                  language: none            
-#          execution:
-#            onExecute:
-#              - echo TEST_FOR_NONE
-# #              - node -v
-
-#        - name: trigger1
-#          type: bash
-# #          configuration:
-# #           affinityGroup: bldGroup 
-# #             priority: 3
-
-#          triggeredBy:
-#            resources:
-#              - app1
-#          setup:
-#            runtime:
-#              type: image
-#              image:
-#                auto:
-#                  language: nodejs
-#                  versions:
-#                    - 8.16.0                      
-#          execution:
-#            onExecute:
-#              - echo TEST_FOR_SELECTED_VERSION
+         setup:
+           runtime:
+             type: image
+            # image:
+               #auto:
+#                  language: none            
+         execution:
+           onExecute:
+             - echo TEST_FOR_NONE
 #              - node -v
+
+       - name: trigger1
+         type: bash
+#          configuration:
+#           affinityGroup: bldGroup 
+#             priority: 3
+
+         triggeredBy:
+           resources:
+             - app1
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs
+                 versions:
+                   - 8.16.0                      
+         execution:
+           onExecute:
+             - echo TEST_FOR_SELECTED_VERSION
+             - node -v
              
 #        - name: trigger2
 #          type: bash
