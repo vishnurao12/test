@@ -3,7 +3,7 @@ resources:
     type: gitRepo
     repoPath: ranjansingh41/test
     configuration:
-      integrationName: github2
+      integrationName: docker
       branches:
         only: master
     initialVersion:
