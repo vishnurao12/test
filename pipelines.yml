@@ -6,8 +6,12 @@ resources:
       integrationName: github
       branches:
         only: master
+      tags:
+        only: tag*
     initialVersion:
       sha: master
+    buildOn:
+      tagPush: true
       
 #   - name: app1
 #     type: gitRepo
