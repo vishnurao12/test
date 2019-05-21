@@ -8,6 +8,16 @@ resources:
         only: master
     initialVersion:
       sha: master
+      
+  - name: app1
+    type: gitRepo
+    repoPath: ranjansingh41/test
+    configuration:
+      integrationName: github
+      branches:
+        only: master
+    initialVersion:
+      sha: master    
 
 # pipelines:
 #   - name: pipeline1
