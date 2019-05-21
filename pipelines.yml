@@ -57,7 +57,7 @@ pipelines:
             priority: 2
          triggeredBy:
            steps:
-             - stepp1
+             - step1
          setup:
            runtime:
              type: image
