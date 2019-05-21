@@ -4,6 +4,8 @@ resources:
     repoPath: ranjansingh41/u16
     configuration:
       integrationName: github
+    files:
+        except: README  
       branches:
         only: master
 #       tags:
