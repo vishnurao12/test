@@ -31,7 +31,7 @@ pipelines:
 
        - name: selected_version
          type: bash
-          triggeredBy:
+         triggeredBy:
            steps:
              - none_language
          setup:
