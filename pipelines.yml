@@ -29,23 +29,23 @@ pipelines:
              - echo TEST_FOR_NONE
 #              - node -v
 
-#        - name: selected_version
-#          type: bash
-#          triggeredBy:
-#            steps:
-#              - none_language
-#          setup:
-#            runtime:
-#              type: image
-#              image:
-#                auto:
-#                  language: nodejs
-#                  versions:
-#                    - 8.16.0                      
-#          execution:
-#            onExecute:
-#              - echo TEST_FOR_SELECTED_VERSION
-#              - node -v
+       - name: selected_version
+         type: bash
+         triggeredBy:
+           steps:
+             - none_language
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs
+                 versions:
+                   - 8.16.0                      
+         execution:
+           onExecute:
+             - echo TEST_FOR_SELECTED_VERSION
+             - node -v
              
 #        - name: default_version
 #          type: bash
@@ -99,22 +99,22 @@ pipelines:
               - echo TEST_FOR_NONE
   #              - node -v
 
-#         - name: selected_version
-#           type: bash
-#            triggeredBy:
-#            steps:
-#              - none_language
-#           requires:
-#             steps:
-#               - none_language
-#           setup:
-#             runtime:
-#               type: image
-#               image:
-#                 auto:
-#                   language: nodejs
-#                   versions:
-#                     - 8.16.0                      
+        - name: selected_version
+          type: bash
+           triggeredBy:
+           steps:
+             - none_language
+          requires:
+            steps:
+              - none_language
+          setup:
+            runtime:
+              type: image
+              image:
+                auto:
+                  language: nodejs
+                  versions:
+                    - 8.16.0                      
 #           execution:
 #             onExecute:
 #               - echo TEST_FOR_SELECTED_VERSION
