@@ -1,13 +1,14 @@
 resources:
   - name: app1
     type: gitRepo
-    repoPath: ranjansingh41/test
+    repoPath: ranjansingh41/u16
     configuration:
       integrationName: github
       branches:
         only: master
       tags:
         only: tagv*
+      shallowDepth: 1
     initialVersion:
       sha: master
     buildOn:
@@ -43,30 +44,32 @@ pipelines:
 #                  language: none            
          execution:
            onExecute:
-             - echo TEST_FOR_NONE
+             - cd $res_app1_resourcePath
+             - sudo apt-get install tree
+             - tree
 #              - node -v
 
-       - name: trigger1
-         type: bash
-#          configuration:
-#           affinityGroup: bldGroup 
-#             priority: 3
+#        - name: trigger1
+#          type: bash
+# #          configuration:
+# #           affinityGroup: bldGroup 
+# #             priority: 3
 
-         triggeredBy:
-           resources:
-             - app1
-         setup:
-           runtime:
-             type: image
-             image:
-               auto:
-                 language: nodejs
-                 versions:
-                   - 8.16.0                      
-         execution:
-           onExecute:
-             - echo TEST_FOR_SELECTED_VERSION
-             - node -v
+#          triggeredBy:
+#            resources:
+#              - app1
+#          setup:
+#            runtime:
+#              type: image
+#              image:
+#                auto:
+#                  language: nodejs
+#                  versions:
+#                    - 8.16.0                      
+#          execution:
+#            onExecute:
+#              - echo TEST_FOR_SELECTED_VERSION
+#              - node -v
              
 #        - name: trigger2
 #          type: bash
