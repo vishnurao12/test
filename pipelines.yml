@@ -14,6 +14,10 @@ pipelines:
     steps:
        - name: none_language
          type: bash
+         configuration:
+#           affinityGroup: bldGroup 
+          priority: 1
+
          setup:
            runtime:
              type: image
@@ -80,6 +84,10 @@ pipelines:
     steps:
         - name: none_language
           type: bash
+          configuration:
+#           affinityGroup: bldGroup 
+          priority: 2
+
           setup:
             runtime:
               type: image
