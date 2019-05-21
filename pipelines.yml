@@ -1,6 +1,6 @@
 resources:
   - name: app1
-    type: gitRepo@
+    type: gitRepo&
     repoPath: ranjansingh41/test
     configuration:
       integrationName: github
