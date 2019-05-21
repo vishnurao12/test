@@ -1,5 +1,5 @@
 resources:
-  - name: app1
+  - name: app2
     type: gitRepo
     repoPath: ranjansingh41/u16
     configuration:
@@ -34,7 +34,7 @@ pipelines:
 #             priority: 1
          requires:
            resources:
-             - app1
+             - app2
 
          setup:
            runtime:
@@ -44,7 +44,7 @@ pipelines:
 #                  language: none            
          execution:
            onExecute:
-             - cd $res_app1_resourcePath
+             - cd $res_app2_resourcePath
              - sudo apt-get install tree
              - tree
 #              - node -v
