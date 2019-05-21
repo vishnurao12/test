@@ -28,7 +28,7 @@ pipelines:
 #           affinityGroup: bldGroup 
 #             priority: 1
          requires:
-           steps:
+           resources:
              - app1
 
          setup:
@@ -49,8 +49,8 @@ pipelines:
 #             priority: 3
 
          triggeredBy:
-           steps:
-             - step1
+           resources:
+             - app1
          setup:
            runtime:
              type: image
