@@ -27,9 +27,9 @@ pipelines:
 #          configuration:
 #           affinityGroup: bldGroup 
 #             priority: 1
-       requires:
-         steps:
-           - step1
+         requires:
+           steps:
+             - app1
 
          setup:
            runtime:
