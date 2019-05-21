@@ -16,7 +16,7 @@ pipelines:
          type: bash
          configuration:
 #           affinityGroup: bldGroup 
-            priority: 1
+            priority: 2
 
          setup:
            runtime:
@@ -33,7 +33,7 @@ pipelines:
          type: bash
          configuration:
 #           affinityGroup: bldGroup 
-            priority: 2
+            priority: 3
          triggeredBy:
            steps:
              - step1
@@ -54,7 +54,7 @@ pipelines:
          type: bash
          configuration:
 #           affinityGroup: bldGroup 
-            priority: 3
+            priority: 1
          triggeredBy:
            steps:
              - step1
