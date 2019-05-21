@@ -5,7 +5,7 @@ resources:
     configuration:
       integrationName: github
       files:
-        only: README.md|install.sh|node
+        except: README
       branches:
         only: master
 #       tags:
