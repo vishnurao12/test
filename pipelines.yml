@@ -1,7 +1,7 @@
 resources:
   - name: app1
     type: gitRepo
-    repoPath: ranjansingh41/test
+    repoPath: ranjansingh41/test2
     configuration:
       integrationName: github
       branches:
@@ -9,15 +9,15 @@ resources:
     initialVersion:
       sha: master
       
-  - name: app1
-    type: gitRepo
-    repoPath: ranjansingh41/test
-    configuration:
-      integrationName: github
-      branches:
-        only: master
-    initialVersion:
-      sha: master    
+#   - name: app1
+#     type: gitRepo
+#     repoPath: ranjansingh41/test
+#     configuration:
+#       integrationName: github
+#       branches:
+#         only: master
+#     initialVersion:
+#       sha: master    
 
 # pipelines:
 #   - name: pipeline1
