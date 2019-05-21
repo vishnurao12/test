@@ -9,8 +9,8 @@ resources:
     initialVersion:
       sha: master
 
-pipelines1:
-  - name: pipeline
+pipelines:
+  - name: pipeline1
     steps:
        - name: none_language
          type: bash
@@ -75,8 +75,8 @@ pipelines1:
 #              - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
 #              - send_notification slackNotify
 
-pipelines2:
-  - name: pipeline
+
+  - name: pipeline2
     steps:
         - name: none_language
           type: bash
