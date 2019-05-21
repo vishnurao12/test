@@ -101,6 +101,9 @@ pipelines:
 
         - name: selected_version
           type: bash
+           triggeredBy:
+           steps:
+             - none_language
           requires:
             steps:
               - none_language
@@ -119,6 +122,9 @@ pipelines:
  
         - name: default_version
           type: bash
+           triggeredBy:
+           steps:
+             - none_language
           requires:
             steps:
               - none_language
@@ -128,7 +134,7 @@ pipelines:
               image:
                 auto:
                   language: nodejs   
-          triggeredBy:
+#           triggeredBy:
            resources:
              - app1
           execution:
