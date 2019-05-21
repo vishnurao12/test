@@ -24,7 +24,7 @@ pipelines:
     steps:
        - name: step1
          type: bash
-         configuration:
+#          configuration:
 #           affinityGroup: bldGroup 
 #             priority: 1
 
@@ -41,7 +41,7 @@ pipelines:
 
        - name: trigger1
          type: bash
-         configuration:
+#          configuration:
 #           affinityGroup: bldGroup 
 #             priority: 3
          triggeredBy:
