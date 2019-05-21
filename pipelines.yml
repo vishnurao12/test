@@ -115,10 +115,10 @@ pipelines:
                   language: nodejs
                   versions:
                     - 8.16.0                      
-#           execution:
-#             onExecute:
-#               - echo TEST_FOR_SELECTED_VERSION
-#               - node -v
+          execution:
+            onExecute:
+              - echo TEST_FOR_SELECTED_VERSION
+              - node -v
  
 #         - name: default_version
 #           type: bash
