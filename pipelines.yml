@@ -58,7 +58,7 @@ pipelines:
              image:
                auto:
                  language: nodejs   
-         triggeredBy:
+#          triggeredBy:
           resources:
             - app1
          execution:
