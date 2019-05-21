@@ -46,7 +46,7 @@ pipelines:
            onExecute:
              - cd $res_app2_resourcePath
              - sudo apt-get install tree
-             - tree
+             - git log
 #              - node -v
 
 #        - name: trigger1
