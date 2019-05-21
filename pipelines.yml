@@ -44,8 +44,8 @@ pipelines:
 #          configuration:
 #           affinityGroup: bldGroup 
 #             priority: 3
+         requires:
          triggeredBy:
-           resources:
            steps:
              - step1
          setup:
