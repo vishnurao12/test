@@ -3,7 +3,7 @@ resources:
     type: gitRepo
     repoPath: ranjansingh41/test2
     configuration:
-      integrationName: github
+      integrationName: github2
       branches:
         only: master
     initialVersion:
