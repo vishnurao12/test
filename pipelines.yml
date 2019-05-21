@@ -104,9 +104,9 @@ pipelines:
           triggeredBy:
             steps:
                - none_language
-          requires:
-            steps:
-              - none_language
+#           requires:
+#             steps:
+#               - none_language
           setup:
             runtime:
               type: image
