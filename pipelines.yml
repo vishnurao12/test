@@ -8,13 +8,13 @@ resources:
         only: README|install.sh|node
       branches:
         only: test
-#       tags:
-#         only: tagv*
+      tags:
+        only: tagv*
 #       shallowDepth: 2
     initialVersion:
       sha: master
-#     buildOn:
-#       tagPush: true
+    buildOn:
+      tagPush: true
       
 #   - name: app1
 #     type: gitRepo
