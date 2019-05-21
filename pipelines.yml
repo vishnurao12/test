@@ -12,11 +12,11 @@ resources:
 pipelines:
   - name: pipeline1
     steps:
-       - name: none_language
+       - name: step1
          type: bash
-         configuration:
-#           affinityGroup: bldGroup 
-            priority: 1
+#          configuration:
+# #           affinityGroup: bldGroup 
+#             priority: 1
 
          setup:
            runtime:
@@ -29,11 +29,14 @@ pipelines:
              - echo TEST_FOR_NONE
 #              - node -v
 
-       - name: selected_version
+       - name: trigger1
          type: bash
+         configuration:
+#           affinityGroup: bldGroup 
+            priority: 1
          triggeredBy:
            steps:
-             - none_language
+             - step1
          setup:
            runtime:
              type: image
@@ -47,24 +50,27 @@ pipelines:
              - echo TEST_FOR_SELECTED_VERSION
              - node -v
              
-#        - name: default_version
-#          type: bash
+       - name: trigger2
+         type: bash
+         configuration:
+#           affinityGroup: bldGroup 
+            priority: 2
+         triggeredBy:
+           steps:
+             - stepp1
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs   
 #          triggeredBy:
-#            steps:
-#              - none_language
-#          setup:
-#            runtime:
-#              type: image
-#              image:
-#                auto:
-#                  language: nodejs   
-# #          triggeredBy:
-#           resources:
-#             - app1
-#          execution:
-#            onExecute:
-#              - echo - echo TEST_FOR_DEFAULT_VERSION
-#              - node -v
+          resources:
+            - app1
+         execution:
+           onExecute:
+             - echo - echo TEST_FOR_DEFAULT_VERSION
+             - node -v
              
 #        - name: utility_step
 #          type: bash
@@ -80,80 +86,80 @@ pipelines:
 #              - send_notification slackNotify
 
 
-  - name: pipeline2
-    steps:
-        - name: none_language
-          type: bash
-          configuration:
-#           affinityGroup: bldGroup 
-            priority: 2
-
-          setup:
-            runtime:
-              type: image
-             # image:
-                #auto:
-  #                  language: none            
-          execution:
-            onExecute:
-              - echo TEST_FOR_NONE
-  #              - node -v
-
-        - name: selected_version
-          type: bash
-          triggeredBy:
-            steps:
-               - none_language
-#           requires:
-#             steps:
-#               - none_language
-          setup:
-            runtime:
-              type: image
-              image:
-                auto:
-                  language: nodejs
-                  versions:
-                    - 8.16.0                      
-          execution:
-            onExecute:
-              - echo TEST_FOR_SELECTED_VERSION
-              - node -v
- 
-#         - name: default_version
+#   - name: pipeline2
+#     steps:
+#         - name: none_language
 #           type: bash
-#            triggeredBy:
-#            steps:
-#              - none_language
-#           requires:
+#           configuration:
+# #           affinityGroup: bldGroup 
+#             priority: 2
+
+#           setup:
+#             runtime:
+#               type: image
+#              # image:
+#                 #auto:
+#   #                  language: none            
+#           execution:
+#             onExecute:
+#               - echo TEST_FOR_NONE
+#   #              - node -v
+
+#         - name: selected_version
+#           type: bash
+#           triggeredBy:
 #             steps:
-#               - none_language
+#                - none_language
+# #           requires:
+# #             steps:
+# #               - none_language
 #           setup:
 #             runtime:
 #               type: image
 #               image:
 #                 auto:
-#                   language: nodejs   
-# #           triggeredBy:
-#            resources:
-#              - app1
+#                   language: nodejs
+#                   versions:
+#                     - 8.16.0                      
 #           execution:
 #             onExecute:
-#               - echo - echo TEST_FOR_DEFAULT_VERSION
+#               - echo TEST_FOR_SELECTED_VERSION
 #               - node -v
+ 
+# #         - name: default_version
+# #           type: bash
+# #            triggeredBy:
+# #            steps:
+# #              - none_language
+# #           requires:
+# #             steps:
+# #               - none_language
+# #           setup:
+# #             runtime:
+# #               type: image
+# #               image:
+# #                 auto:
+# #                   language: nodejs   
+# # #           triggeredBy:
+# #            resources:
+# #              - app1
+# #           execution:
+# #             onExecute:
+# #               - echo - echo TEST_FOR_DEFAULT_VERSION
+# #               - node -v
 
-  #                     - name: utility_step
-  #                       type: bash
-  #                       triggeredBy:
-  #                         resources:
-  #                           - app1
-  #                       requires:
-  #                         integrations:
-  #                           - slackNotify
-  #                       execution:
-  #                         onExecute:
-  #                           - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
-  #                           - send_notification slackNotify
+#   #                     - name: utility_step
+#   #                       type: bash
+#   #                       triggeredBy:
+#   #                         resources:
+#   #                           - app1
+#   #                       requires:
+#   #                         integrations:
+#   #                           - slackNotify
+#   #                       execution:
+#   #                         onExecute:
+#   #                           - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
+#   #                           - send_notification slackNotify
 
              
              
