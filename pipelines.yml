@@ -1,6 +1,6 @@
 resources:
   - name: node
-    type: gitRepo
+    type: image
     imageName: drydock/u14node
     configuration:
       integrationName: ranjan_github
