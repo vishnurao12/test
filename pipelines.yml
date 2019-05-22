@@ -3,7 +3,7 @@ resources:
     type: image2
     imageName: ranjansingh/python
     configuration:
-      integrationName: ranjan_github
+      integrationName: ranjan_dockerhub
       autoPull: false
     initialVersion:
       imageTag: app
