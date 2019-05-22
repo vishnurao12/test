@@ -2,7 +2,7 @@ resources:
   - name: test
     type: file
     fileLocation: ranjansingh41/test
-#     fileName: <string>  # optional
+    fileName: test  # optional
     configuration:      
       integrationName: ranjan_github
 #     initialVersion:
