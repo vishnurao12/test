@@ -28,7 +28,7 @@ pipelines:
 #             priority: 1
          triggeredBy:
            resources:
-             - app4
+             - node
 
          setup:
            runtime:
