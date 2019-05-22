@@ -1,5 +1,5 @@
 resources:
-  - name: 
+  - name: test
      type: image
      imageName: drydock/u16node
      configuration:
