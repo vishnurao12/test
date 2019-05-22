@@ -3,7 +3,7 @@ resources:
     type: image
     imageName: drydock/u16node
     configuration:
-      integrationName: ranjan_gitgub
+      integrationName: ranjan_github
       autoPull: true
     initialVersion:
       imageTag: master
