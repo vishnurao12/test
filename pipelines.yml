@@ -1,5 +1,5 @@
 resources:
-  - name: app3
+  - name: app4
     type: gitRepo
     repoPath: ranjansingh41/u16
     configuration:
@@ -37,7 +37,7 @@ pipelines:
 #             priority: 1
          triggeredBy:
            resources:
-             - app3
+             - app4
 
          setup:
            runtime:
