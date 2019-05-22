@@ -12,9 +12,9 @@ resources:
         only: tagv*
       buildOn:
 #         commit: false
-          pullRequest: true
+#           pullRequest: true
 #           pullRequestClose: true
-#           release: <Boolean>
+          release: true
 #           tagPush: <Boolean>
 #       shallowDepth: 2
     initialVersion:
