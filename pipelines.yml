@@ -9,7 +9,7 @@ resources:
       branches:
         only: master
       tags:
-        except: tagv*
+        only: tagv*
 #       shallowDepth: 2
     initialVersion:
       sha: master
