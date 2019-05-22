@@ -6,7 +6,7 @@ resources:
       integrationName: ranjan_github
       autoPull: false
     initialVersion:
-      imageTag: master1.1
+      imageTag: master
       
 #   - name: app1
 #     type: gitRepo
@@ -39,6 +39,7 @@ pipelines:
          execution:
            onExecute:
              - printenv
+             - sudo docker images
 #              - sudo apt-get install tree
 #              - git log
 #              - node -v
