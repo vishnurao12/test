@@ -1,5 +1,5 @@
 resources:
-  - name: files
+  - name: test
     type: file
     fileLocation: ranjansingh41/test
 #     fileName: <string>  # optional
@@ -37,7 +37,7 @@ pipelines:
 #             priority: 1
          triggeredBy:
            resources:
-             - node
+             - test
 
          setup:
            runtime:
