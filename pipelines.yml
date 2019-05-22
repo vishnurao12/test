@@ -1,21 +1,31 @@
 resources:
-  - name: node
-    type: image
-    imageName: ranjansingh/python
-    configuration:
-      integrationName: ranjan_dockerhub
-    initialVersion:
-      imageTag: app
+  - name: files
+    type: file
+    fileLocation: ranjansingh41/test
+#     fileName: <string>  # optional
+    configuration:      
+      integrationName: ranjan_github
+#     initialVersion:
+#       fileDtTm: <string>  # optional
       
-  - name: app5
-    type: gitRepo
-    repoPath: ranjansingh41/test
-    configuration:
-      integrationName: ranjan_dockerhub
-      branches:
-        only: master
-    initialVersion:
-      sha: master    
+# resources:
+#   - name: node
+#     type: image
+#     imageName: ranjansingh/python
+#     configuration:
+#       integrationName: ranjan_dockerhub
+#     initialVersion:
+#       imageTag: app
+      
+#   - name: app5
+#     type: gitRepo
+#     repoPath: ranjansingh41/test
+#     configuration:
+#       integrationName: ranjan_dockerhub
+#       branches:
+#         only: master
+#     initialVersion:
+#       sha: master    
 
 pipelines:
   - name: pipeline1
