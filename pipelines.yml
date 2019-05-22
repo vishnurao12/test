@@ -4,7 +4,6 @@ resources:
     imageName: ranjansingh/python
     configuration:
       integrationName: ranjan_dockerhub
-      autoPull: false
     initialVersion:
       imageTag: app
       
