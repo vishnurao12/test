@@ -1,7 +1,7 @@
 resources:
   - name: node
     type: image
-    imageName: drydock/u16node
+    imageName: drydock/u14node
     configuration:
       integrationName: ranjan_github
       autoPull: true
