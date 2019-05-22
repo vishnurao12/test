@@ -1,5 +1,5 @@
 resources:
-  - name: test
+  - name: test-1
     type: file
     fileLocation: ranjansingh41/test
     fileName: test  # optional
@@ -37,8 +37,7 @@ pipelines:
 #             priority: 1
          triggeredBy:
            resources:
-             - test
-
+             - test-1
          setup:
            runtime:
              type: image
