@@ -4,7 +4,7 @@ resources:
     imageName: drydock/u16node
     configuration:
       integrationName: ranjan_github
-      autoPull: true
+      autoPull: false
     initialVersion:
       imageTag: master1.1
       
