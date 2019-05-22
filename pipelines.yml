@@ -15,7 +15,7 @@ resources:
       sha: master
     buildOn:
       tagPush: true
-      commit: false
+#       commit: false
       
 #   - name: app1
 #     type: gitRepo
