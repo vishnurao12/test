@@ -5,7 +5,7 @@ resources:
     configuration:
       integrationName: ranjan_github
       files:
-        only: [
+        only: test[
 #         except: test
       branches:
         only: master
