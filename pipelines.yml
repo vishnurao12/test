@@ -1,5 +1,5 @@
 resources:
-  - name: app5
+  - name: app6
     type: gitRepo
     repoPath: ranjansingh41/test
     configuration:
@@ -59,7 +59,7 @@ pipelines:
 #             priority: 1
          triggeredBy:
            resources:
-             - app5
+             - app6
          setup:
            runtime:
              type: image
