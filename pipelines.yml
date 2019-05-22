@@ -1,20 +1,12 @@
 resources:
-  - name: app4
-    type: gitRepo
-    repoPath: ranjansingh41/u16
-    configuration:
-      integrationName: 
-#       files:
-#         only: README|install.sh|node
-      branches:
-        only: master
-      tags:
-        only: tagv*
-      buildOn:
-#         commit: false
-#       shallowDepth: 2
-    initialVersion:
-      sha: master
+  - name: 
+     type: image
+     imageName: drydock/u16node
+     configuration:
+       integrationName: ranjan_github
+       autoPull: true
+     initialVersion:
+       imageTag: master
       
 #   - name: app1
 #     type: gitRepo
