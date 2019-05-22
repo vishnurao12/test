@@ -1,6 +1,6 @@
 resources:
   - name: node
-    type: image2
+    type: image
     imageName: ranjansingh/python
     configuration:
       integrationName: ranjan_dockerhub
