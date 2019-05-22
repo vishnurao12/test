@@ -5,8 +5,8 @@ resources:
     configuration:
       integrationName: ranjan_github
       files:
-        only: README|install.sh|node
-        except: test
+        only: test*
+#         except: test
       branches:
         only: master
 #       tags:
