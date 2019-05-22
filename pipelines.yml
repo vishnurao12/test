@@ -1,7 +1,7 @@
 resources:
   - name: test1
     type: file
-    fileLocation: ranjansingh41/test
+    fileLocation: ranjansingh41/u16
     fileName: test  # optional
     configuration:      
       integrationName: ranjan_Artifactory
