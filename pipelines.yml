@@ -1,6 +1,6 @@
 resources:
   - name: node
-    type: image
+    type: image2
     imageName: ranjansingh/python
     configuration:
       integrationName: ranjan_github
