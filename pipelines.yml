@@ -1,12 +1,30 @@
 resources:
-  - name: test1
-    type: file
-    fileLocation: ranjansingh41/u16
-    fileName: test  # optional
-    configuration:      
-      integrationName: ranjan_Artifactory
-#     initialVersion:
-#       fileDtTm: <string>  # optional
+  - name: app4
+    type: gitRepo
+    repoPath: ranjansingh41/u16
+    configuration:
+      integrationName: 
+#       files:
+#         only: README|install.sh|node
+      branches:
+        only: master
+      tags:
+        only: tagv*
+      buildOn:
+#         commit: false
+#       shallowDepth: 2
+    initialVersion:
+      sha: master
+
+# resources:
+#   - name: test1
+#     type: file
+#     fileLocation: ranjansingh41/u16
+#     fileName: test  # optional
+#     configuration:      
+#       integrationName: ranjan_Artifactory
+# #     initialVersion:
+# #       fileDtTm: <string>  # optional
       
 # resources:
 #   - name: node
