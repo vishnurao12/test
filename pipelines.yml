@@ -1,12 +1,12 @@
 resources:
   - name: node
     type: image
-    imageName: drydock/u14node
+    imageName: drydock/u16node
     configuration:
       integrationName: ranjan_github
       autoPull: true
     initialVersion:
-      imageTag: master
+      imageTag: master1.1
       
 #   - name: app1
 #     type: gitRepo
