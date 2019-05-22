@@ -12,8 +12,8 @@ resources:
         only: tagv*
       buildOn:
 #         commit: false
-#           pullRequest: true
-          pullRequestClose: true
+          pullRequest: true
+#           pullRequestClose: true
 #           release: <Boolean>
 #           tagPush: <Boolean>
 #       shallowDepth: 2
