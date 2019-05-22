@@ -10,12 +10,11 @@ resources:
         only: master
       tags:
         only: tagv*
+      buildOn:
+        commit: false
 #       shallowDepth: 2
     initialVersion:
       sha: master
-    buildOn:
-      tagPush: true
-      commit: false
       
 #   - name: app1
 #     type: gitRepo
