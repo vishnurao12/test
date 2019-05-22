@@ -55,7 +55,7 @@ pipelines:
 #             priority: 1
          triggeredBy:
            resources:
-             - test1
+             - app4
          setup:
            runtime:
              type: image
