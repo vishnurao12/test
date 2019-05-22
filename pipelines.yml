@@ -1,9 +1,9 @@
 resources:
-  - name: test
-    type: image
+  - name: u16node
+     type: image
      imageName: drydock/u16node
      configuration:
-       integrationName: ranjan_github
+       integrationName: ranjan_gitgub
        autoPull: true
      initialVersion:
        imageTag: master
