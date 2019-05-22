@@ -4,8 +4,9 @@ resources:
     repoPath: ranjansingh41/test
     configuration:
       integrationName: ranjan_github
-#       files:
-#         only: README|install.sh|node
+      files:
+        only: README|install.sh|node
+        except: test
       branches:
         only: master
 #       tags:
