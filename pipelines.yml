@@ -1,7 +1,7 @@
 resources:
   - name: app4
     type: gitRepo
-    repoPath: ranjansingh41/u16
+    repoPath: ranjansingh41/test
     configuration:
       integrationName: 
 #       files:
