@@ -41,7 +41,7 @@ pipelines:
 #                name: drydock/u16node
 #                tag: master
         triggeredBy:
-#           resources:
+          resources:
             - test5
         execution:
           onExecute:
