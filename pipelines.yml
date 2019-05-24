@@ -1,5 +1,5 @@
 resources:
-  - name: test
+  - name: test5
     type: gitRepo
     repoPath: Ranjansingh41/test
     configuration:
