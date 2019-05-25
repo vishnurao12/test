@@ -23,7 +23,7 @@ pipelines:
 #             versions:
 #               - 10.15.3
           custom:
-            name: "drydock/u16node"
+#             name: "drydock/u16node"
             tag: "master"
             options: "--name ranjan"
     steps:    
