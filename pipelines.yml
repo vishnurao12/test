@@ -11,6 +11,9 @@ resources:
   
 pipelines:
   - name: runtime1
+    type: bash
+    configuration:
+          nodePool: kermit_centos_pool 
     setup: 
       environmentVariables:
         readOnly:
