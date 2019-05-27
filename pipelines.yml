@@ -64,7 +64,7 @@ pipelines:
        - name: default_version
          type: bash
          triggeredBy:
-         requires:
+#          requires:
            steps:
              - selected_version
          setup:
