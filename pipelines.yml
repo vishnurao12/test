@@ -64,7 +64,7 @@ pipelines:
          type: bash
          requires:
            steps:
-             - none_language
+             - selected_version
          setup:
            runtime:
              type: image
