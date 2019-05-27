@@ -39,7 +39,8 @@ pipelines:
 #                  language: none            
          execution:
            onExecute:
-             - echo TEST_FOR_NONE
+             - save_run_state pipelines.yml my_file
+             - echo 
 #              - node -v
 
        - name: selected_version
@@ -58,7 +59,7 @@ pipelines:
                    - 8.16.0                      
          execution:
            onExecute:
-             - echo TEST_FOR_SELECTED_VERSION
+             - restore_run_state  my_file pipelines.yml
              - node -v
              
        - name: default_version
