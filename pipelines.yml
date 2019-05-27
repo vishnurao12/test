@@ -22,7 +22,7 @@ pipelines:
         type: image
         image:
           auto:
-            language: none
+            language: nodejs
             versions:
               - 10.15.3
 #           custom:
