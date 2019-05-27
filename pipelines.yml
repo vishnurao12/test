@@ -21,8 +21,8 @@ pipelines:
       runtime:       
         type: image
         image:
-          auto:
-            language: none
+#           auto:
+#             language: none
 #             versions:
 #               - 10.15.3
           custom:
