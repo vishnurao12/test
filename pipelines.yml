@@ -14,7 +14,7 @@ resources:
 #         commit: false
 #       shallowDepth: 2
     initialVersion:
-      sha: master
+      sha: branch
       
 # resources:
 #   - name: fileIntegrationResource
