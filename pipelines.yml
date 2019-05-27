@@ -1,5 +1,5 @@
 resources:
-  - name: app6
+  - name: app8
     type: gitRepo
     repoPath: ranjansingh41/u16
     configuration:
