@@ -1,16 +1,16 @@
 resources:
-  - name: app4
+  - name: app6
     type: gitRepo
     repoPath: ranjansingh41/u16
     configuration:
-      integrationName: ranjan_github
+      integrationName: ranajn_github
 #       files:
 #         only: README|install.sh|node
       branches:
         only: master
-      tags:
-        only: tagv*
-      buildOn:
+#       tags:
+#         only: tagv*
+#       buildOn:
 #         commit: false
 #       shallowDepth: 2
     initialVersion:
