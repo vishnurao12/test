@@ -46,6 +46,6 @@ pipelines:
         execution:
           onExecute:
             - echo "hi"
-#             - docker pull drydock/u16node:master
-#             - nvm list
+            - docker pull drydock/u16node:master
+            - nvm list
             - node --version
