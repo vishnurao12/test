@@ -1,56 +1,78 @@
 resources:
-  - name: test5
+  - name: app4
     type: gitRepo
-    repoPath: Ranjansingh41/test
+    repoPath: ranjansingh41/u16
     configuration:
-      integrationName: ranajn_github
+      integrationName: ranjan_github
+#       files:
+#         only: README|install.sh|node
       branches:
         only: master
+      tags:
+        only: tagv*
+      buildOn:
+#         commit: false
+#       shallowDepth: 2
     initialVersion:
       sha: master
-  
+      
+# resources:
+#   - name: fileIntegrationResource
+#     type: file
+#     fileLocation: <string>
+#     fileName: <string>  # optional
+#     configuration:      
+#       integrationName: fileIntegration
+#     initialVersion:
+#       fileDtTm: <string>  # optional
+
 pipelines:
-  - name: runtime1
-#     type: bash
-#     configuration:
-#       nodePool: kermit_centos_pool 
-    setup: 
-      environmentVariables:
-        readOnly:
-          Number: 27   
-      runtime:       
-        type: image
-        image:
-          auto:
-            language: nodejs
-            versions:
-              - 10.15.3
-#           custom:
-#             name: "drydock/c7node"
-#             tag: "master"
-#             options: "--name ranjan"
-    steps:    
-      - name: test1
-        type: bash
-        configuration:
-          nodePool: kermit_centos_pool 
-        setup: 
-          environmentVariables:
-            normal:
-              d: 27 
-#         setup:
-#           runtime:
-#             type: image
-#             image:
-#              custom:
-#                name: drydock/u16node
-#                tag: master
-        triggeredBy:
-          resources:
-            - test5
-        execution:
-          onExecute:
-            - echo "hi"
-            - docker pull drydock/c7node:master
-            - nvm list
-            - node --version
+  - name: pipeline
+    steps:
+       - name: none_language
+         type: bash
+         setup:
+           runtime:
+             type: image
+            # image:
+               #auto:
+#                  language: none            
+         execution:
+           onExecute:
+             - echo TEST_FOR_NONE
+#              - node -v
+
+       - name: selected_version
+         type: bash
+         requires:
+           steps:
+             - none_language
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs
+                 versions:
+                   - 8.16.0                      
+         execution:
+           onExecute:
+             - echo TEST_FOR_SELECTED_VERSION
+             - node -v
+             
+       - name: default_version
+         type: bash
+         requires:
+           steps:
+             - none_language
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs                  
+         execution:
+           onExecute:
+             - echo - echo TEST_FOR_DEFAULT_VERSION
+             - node -v
+  
