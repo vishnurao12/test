@@ -25,10 +25,10 @@ pipelines:
             language: none
 #             versions:
 #               - 10.15.3
-#           custom:
-#             name: "drydock/u16node"
-#             tag: "master"
-#             options: "--name ranjan"
+          custom:
+            name: "drydock/c7node"
+            tag: "master"
+            options: "--name ranjan"
     steps:    
       - name: test1
         type: bash
@@ -49,6 +49,6 @@ pipelines:
         execution:
           onExecute:
             - echo "hi"
-            - docker pull drydock/u16node:master
+            - docker pull drydock/c7node:master
             - nvm list
             - node --version
