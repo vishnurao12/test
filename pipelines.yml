@@ -11,9 +11,6 @@ resources:
   
 pipelines:
   - name: runtime1
-    type: bash
-    configuration:
-          nodePool: kermit_centos_pool 
     setup: 
       environmentVariables:
         readOnly:
@@ -32,6 +29,8 @@ pipelines:
     steps:    
       - name: test1
         type: bash
+        configuration:
+          nodePool: kermit_centos_pool 
         setup: 
           environmentVariables:
             normal:
