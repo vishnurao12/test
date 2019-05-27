@@ -39,8 +39,8 @@ pipelines:
 #                  language: none            
          execution:
            onExecute:
-             - save_run_state pipelines.yml my_file
-             - echo 
+#              - save_run_state pipelines.yml my_file
+             - echo ranjan
 #              - node -v
 
        - name: selected_version
@@ -59,7 +59,7 @@ pipelines:
                    - 8.16.0                      
          execution:
            onExecute:
-             - restore_run_state  my_file pipelines.yml
+#              - restore_run_state  my_file pipelines.yml
              - node -v
              
        - name: default_version
