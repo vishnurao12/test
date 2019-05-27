@@ -21,14 +21,14 @@ pipelines:
       runtime:       
         type: image
         image:
-#           auto:
-#             language: none
-#             versions:
-#               - 10.15.3
-          custom:
-            name: "drydock/c7node"
-            tag: "master"
-            options: "--name ranjan"
+          auto:
+            language: none
+            versions:
+              - 10.15.3
+#           custom:
+#             name: "drydock/c7node"
+#             tag: "master"
+#             options: "--name ranjan"
     steps:    
       - name: test1
         type: bash
