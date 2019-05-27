@@ -1,7 +1,7 @@
 resources:
   - name: test10
     type: gitRepo
-    repoPath: ranjansingh41/test1
+    repoPath: ranjansingh41/test
     configuration:
       integrationName: ranajn_github
 #       files:
@@ -26,55 +26,55 @@ resources:
 #     initialVersion:
 #       fileDtTm: <string>  # optional
 
-# pipelines:
-#   - name: pipeline4567
-#     steps:
-#        - name: none_language
-#          type: bash
-#          setup:
-#            runtime:
-#              type: image
-#             # image:
-#                #auto:
-# #                  language: none            
-#          execution:
-#            onExecute:
-#              - echo TEST_FOR_NONE
-# #              - node -v
+pipelines:
+  - name: pipeline4567
+    steps:
+       - name: none_language
+         type: bash
+         setup:
+           runtime:
+             type: image
+            # image:
+               #auto:
+#                  language: none            
+         execution:
+           onExecute:
+             - echo TEST_FOR_NONE
+#              - node -v
 
-#        - name: selected_version
-#          type: bash
-#          triggeredBy:
-# #          requires:
-#            steps:
-#              - none_language
-#          setup:
-#            runtime:
-#              type: image
-#              image:
-#                auto:
-#                  language: nodejs
-#                  versions:
-#                    - 8.16.0                      
-#          execution:
-#            onExecute:
-#              - echo TEST_FOR_SELECTED_VERSION
-#              - node -v
+       - name: selected_version
+         type: bash
+         triggeredBy:
+#          requires:
+           steps:
+             - none_language
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs
+                 versions:
+                   - 8.16.0                      
+         execution:
+           onExecute:
+             - echo TEST_FOR_SELECTED_VERSION
+             - node -v
              
-#        - name: default_version
-#          type: bash
-#          triggeredBy:
-# #          requires:
-#            steps:
-#              - selected_version
-#          setup:
-#            runtime:
-#              type: image
-#              image:
-#                auto:
-#                  language: nodejs                  
-#          execution:
-#            onExecute:
-#              - echo - echo TEST_FOR_DEFAULT_VERSION
-#              - node -v
+       - name: default_version
+         type: bash
+         triggeredBy:
+#          requires:
+           steps:
+             - selected_version
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs                  
+         execution:
+           onExecute:
+             - echo - echo TEST_FOR_DEFAULT_VERSION
+             - node -v
   
