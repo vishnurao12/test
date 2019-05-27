@@ -45,7 +45,7 @@ pipelines:
        - name: selected_version
          type: bash
          triggeredBy:
-         requires:
+#          requires:
            steps:
              - none_language
          setup:
@@ -64,7 +64,7 @@ pipelines:
        - name: default_version
          type: bash
          triggeredBy:
-         requires:
+#          requires:
            steps:
              - selected_version
          setup:
