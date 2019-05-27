@@ -1,7 +1,7 @@
 resources:
   - name: app8
     type: gitRepo
-    repoPath: ranjansingh41/u16
+    repoPath: ranjansingh41/test
     configuration:
       integrationName: ranajn_github
 #       files:
