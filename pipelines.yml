@@ -28,7 +28,11 @@ resources:
 
 pipelines:
   - name: pipeline134
-    steps:
+    setup:
+      environmentVariables:
+        readOnly:
+          ENV1: value1
+          ENV2: value2 
        - name: none_language
          type: bash
          setup:
@@ -48,6 +52,10 @@ pipelines:
            steps:
              - none_language
          setup:
+           environmentVariables:
+             readOnly:
+               ENV1: value3
+               ENV2: value4 
            runtime:
              type: image
              image:
