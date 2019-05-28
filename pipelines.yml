@@ -41,12 +41,12 @@ pipelines:
             normal:
               NameF: ranjan
               NameL: singh       
-          runtime:
-            type: image
-            image:
-             custom:
-               name: drydock/u16all
-               tag: master
+#           runtime:
+#             type: image
+#             image:
+#              custom:
+#                name: drydock/u16all
+#                tag: master
 #         triggeredBy:
 #           resources:
 #             - testing_1
