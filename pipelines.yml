@@ -33,11 +33,11 @@ pipelines:
         readOnly:
           ENV1: value1
           ENV2: value2 
-       - name: none_language
-         type: bash
-         setup:
-           runtime:
-             type: image
+#        - name: none_language
+#          type: bash
+#          setup:
+#            runtime:
+#              type: image
             # image:
                #auto:
 #                  language: none            
