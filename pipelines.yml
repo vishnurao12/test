@@ -41,9 +41,9 @@ pipelines:
             # image:
                #auto:
 #                  language: none            
-         execution:
-           onExecute:
-             - echo TEST_FOR_NONE
+#          execution:
+#            onExecute:
+#              - echo TEST_FOR_NONE
 #              - node -v
 
        - name: selected_version
