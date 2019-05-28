@@ -46,8 +46,8 @@ pipelines:
 #             type: host
 #             image:
                 auto:
-                  language: none
-#                   versions: 
+                  language: nodejs
+                  versions: 10.15.3
 #              custom:
 #                name: drydock/u16node
 #                tag: master
