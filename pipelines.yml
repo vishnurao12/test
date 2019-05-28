@@ -61,4 +61,5 @@ pipelines:
             - echo "NameL=$NameL"
             - echo "NameF=$NameF"
             - nvm list
+            - node --version
             
