@@ -42,7 +42,7 @@ pipelines:
 #               NameF: singh
 #               NameL: umar       
           runtime:
-            type: image/custom
+            type: image
 #             type: host
             image:
 #                 auto:
