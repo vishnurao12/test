@@ -36,11 +36,11 @@ pipelines:
     steps:    
       - name: test1
         type: bash
-        setup:
-          environmentVariables:
-            normal:
-              NameF: ranjan
-              NameL: singh       
+#         setup:
+#           environmentVariables:
+#             normal:
+#               NameF: ranjan
+#               NameL: singh       
           runtime:
             type: host
             image:
