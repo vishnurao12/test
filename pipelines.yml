@@ -27,29 +27,34 @@ resources:
 #       fileDtTm: <string>  # optional
 
 pipelines:
-  - name: pipeline10
+  - name: pipeline
     setup:
       environmentVariables:
         readOnly:
-          ENV1: value1
-          ENV2: value2 
-    steps:
-       - name: none_language
-         type: bash
-         setup:
+          NameF: vijay
+          NameL: kumar
+    steps:    
+      - name: test1
+        type: bash
+        setup:
           environmentVariables:
-            normal:
-              ENV1: value1
-              ENV2: value2          
-           runtime:
-             type: image
-            # image:
-               #auto:
-#                  language: none            
-         execution:
-           onExecute:
-             - echo TEST_FOR_NONE
-#              - node -v
+            readOnly:
+              NameF: reddy
+              NameL: umar       
+          runtime:
+            type: image
+            image:
+             custom:
+               name: drydock/u16all
+               tag: master
+        triggeredBy:
+          resources:
+            - testing_1
+        execution:
+          onExecute:
+            - echo "test1"
+            - echo "NameL=$NameL"
+            - echo "NameF=$NameF"
 
        - name: selected_version
          type: bash
