@@ -39,8 +39,8 @@ pipelines:
         setup:
           environmentVariables:
             normal:
-              NameF: ram
-              NameL: sita       
+              NameF: ranjan
+              NameL: singh       
           runtime:
             type: image
             image:
