@@ -49,7 +49,7 @@ pipelines:
                tag: master
         triggeredBy:
           resources:
-            - testing_1
+            - test10
         execution:
           onExecute:
             - echo "test1"
