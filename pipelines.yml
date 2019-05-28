@@ -41,7 +41,7 @@ pipelines:
 #             normal:
 #               NameF: singh
 #               NameL: umar       
-          - runtime:
+          runtime:
             type: image
 #             type: host
 #             image:
