@@ -48,14 +48,14 @@ pipelines:
 
        - name: selected_version
          type: bash
-         requires:
-           steps:
-             - none_language
          setup:
            environmentVariables:
              readOnly:
                ENV1: value3
                ENV2: value4 
+         requires:
+           steps:
+             - none_language
            runtime:
              type: image
              image:
