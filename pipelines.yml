@@ -36,11 +36,11 @@ pipelines:
     steps:    
       - name: test1
         type: bash
-#         setup:
-#           environmentVariables:
-#             readOnly:
-#               NameF: reddy
-#               NameL: kumar       
+        setup:
+          environmentVariables:
+            readOnly:
+              NameF: reddy
+              NameL: kumar       
           runtime:
             type: image
             image:
