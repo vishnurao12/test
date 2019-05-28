@@ -49,7 +49,7 @@ pipelines:
 
        - name: selected_version
          type: bash
-         triggeredBy
+         triggeredBy:
 #          requires:
            steps:
              - none_language
