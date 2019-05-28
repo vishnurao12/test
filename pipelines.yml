@@ -31,18 +31,18 @@ pipelines:
     setup:
       environmentVariables:
         readOnly:
-          NameF: vijay
+          NameF: ranjan
           NameL: kumar
     steps:    
       - name: test1
         type: bash
-        setup:
-          environmentVariables:
-            normal:
-              NameF: reddy
-              NameL: umar       
+#         setup:
+#           environmentVariables:
+#             normal:
+#               NameF: singh
+#               NameL: umar       
           runtime:
-            type: image
+            type: image/host
             image:
              custom:
                name: drydock/u16node
