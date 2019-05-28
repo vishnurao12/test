@@ -31,8 +31,8 @@ pipelines:
     setup:
       environmentVariables:
         readOnly:
-          NameF: ranjan
-          NameL: singh
+          Name: ranjan
+          Name: singh
     steps:    
       - name: test1
         type: bash
