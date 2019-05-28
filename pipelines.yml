@@ -49,7 +49,7 @@ pipelines:
 #                   language: nodejs
 #                   versions: 10.15.3
              custom:
-               name: drydock/u16node30
+               name: drydock/u16node
                tag: master
         triggeredBy:
           resources:
