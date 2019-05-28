@@ -55,5 +55,5 @@ pipelines:
             - echo "test1"
             - echo "NameL=$NameL"
             - echo "NameF=$NameF"
-#             - nvm list
-#             - node --version
+            - nvm list
+            - node --version
