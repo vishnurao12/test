@@ -42,7 +42,7 @@ pipelines:
               NameF: reddy
               NameL: kumar       
           runtime:
-            type: host
+            type: image
             image:
              custom:
                name: drydock/u16all
