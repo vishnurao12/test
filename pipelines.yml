@@ -40,7 +40,7 @@ pipelines:
           environmentVariables:
             normal:
               NameF: reddy
-              NameL: kumar       
+              NameL: umar       
           runtime:
             type: image
             image:
