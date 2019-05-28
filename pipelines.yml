@@ -27,38 +27,87 @@ resources:
 #       fileDtTm: <string>  # optional
 
 pipelines:
-  - name: pipeline12
-    setup:
-      environmentVariables:
-        readOnly:
-          NameF: ranjan
-          NameL: kumar
-    steps:    
-      - name: test1
-        type: bash
-        setup:
-#           environmentVariables:
-#             normal:
-#               NameF: singh
-#               NameL: umar       
-          runtime:
-            type: image
-#             type: host
-            image:
-#                 auto:
-#                   language: nodejs
-#                   versions: 10.15.3
-             custom:
-               name: drydock/u16node
-               tag: master
-        triggeredBy:
-          resources:
-            - test10
-        execution:
-          onExecute:
-            - echo $?
-            - echo "test1"
-            - echo "NameL=$NameL"
-            - echo "NameF=$NameF"
-            - nvm list
+  - name: pipeline123
+    steps:
+       - name: none_language
+         type: bash
+         setup:
+           runtime:
+             type: image
+            # image:
+               #auto:
+#                  language: none            
+         execution:
+           onExecute:
+             - echo TEST_FOR_NONE
+#              - node -v
+
+       - name: selected_version
+         type: bash
+         requires:
+           steps:
+             - none_language
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs
+                 versions:
+                   - 8.16.0                      
+         execution:
+           onExecute:
+             - echo TEST_FOR_SELECTED_VERSION
+             - node -v
+             
+       - name: default_version
+         type: bash
+         requires:
+           steps:
+             - none_language
+         setup:
+           runtime:
+             type: image
+             image:
+               auto:
+                 language: nodejs                  
+         execution:
+           onExecute:
+             - echo - echo TEST_FOR_DEFAULT_VERSION
+             - node -v
+# pipelines:
+#   - name: pipeline12
+#     setup:
+#       environmentVariables:
+#         readOnly:
+#           NameF: ranjan
+#           NameL: kumar
+#     steps:    
+#       - name: test1
+#         type: bash
+#         setup:
+# #           environmentVariables:
+# #             normal:
+# #               NameF: singh
+# #               NameL: umar       
+#           runtime:
+#             type: image
+# #             type: host
+#             image:
+# #                 auto:
+# #                   language: nodejs
+# #                   versions: 10.15.3
+#              custom:
+#                name: drydock/u16node
+#                tag: master
+#         triggeredBy:
+#           resources:
+#             - test10
+#         execution:
+#           onExecute:
+#             - echo $?
+#             - echo "test1"
+#             - echo "NameL=$NameL"
+#             - echo "NameF=$NameF"
+#             - nvm list
             
