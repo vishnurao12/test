@@ -27,15 +27,11 @@ resources:
 #       fileDtTm: <string>  # optional
 
 pipelines:
-  - name: pipeline49
-    setup:
-      environmentVariables:
-        readOnly:
-          ENV1: value1
-          ENV2: value2 
-      - name: none_language
-        type: bash
-        setup:
+  - name: pipeline134
+    steps:
+       - name: none_language
+         type: bash
+         setup:
            runtime:
              type: image
             # image:
@@ -43,21 +39,15 @@ pipelines:
 #                  language: none            
          execution:
            onExecute:
-#              - save_run_state pipelines.yml my_file
-             - echo ranjan
+             - echo TEST_FOR_NONE
 #              - node -v
 
        - name: selected_version
          type: bash
-         triggeredBy:
-#          requires:
+         requires:
            steps:
              - none_language
-          setup:
-            environmentVariables:
-              readOnly:
-                ENV1: value3
-                ENV2: value4    
+         setup:
            runtime:
              type: image
              image:
@@ -67,15 +57,14 @@ pipelines:
                    - 8.16.0                      
          execution:
            onExecute:
-#              - restore_run_state  my_file pipelines.yml
+             - echo TEST_FOR_SELECTED_VERSION
              - node -v
              
        - name: default_version
          type: bash
-         triggeredBy:
-#          requires:
+         requires:
            steps:
-             - selected_version
+             - none_language
          setup:
            runtime:
              type: image
@@ -86,4 +75,3 @@ pipelines:
            onExecute:
              - echo - echo TEST_FOR_DEFAULT_VERSION
              - node -v
-  
