@@ -40,7 +40,7 @@ pipelines:
           environmentVariables:
             readOnly:
               NameF: reddy
-              NameL: umar       
+              NameL: kumar       
           runtime:
             type: host
             image:
