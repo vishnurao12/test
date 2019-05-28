@@ -13,7 +13,7 @@ resources:
 #       buildOn:
 #         commit: false
 #       shallowDepth: 2
-    Version:
+    version:
       sha: master
       
 # resources:
