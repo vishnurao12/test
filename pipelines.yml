@@ -27,7 +27,7 @@ resources:
 #       fileDtTm: <string>  # optional
 
 pipelines:
-  - name: pipeline
+  - name: pipeline123
     steps:
        - name: none_language
          type: bash
