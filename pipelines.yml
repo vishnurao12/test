@@ -53,11 +53,11 @@ pipelines:
 #          requires:
            steps:
              - none_language
-         setup:
-          environmentVariables:
-            normal:
-              ENV1: value3
-              ENV2: value4
+             setup:
+              environmentVariables:
+                normal:
+                  ENV1: value3
+                  ENV2: value4
            runtime:
              type: image
              image:
