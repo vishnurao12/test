@@ -42,7 +42,8 @@ pipelines:
 #               NameF: singh
 #               NameL: umar       
           runtime:
-            type: image/host
+            type: image
+            type: host
             image:
              custom:
                name: drydock/u16node
