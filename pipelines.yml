@@ -31,25 +31,25 @@ pipelines:
     setup:
       environmentVariables:
         readOnly:
-          NameF: vijay
-          NameL: kumar
+          NameF: ranjan
+          NameL: singh
     steps:    
       - name: test1
         type: bash
         setup:
           environmentVariables:
             readOnly:
-              NameF: reddy
-              NameL: umar       
+              NameF: ram
+              NameL: sita       
           runtime:
             type: image
             image:
              custom:
                name: drydock/u16all
                tag: master
-        triggeredBy:
-          resources:
-            - testing_1
+#         triggeredBy:
+#           resources:
+#             - testing_1
         execution:
           onExecute:
             - echo "test1"
