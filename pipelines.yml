@@ -44,10 +44,10 @@ pipelines:
           runtime:
             type: image
 #             type: host
-#             image:
-#              custom:
-#                name: drydock/u16node
-#                tag: master
+            image:
+             custom:
+               name: drydock/u16node
+               tag: master
         triggeredBy:
           resources:
             - test10
