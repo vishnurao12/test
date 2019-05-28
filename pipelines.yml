@@ -27,7 +27,7 @@ resources:
 #       fileDtTm: <string>  # optional
 
 pipelines:
-  - name: pipeline11
+  - name: pipeline14
     setup:
       environmentVariables:
         readOnly:
