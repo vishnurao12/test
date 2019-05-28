@@ -27,51 +27,31 @@ resources:
 #       fileDtTm: <string>  # optional
 
 pipelines:
-  - name: pipeline123
-    steps:
-       - name: none_language
-         type: bash
-         setup:
-           runtime:
-             type: image
-            # image:
-               #auto:
-#                  language: none            
-         execution:
-           onExecute:
-             - echo TEST_FOR_NONE
-#              - node -v
-
-       - name: selected_version
-         type: bash
-         requires:
-           steps:
-             - none_language
-         setup:
-           runtime:
-             type: image
-             image:
-               auto:
-                 language: nodejs
-                 versions:
-                   - 8.16.0                      
-         execution:
-           onExecute:
-             - echo TEST_FOR_SELECTED_VERSION
-             - node -v
-             
-       - name: default_version
-         type: bash
-         requires:
-           steps:
-             - none_language
-         setup:
-           runtime:
-             type: image
-             image:
-               auto:
-                 language: nodejs                  
-         execution:
-           onExecute:
-             - echo - echo TEST_FOR_DEFAULT_VERSION
-             - node -v
+  - name: pipeline12
+    setup:
+      environmentVariables:
+        readOnly:
+          NameF: vijay
+          NameL: kumar
+    steps:    
+      - name: test1
+        type: bash
+        setup:
+          environmentVariables:
+            readOnly:
+              NameF: reddy
+              NameL: umar       
+          runtime:
+            type: image
+            image:
+             custom:
+               name: drydock/u16all
+               tag: master
+        triggeredBy:
+          resources:
+            - testing_1
+        execution:
+          onExecute:
+            - echo "test1"
+            - echo "NameL=$NameL"
+            - echo "NameF=$NameF"
