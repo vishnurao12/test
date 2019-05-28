@@ -41,15 +41,15 @@ pipelines:
             normal:
               NameF: ranjan
               NameL: singh       
-#           runtime:
-#             type: image
-#             image:
-#              custom:
-#                name: drydock/u16all
-#                tag: master
-#         triggeredBy:
-#           resources:
-#             - testing_1
+          runtime:
+            type: host
+            image:
+             custom:
+               name: drydock/u16all
+               tag: master
+        triggeredBy:
+          resources:
+            - testing_1
         execution:
           onExecute:
             - echo "test1"
