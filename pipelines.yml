@@ -52,7 +52,7 @@ pipelines:
             - test10
         execution:
           onExecute:
-            - echo $?
+#             - echo $?
 #             - echo "NameL=$NameL"
 #             - echo "NameF=$NameF"
 
