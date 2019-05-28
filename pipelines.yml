@@ -48,11 +48,11 @@ pipelines:
 
        - name: selected_version
          type: bash
-         setup:
-           environmentVariables:
-             readOnly:
-               ENV1: value3
-               ENV2: value4 
+#          setup:
+#            environmentVariables:
+#              readOnly:
+#                ENV1: value3
+#                ENV2: value4 
          requires:
            steps:
              - none_language
