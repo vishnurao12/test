@@ -28,11 +28,11 @@ resources:
 
 pipelines:
   - name: pipeline14
-    setup:
-      environmentVariables:
-        readOnly:
-          Name: ranjan
-          Name: singh
+#     setup:
+#       environmentVariables:
+#         readOnly:
+#           Name: ranjan
+#           Name: singh
     steps:    
       - name: test1
         type: bash
