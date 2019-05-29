@@ -54,7 +54,7 @@ pipelines:
  #                   language: nodejs
  #                   versions: 10.15.3
              custom:
-               name: drydock/u16node
+               name: ranjansingh/python
                tag: master
         triggeredBy:
           resources:
