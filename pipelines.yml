@@ -16,16 +16,30 @@ resources:
     version:
       sha: master
       
-# resources:
-#   - name: fileIntegrationResource
-#     type: file
-#     fileLocation: <string>
-#     fileName: <string>  # optional
-#     configuration:      
-#       integrationName: fileIntegration
-#     initialVersion:
-#       fileDtTm: <string>  # optional
-
+resources:
+  - name: test5
+    type: file
+    configuration:      
+      integrationName: ranjan_file
+    version:
+      fileLocation: <string> # optional
+      fileName: <string> # optional
+      fileDtTm: <string>  # optional
+      ### JFrog artifactory specific specs ###
+      pattern: <string> # optional
+      aql: <string> # optional
+      target: <string> # optional
+      props: <string> # optional
+      recursive: <boolean> # optional
+      flat: <boolean> # optional
+      excludePatterns: <string> # optional
+      archiveEntries: <string> # optional
+      build: <string> # optional
+      sortBy: <string> # optional
+      sortOrder: <string> # optional
+      limit: <integer> # optional
+      offset: <integer> # optional
+      
 pipelines:
   - name: pipeline12
 #     setup:
