@@ -44,7 +44,7 @@ pipelines:
           runtime:
             type: image
 # #             type: host
-#             image:
+            image:
 # #                 auto:
 # #                   language: nodejs
 # #                   versions: 10.15.3
