@@ -36,7 +36,6 @@ pipelines:
     steps:    
       - name: test1
         type: bash
-#         setup:
         configuration:
 #           affinityGroup: bldGroup 
 #           priority: <[0-10000]>
@@ -45,7 +44,8 @@ pipelines:
 #           environmentVariables:
 #             normal:
 #               NameF: singh
-#               NameL: umar       
+#               NameL: umar  
+        setup:
           runtime:
             type: image
  #             type: host
