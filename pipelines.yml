@@ -36,7 +36,7 @@ pipelines:
     steps:    
       - name: test1
         type: bash
-        configuration:
+#         configuration:
 #           affinityGroup: bldGroup 
 #           priority: <[0-10000]>
 #           timeoutSeconds: 600
