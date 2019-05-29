@@ -34,8 +34,8 @@ pipelines:
 #           NameF: ranjan
 #           NameL: kumar
     steps:    
-      - name: test1@
-        type: bash
+      - name: test1
+        type: bash8
         setup:
 #           environmentVariables:
 #             normal:
