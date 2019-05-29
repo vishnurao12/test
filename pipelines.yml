@@ -40,7 +40,7 @@ pipelines:
 #           affinityGroup: bldGroup 
 #           priority: <[0-10000]>
 #           timeoutSeconds: <job timeout limit>
-          nodePool: ankul_nodesss
+          nodePool: ankul_nodes
 #           environmentVariables:
 #             normal:
 #               NameF: singh
