@@ -36,7 +36,7 @@ pipelines:
     steps:    
       - name: test1
         type: bash
-#         setup:
+        setup:
 #           environmentVariables:
 #             normal:
 #               NameF: singh
