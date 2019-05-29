@@ -37,6 +37,11 @@ pipelines:
       - name: test1
         type: bash
         setup:
+        configuration:
+#           affinityGroup: bldGroup 
+#           priority: <[0-10000]>
+#           timeoutSeconds: <job timeout limit>
+          nodePool: ankul_nodes11
 #           environmentVariables:
 #             normal:
 #               NameF: singh
