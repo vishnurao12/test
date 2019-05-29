@@ -47,7 +47,7 @@ pipelines:
 #               NameL: umar  
         setup:
           runtime:
-            type: image
+            type: host
  #             type: host
             image:
  #                 auto:
