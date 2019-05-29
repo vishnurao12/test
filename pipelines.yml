@@ -35,7 +35,7 @@ pipelines:
 #           NameL: kumar
     steps:    
       - name: test1
-        type: bash8
+        type: bash
         setup:
 #           environmentVariables:
 #             normal:
