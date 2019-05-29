@@ -39,7 +39,7 @@ pipelines:
         configuration:
 #           affinityGroup: bldGroup 
 #           priority: <[0-10000]>
-          timeoutSeconds: 60sec
+          timeoutSeconds: 60
           nodePool: ankul_nodes
 #           environmentVariables:
 #             normal:
