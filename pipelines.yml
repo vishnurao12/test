@@ -3,7 +3,7 @@ resources:
     type: gitRepo
     repoPath: ranjansingh41/test
     configuration:
-      integrationName: ranajn_github
+      integrationName: ranjan_github
 #       files:
 #         only: README|install.sh|node
       branches:
