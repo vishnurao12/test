@@ -51,10 +51,10 @@ pipelines:
       - name: test1
         type: bash
         configuration:
-#           affinityGroup: bldGroup 
+          affinityGroup: sita
 #           priority: <[0-10000]>
            timeoutSeconds: 1/2 
-#           nodePool: ankul_nodes
+          nodePool: ankul_nodes
 #           environmentVariables:
 #             normal:
 #               NameF: singh
@@ -82,3 +82,24 @@ pipelines:
             - nvm list
             - node --version
             
+    - name: default_version
+      type: bash
+      configuration:
+          affinityGroup: ram
+          nodePool: kermit_ubuntu_pool Default
+
+#           priority: <[0-10000]>
+         timeoutSeconds: 1/2 
+      requires:
+       steps:
+         - none_language
+      setup:
+       runtime:
+         type: image
+         image:
+           auto:
+             language: nodejs                  
+     execution:
+       onExecute:
+         - echo - echo TEST_FOR_DEFAULT_VERSION
+         - node -v
