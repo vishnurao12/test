@@ -50,12 +50,12 @@ pipelines:
     steps:    
       - name: test1
         type: bash
-        configuration:
-          affinityGroup: sita
-#           priority: <[0-10000]>
-#            timeoutSeconds: 1/2 
-          nodePool: kermit_ubuntu_pool
-#           environmentVariables:
+#         configuration:
+#           affinityGroup: sita
+# #           priority: <[0-10000]>
+# #            timeoutSeconds: 1/2 
+#           nodePool: kermit_ubuntu_pool
+# #           environmentVariables:
 #             normal:
 #               NameF: singh
 #               NameL: umar  
@@ -106,9 +106,9 @@ pipelines:
             
       - name: default_version
         type: bash
-        configuration:
-            affinityGroup: sita 
-            nodePool: kermit_ubuntu_pool
+#         configuration:
+#             affinityGroup: sita 
+#             nodePool: kermit_ubuntu_pool
         triggeredBy:
          steps:
            - test1
