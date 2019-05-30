@@ -54,7 +54,7 @@ pipelines:
           affinityGroup: sita
 #           priority: <[0-10000]>
 #            timeoutSeconds: 1/2 
-          nodePool: ankul_nodes
+          nodePool: kermit_ubuntu_pool
 #           environmentVariables:
 #             normal:
 #               NameF: singh
@@ -85,11 +85,11 @@ pipelines:
       - name: default_version
         type: bash
         configuration:
-            affinityGroup: ram
-            nodePool: ankul_nodesew
+            affinityGroup: sita 
+            nodePool: kermit_ubuntu_pool
         triggeredBy:
          resources:
-           - test10
+           - test1
         setup:
          runtime:
            type: image
