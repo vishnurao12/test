@@ -54,7 +54,7 @@ pipelines:
           affinityGroup: sita
 #           priority: <[0-10000]>
 #            timeoutSeconds: 1/2 
-          nodePool: kermit_ubuntu_pool
+          nodePool: ankul_nodes
 #           environmentVariables:
 #             normal:
 #               NameF: singh
