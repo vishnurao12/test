@@ -89,7 +89,7 @@ pipelines:
             nodePool: ankul_nodess
         triggeredBy:
          resources:
-           - test1
+           - test10
         setup:
          runtime:
            type: image
