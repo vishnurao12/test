@@ -86,7 +86,7 @@ pipelines:
         type: bash
         configuration:
             affinityGroup: sita
-            nodePool: ankul_nodes
+            nodePool: ankul_nodesew
         triggeredBy:
          resources:
            - test10
