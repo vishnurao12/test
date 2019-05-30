@@ -86,7 +86,7 @@ pipelines:
         type: bash
         configuration:
             affinityGroup: ram
-            nodePool: ankul_nodesss
+            nodePool: ankul_nodessse
         triggeredBy:
          resources:
            - test10
