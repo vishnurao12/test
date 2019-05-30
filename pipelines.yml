@@ -64,7 +64,6 @@ pipelines:
             normal:
               ENV1: ranjan
               ENV2: kumar
-
           runtime:
 #             type: image
             type: host
