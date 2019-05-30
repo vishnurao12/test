@@ -89,7 +89,7 @@ steps:
         nodePool: kermit_ubuntu_pool Default
 
 #           priority: <[0-10000]>
-       timeoutSeconds: 1/2 
+#        timeoutSeconds: 1/2 
     requires:
      steps:
        - none_language
