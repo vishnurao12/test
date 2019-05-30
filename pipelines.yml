@@ -54,7 +54,7 @@ pipelines:
           affinityGroup: sita
 #           priority: <[0-10000]>
 #            timeoutSeconds: 1/2 
-          nodePool: ankul_nodesss
+          nodePool: ankul_nodes
 #           environmentVariables:
 #             normal:
 #               NameF: singh
@@ -86,7 +86,7 @@ pipelines:
         type: bash
         configuration:
             affinityGroup: ram
-            nodePool: ankul_nodes
+            nodePool: ankul_nodesss
         triggeredBy:
          resources:
            - test10
