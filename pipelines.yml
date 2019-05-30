@@ -54,7 +54,7 @@ pipelines:
           affinityGroup: sita
 #           priority: <[0-10000]>
 #            timeoutSeconds: 1/2 
-          nodePool: ankul_nodes
+          nodePool: ankul_nodess
 #           environmentVariables:
 #             normal:
 #               NameF: singh
