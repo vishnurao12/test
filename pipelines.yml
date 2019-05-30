@@ -81,22 +81,22 @@ pipelines:
             - echo "NameF=$NameF"
             - nvm list
             - node --version
-steps:            
-  - name: default_version
-    type: bash
-    configuration:
-        affinityGroup: ram
-        nodePool: kermit_ubuntu_pool Default
-    requires:
-     steps:
-       - none_language
-    setup:
-     runtime:
-       type: image
-       image:
-         auto:
-           language: nodejs                  
-    execution:
-       onExecute:
-         - echo - echo TEST_FOR_DEFAULT_VERSION
-         - node -v
+            
+      - name: default_version
+        type: bash
+        configuration:
+            affinityGroup: ram
+            nodePool: kermit_ubuntu_pool Default
+        triggeredBy:
+         resources:
+           - test10
+        setup:
+         runtime:
+           type: image
+           image:
+             auto:
+               language: nodejs                  
+        execution:
+           onExecute:
+             - echo - echo TEST_FOR_DEFAULT_VERSION
+             - node -v
