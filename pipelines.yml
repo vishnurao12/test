@@ -59,7 +59,12 @@ pipelines:
 #             normal:
 #               NameF: singh
 #               NameL: umar  
-        setup:
+          setup:
+          environmentVariables:
+            normal:
+              ENV1: ranjan
+              ENV2: kumar
+
           runtime:
             type: image
  #             type: host
@@ -74,6 +79,8 @@ pipelines:
           resources:
             - test10
         execution:
+          onStart:
+            - echo "Prepping build environment"
           onExecute:
             - echo $?
             - echo "test1"
@@ -81,6 +88,21 @@ pipelines:
             - echo "NameF=$NameF"
             - nvm list
             - node --version
+            -  echo $ENV1=ranjan
+            -  echo $ENV2=kumar
+          onSuccess:
+            -  echo $ENV1=ranjan
+            -  echo $ENV2=kumar
+          onFailure:
+            -  echo $ENV1=ranjan
+            -  echo $ENV2=kumar
+          onComplete: #always
+            -  echo $ENV1=ranjan
+            -  echo $ENV2=kumar
+          onCancel:
+            -  echo $ENV1=ranjan
+            -  echo $ENV2=kumar
+            
             
       - name: default_version
         type: bash
