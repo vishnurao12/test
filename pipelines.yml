@@ -51,7 +51,7 @@ pipelines:
       - name: test1
         type: bash
         configuration:
-          affinityGroup: sita
+          affinityGroup: sita$#
 #           priority: <[0-10000]>
 #            timeoutSeconds: 1/2 
           nodePool: ankul_nodes
