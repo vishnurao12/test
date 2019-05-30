@@ -88,7 +88,7 @@ pipelines:
             affinityGroup: sita 
             nodePool: kermit_ubuntu_pool
         triggeredBy:
-#          resources:
+         resources:
            - test1
         setup:
          runtime:
