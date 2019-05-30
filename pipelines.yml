@@ -85,8 +85,8 @@ pipelines:
       - name: default_version
         type: bash
         configuration:
-            affinityGroup: ram
-            nodePool: ankul_nodess
+            affinityGroup: sita
+            nodePool: ankul_nodes
         triggeredBy:
          resources:
            - test10
