@@ -59,14 +59,14 @@ pipelines:
 #             normal:
 #               NameF: singh
 #               NameL: umar  
-#         setup:
-#           environmentVariables:
-#             normal:
-#               ENV1: ranjan
-#               ENV2: kumar
+        setup:
+          environmentVariables:
+            normal:
+              ENV1: ranjan
+              ENV2: kumar
           runtime:
 #             type: image
-            type: host
+            type: image
             image:
  #                 auto:
  #                   language: nodejs
