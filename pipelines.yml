@@ -99,4 +99,4 @@ pipelines:
         execution:
            onExecute:
              - echo - echo TEST_FOR_DEFAULT_VERSION
-             - node -v
+#              - node -v
