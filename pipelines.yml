@@ -77,7 +77,7 @@ pipelines:
 #         requires:
 #           resources:
 #            - test10
-        triggeredBy:
+#         triggeredBy:
 #           requires:
 #           resources:
 #             - test10
