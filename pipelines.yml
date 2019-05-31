@@ -75,8 +75,9 @@ pipelines:
                name: drydock/u16node
                tag: master
         requires:
-          resources:       
-#         triggeredBy:
+          resources:
+           - test10
+        triggeredBy:
           requires:
           resources:
             - test10
