@@ -106,8 +106,7 @@ pipelines:
             -  echo $ENV1=ranjan
             -  echo $ENV2=kumar
           outputResources:
-          - someOutputResource
-          - anotherOutputresource
+          - test10
   
             
       - name: default_version
