@@ -108,7 +108,7 @@ pipelines:
             
       - name: default_version
         type: bash
-        configuration:
+#         configuration:
 #             affinityGroup: sita 
 #             nodePool: kermit_ubuntu_pool
         triggeredBy:
