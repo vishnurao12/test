@@ -85,7 +85,7 @@ pipelines:
           onStart:
             - echo "Prepping build environment"
           onExecute:
-            - write_output test10 key564454=value1231232132132
+            - write_output test10 key564454=value123
             - echo $?
             - echo "test1"
             - echo "NameL=$NameL"
