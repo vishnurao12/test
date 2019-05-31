@@ -79,8 +79,8 @@ pipelines:
 #            - test10
         triggeredBy:
 #           requires:
-          resources:
-            - test10
+#           resources:
+#             - test10
         execution:
           onStart:
             - echo "Prepping build environment"
