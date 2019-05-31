@@ -68,12 +68,12 @@ pipelines:
 #             type: image
             type: image
             image:
- #                 auto:
- #                   language: nodejs
- #                   versions: 10.15.3
-             custom:
-               name: drydock/u16node
-               tag: master
+                 auto:
+                   language: nodejs
+                   versions: 10.15.3
+#              custom:
+#                name: drydock/u16node
+#                tag: master
         requires:
           resources:
            - test10
