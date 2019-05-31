@@ -106,8 +106,8 @@ pipelines:
           onCancel:
             -  echo $ENV1=ranjan
             -  echo $ENV2=kumar
-          outputResources:
-            - test10
+        outputResources:
+          - test10
   
             
       - name: default_version
