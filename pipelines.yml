@@ -79,7 +79,7 @@ pipelines:
            - test10
         triggeredBy:
 #           requires:
-#           resources:
+          resources:
             - test10
         execution:
           onStart:
