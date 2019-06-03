@@ -33,7 +33,7 @@ pipelines:
 #               NameL: umar  
         setup:
           environmentVariables:
-            normal:
+            readOnly:
               ENV1: ranjan
               ENV2: kumar
           runtime:
