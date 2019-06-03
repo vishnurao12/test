@@ -37,7 +37,7 @@ pipelines:
               ENV1: ranjan
               ENV2: kumar
           runtime:
-            type: host
+            type: image
             image:
 #               auto:
 #                 language: nodejs
