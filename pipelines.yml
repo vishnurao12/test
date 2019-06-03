@@ -84,6 +84,7 @@ pipelines:
             - openssl rsa -in pub.pem -pubin -text -noout
             - encrypt_file enc.txt --key pub.pem
             - cat encrypted
+            - decrypt_file encrypted --key key.pem
             - popd
             
 #             - write_output test10 key564454=value123
