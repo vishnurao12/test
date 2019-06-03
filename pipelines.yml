@@ -82,7 +82,9 @@ pipelines:
             - openssl rsa -in key.pem -text -noout
             - openssl rsa -in key.pem -pubout -out pub.pem 
             - openssl rsa -in pub.pem -pubin -text -noout
+            - encrypt_file enc.txt --key pub.pem
             - popd
+            
 #             - write_output test10 key564454=value123
 #             - bump_semver v1.0 major
 #             - compare_git --resource test10 --commit-range HEAD~2..HEAD
