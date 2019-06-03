@@ -1,214 +1,122 @@
 resources:
-  - name: app5
+  - name: test10
     type: gitRepo
-    repoPath: ranjansingh41/u16
+    repoPath: ranjansingh41/test
     configuration:
       integrationName: ranjan_github
 #       files:
 #         only: README|install.sh|node
       branches:
         only: master
-      tags:
-        only: tagv*
-      buildOn:
+#       tags:
+#         only: tagv*
+#       buildOn:
 #         commit: false
-          pullRequest: true
-#           pullRequestClose: <Boolean>
-#           release: <Boolean>
-#           tagPush: <Boolean>
 #       shallowDepth: 2
-    initialVersion:
+    version:
       sha: master
-
-# resources:
-#   - name: test1
-#     type: file
-#     fileLocation: ranjansingh41/u16
-#     fileName: test  # optional
-#     configuration:      
-#       integrationName: ranjan_Artifactory
-# #     initialVersion:
-# #       fileDtTm: <string>  # optional
       
-# resources:
-#   - name: node
-#     type: image
-#     imageName: ranjansingh/python
-#     configuration:
-#       integrationName: ranjan_dockerhub
-#     initialVersion:
-#       imageTag: app
+  - name: pvtrepo
+    type: gitRepo
+    repoPath: Ranjansingh41/pvtRepo
+    configuration:
+      integrationName: ranjan_github
+#       files:
+#         only: README|install.sh|node
+      branches:
+        only: master
+#       tags:
+#         only: tagv*
+#       buildOn:
+#         commit: false
+#       shallowDepth: 2
+    version:
+      sha: master
+  
+            
       
-#   - name: app5
-#     type: gitRepo
-#     repoPath: ranjansingh41/test
-#     configuration:
-#       integrationName: ranjan_dockerhub
-#       branches:
-#         only: master
-#     initialVersion:
-#       sha: master    
-
+      
+      
 pipelines:
-  - name: pipeline1
-    steps:
-       - name: step1
-         type: bash
-#          configuration:
-#           affinityGroup: bldGroup 
-#             priority: 1
-         triggeredBy:
-           resources:
-             - app5
-         setup:
-           runtime:
-             type: image
-            # image:
-               #auto:
-#                  language: none            
-         execution:
-           onExecute:
-             - printenv
-             - sudo docker images
-#              - sudo apt-get install tree
-#              - git log
-#              - node -v
-
-#        - name: trigger1
-#          type: bash
-# #          configuration:
-# #           affinityGroup: bldGroup 
-# #             priority: 3
-
-#          triggeredBy:
-#            resources:
-#              - app1
-#          setup:
-#            runtime:
-#              type: image
-#              image:
-#                auto:
-#                  language: nodejs
-#                  versions:
-#                    - 8.16.0                      
-#          execution:
-#            onExecute:
-#              - echo TEST_FOR_SELECTED_VERSION
-#              - node -v
-             
-#        - name: trigger2
-#          type: bash
-#          configuration:
-# #           affinityGroup: bldGroup 
-#             priority: 2
-#          triggeredBy:
-#            steps:
-#              - step1
-#          setup:
-#            runtime:
-#              type: image
-#              image:
-#                auto:
-#                  language: nodejs   
-#          triggeredBy:
+  - name: pipeline12
+    steps:    
+      - name: test1
+        type: bash
+#         configuration:
+#           affinityGroup: sita
+# #           priority: <[0-10000]>
+# #            timeoutSeconds: 1/2 
+#           nodePool: kermit_ubuntu_pool
+# #           environmentVariables:
+#             normal:
+#               NameF: singh
+#               NameL: umar  
+        setup:
+          environmentVariables:
+            readOnly:
+              ENV1: ranjan
+              ENV2: kumar
+          runtime:
+            type: image
+            image:
+#               auto:
+#                 language: nodejs
+#                 versions:
+#                   - 10.15.3
+              custom:
+                name: drydock/u16node
+                tag: master
+#         requires:
 #           resources:
-#             - app1
-#          execution:
-#            onExecute:
-#              - echo - echo TEST_FOR_DEFAULT_VERSION
-#              - node -v
-             
-#        - name: utility_step
-#          type: bash
-#          triggeredBy:
-#            resources:
-#              - app1
-#          requires:
-#            integrations:
-#              - slackNotify
-#          execution:
-#            onExecute:
-#              - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
-#              - send_notification slackNotify
+#            - test10
+        triggeredBy:
+          resources:
+            - test10
+            - pvtrepo
+        execution:
+          onExecute:
+#             - pwd
+#             - pushd $res_pvtrepo_resourcePath
+#             - echo $res_pvtrepo_resourcePath
+#             - openssl genrsa -out key.pem 1024 
+#             - openssl rsa -in key.pem -text -noout
+#             - openssl rsa -in key.pem -pubout -out pub.pem 
+#             - openssl rsa -in pub.pem -pubin -text -noout
+#             - encrypt_file enc.txt --key pub.pem
+#             - cat encrypted
+#             - decrypt_file encrypted --key key.pem
+#             - popd
+            
+            - write_output test10 key564454=value123
+#             - bump_semver v1.0 major
+#             - compare_git --resource test10 --commit-range HEAD~2..HEAD
+#             - node --version
+#             - printenv
+#             - retry_command nod --version
+#             - update_commit_status test10 --status success --message "updated u16node" --context $STEP_NAME
+#             - compare_git --commit-range da42305b1d5205faad8a8d06ee8e342c00ee51f1..master --path $STEP_DEPENDENCY_STATE_DIR/resources/test10
+        outputResources:
+          - test10
+  
+            
+      - name: default_version
+        type: bash
+#         configuration:
+#             affinityGroup: sita 
+#             nodePool: kermit_ubuntu_pool
+        triggeredBy:
+         steps:
+           - test1
+        setup:
+         runtime:
+           type: image
+           image:
+             auto:
+               language: nodejs                  
+        execution:
+           onExecute:
+             - echo - echo TEST_FOR_DEFAULT_VERSION
 
 
-#   - name: pipeline2
-#     steps:
-#         - name: none_language
-#           type: bash
-#           configuration:
-# #           affinityGroup: bldGroup 
-#             priority: 2
-
-#           setup:
-#             runtime:
-#               type: image
-#              # image:
-#                 #auto:
-#   #                  language: none            
-#           execution:
-#             onExecute:
-#               - echo TEST_FOR_NONE
-#   #              - node -v
-
-#         - name: selected_version
-#           type: bash
-#           triggeredBy:
-#             steps:
-#                - none_language
-# #           requires:
-# #             steps:
-# #               - none_language
-#           setup:
-#             runtime:
-#               type: image
-#               image:
-#                 auto:
-#                   language: nodejs
-#                   versions:
-#                     - 8.16.0                      
-#           execution:
-#             onExecute:
-#               - echo TEST_FOR_SELECTED_VERSION
-#               - node -v
- 
-# #         - name: default_version
-# #           type: bash
-# #            triggeredBy:
-# #            steps:
-# #              - none_language
-# #           requires:
-# #             steps:
-# #               - none_language
-# #           setup:
-# #             runtime:
-# #               type: image
-# #               image:
-# #                 auto:
-# #                   language: nodejs   
-# # #           triggeredBy:
-# #            resources:
-# #              - app1
-# #           execution:
-# #             onExecute:
-# #               - echo - echo TEST_FOR_DEFAULT_VERSION
-# #               - node -v
-
-#   #                     - name: utility_step
-#   #                       type: bash
-#   #                       triggeredBy:
-#   #                         resources:
-#   #                           - app1
-#   #                       requires:
-#   #                         integrations:
-#   #                           - slackNotify
-#   #                       execution:
-#   #                         onExecute:
-#   #                           - update_commit_status app1 --status processing --message "updated in utility step" --context $STEP_NAME
-#   #                           - send_notification slackNotify
-
-             
-             
-             
              
              
