@@ -56,8 +56,8 @@ pipelines:
           onExecute:
             - write_output test10 key564454=value123
             - bump_semver v1.0.0 major
-        outputResources:
-          - test10
+#         outputResources:
+#           - test10
   
             
 #       - name: default_version
