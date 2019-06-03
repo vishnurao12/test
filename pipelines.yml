@@ -60,21 +60,21 @@ pipelines:
           - test10
   
             
-      - name: default_version
-        type: bash
-#         configuration:
-#             affinityGroup: sita 
-#             nodePool: kermit_ubuntu_pool
-        triggeredBy:
-         steps:
-           - test1
-        setup:
-         runtime:
-           type: image
-           image:
-             auto:
-               language: nodejs                  
-        execution:
-           onExecute:
-             - echo - echo TEST_FOR_DEFAULT_VERSION
-             - node -v
+#       - name: default_version
+#         type: bash
+# #         configuration:
+# #             affinityGroup: sita 
+# #             nodePool: kermit_ubuntu_pool
+#         triggeredBy:
+#          steps:
+#            - test1
+#         setup:
+#          runtime:
+#            type: image
+#            image:
+#              auto:
+#                language: nodejs                  
+#         execution:
+#            onExecute:
+#              - echo - echo TEST_FOR_DEFAULT_VERSION
+#              - node -v
