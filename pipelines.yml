@@ -59,7 +59,7 @@ pipelines:
 #             normal:
 #               NameF: singh
 #               NameL: umar  
-        setup:
+#         setup:
 #           environmentVariables:
 #             normal:
 #               ENV1: ranjan
