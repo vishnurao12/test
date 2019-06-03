@@ -49,21 +49,21 @@ pipelines:
 #         requires:
 #           resources:
 #            - test10
-        triggeredBy:
-          resources:
-            - test10
+#         triggeredBy:
+#           resources:
+#             - test10
         execution:
           onExecute:
             - write_output test10 key564454=value123
-            - bump_semver v1.0.0 major
-            - compare_git --resource test10 --commit-range HEAD~2..HEAD
-            - node --version
-            - printenv
-#             - retry_command nod --version
-            - update_commit_status test10 --status success --message "updated u16node" --context $STEP_NAME
-            - compare_git --commit-range da42305b1d5205faad8a8d06ee8e342c00ee51f1..master --path $STEP_DEPENDENCY_STATE_DIR/resources/test10
-#         outputResources:
-#           - test10
+#             - bump_semver v1.0.0 major
+#             - compare_git --resource test10 --commit-range HEAD~2..HEAD
+#             - node --version
+#             - printenv
+# #             - retry_command nod --version
+#             - update_commit_status test10 --status success --message "updated u16node" --context $STEP_NAME
+#             - compare_git --commit-range da42305b1d5205faad8a8d06ee8e342c00ee51f1..master --path $STEP_DEPENDENCY_STATE_DIR/resources/test10
+        outputResources:
+          - test10
   
             
       - name: default_version
