@@ -49,9 +49,9 @@ pipelines:
 #         requires:
 #           resources:
 #            - test10
-#         triggeredBy:
-#           resources:
-#             - test10
+        triggeredBy:
+          resources:
+            - test10
         execution:
           onExecute:
 #             - write_output test10 key564454=value123
