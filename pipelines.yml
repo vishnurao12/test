@@ -16,37 +16,9 @@ resources:
     version:
       sha: master
       
-# resources:
-#   - name: test5
-#     type: file
-#     configuration:      
-#       integrationName: ranjan_file
-#     version:
-#       fileLocation: <string> # optional
-#       fileName: <string> # optional
-#       fileDtTm: <string>  # optional
-#       ### JFrog artifactory specific specs ###
-#       pattern: <string> # optional
-#       aql: <string> # optional
-#       target: <string> # optional
-#       props: <string> # optional
-#       recursive: <boolean> # optional
-#       flat: <boolean> # optional
-#       excludePatterns: <string> # optional
-#       archiveEntries: <string> # optional
-#       build: <string> # optional
-#       sortBy: <string> # optional
-#       sortOrder: <string> # optional
-#       limit: <integer> # optional
-#       offset: <integer> # optional
       
 pipelines:
   - name: pipeline12
-#     setup:
-#       environmentVariables:
-#         readOnly:
-#           NameF: ranjan
-#           NameL: kumar
     steps:    
       - name: test1
         type: bash
@@ -59,11 +31,11 @@ pipelines:
 #             normal:
 #               NameF: singh
 #               NameL: umar  
-#         setup:
-#           environmentVariables:
-#             normal:
-#               ENV1: ranjan
-#               ENV2: kumar
+        setup:
+          environmentVariables:
+            normal:
+              ENV1: ranjan
+              ENV2: kumar
           runtime:
             type: image
             image:
@@ -82,8 +54,8 @@ pipelines:
             - test10
         execution:
           onExecute:
-#             - write_output test10 key564454=value123
-              - bump_semver v1.0.0 major
+            - write_output test10 key564454=value123
+            - bump_semver v1.0.0 major
         outputResources:
           - test10
   
