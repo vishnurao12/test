@@ -60,10 +60,10 @@ pipelines:
 #               NameF: singh
 #               NameL: umar  
         setup:
-          environmentVariables:
-            normal:
-              ENV1: ranjan
-              ENV2: kumar
+#           environmentVariables:
+#             normal:
+#               ENV1: ranjan
+#               ENV2: kumar
           runtime:
             type: image
             image:
@@ -78,7 +78,7 @@ pipelines:
 #           resources:
 #            - test10
         triggeredBy:
-          resources:
+         setup:
             - test10
         execution:
           onExecute:
