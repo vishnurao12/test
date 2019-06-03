@@ -16,41 +16,11 @@ resources:
     version:
       sha: master
       
-#   - name: pvtrepo
-#     type: gitRepo
-#     repoPath: Ranjansingh41/pvtRepo
-#     configuration:
-#       integrationName: ranjan_github
-# #       files:
-# #         only: README|install.sh|node
-#       branches:
-#         only: master
-# #       tags:
-# #         only: tagv*
-# #       buildOn:
-# #         commit: false
-# #       shallowDepth: 2
-#     version:
-#       sha: master
-  
-            
-      
-      
-      
 pipelines:
   - name: pipeline12
     steps:    
       - name: test1
         type: bash
-#         configuration:
-#           affinityGroup: sita
-# #           priority: <[0-10000]>
-# #            timeoutSeconds: 1/2 
-#           nodePool: kermit_ubuntu_pool
-# #           environmentVariables:
-#             normal:
-#               NameF: singh
-#               NameL: umar  
         setup:
           environmentVariables:
             readOnly:
@@ -66,34 +36,9 @@ pipelines:
               custom:
                 name: drydock/u16node
                 tag: master
-#         requires:
-#           resources:
-#            - test10
-#         triggeredBy:
-#           resources:
-#             - test10
         execution:
           onExecute:
-#             - pwd
-#             - pushd $res_pvtrepo_resourcePath
-#             - echo $res_pvtrepo_resourcePath
-#             - openssl genrsa -out key.pem 1024 
-#             - openssl rsa -in key.pem -text -noout
-#             - openssl rsa -in key.pem -pubout -out pub.pem 
-#             - openssl rsa -in pub.pem -pubin -text -noout
-#             - encrypt_file enc.txt --key pub.pem
-#             - cat encrypted
-#             - decrypt_file encrypted --key key.pem
-#             - popd
-            
             - write_output test10 key564454=value123
-#             - bump_semver v1.0 major
-#             - compare_git --resource test10 --commit-range HEAD~2..HEAD
-#             - node --version
-#             - printenv
-#             - retry_command nod --version
-#             - update_commit_status test10 --status success --message "updated u16node" --context $STEP_NAME
-#             - compare_git --commit-range da42305b1d5205faad8a8d06ee8e342c00ee51f1..master --path $STEP_DEPENDENCY_STATE_DIR/resources/test10
         outputResources:
           - test10
   
