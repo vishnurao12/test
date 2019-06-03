@@ -16,6 +16,26 @@ resources:
     version:
       sha: master
       
+  - name: pvtrepo
+    type: gitRepo
+    repoPath: Ranjansingh41/pvtRepo
+    configuration:
+      integrationName: ranjan_github
+#       files:
+#         only: README|install.sh|node
+      branches:
+        only: master
+#       tags:
+#         only: tagv*
+#       buildOn:
+#         commit: false
+#       shallowDepth: 2
+    version:
+      sha: master
+  
+            
+      
+      
       
 pipelines:
   - name: pipeline12
@@ -52,6 +72,7 @@ pipelines:
         triggeredBy:
           resources:
             - test10
+            - pvtrepo
         execution:
           onExecute:
 #             - write_output test10 key564454=value123
