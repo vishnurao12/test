@@ -55,7 +55,7 @@ pipelines:
         execution:
           onExecute:
 #             - write_output test10 key564454=value123
-            - bump_semver v1.0.0 major
+            - bump_semver v1.0 major
             - compare_git --resource test10 --commit-range HEAD~2..HEAD
             - node --version
             - printenv
