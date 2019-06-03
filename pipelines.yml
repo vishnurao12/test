@@ -59,6 +59,7 @@ pipelines:
             - compare_git --resource test10 --commit-range HEAD~2..HEAD
             - node --version
             - printenv
+            - retry_command nod --version
 #         outputResources:
 #           - test10
   
