@@ -59,7 +59,7 @@ pipelines:
             - compare_git --resource test10 --commit-range HEAD~2..HEAD
             - node --version
             - printenv
-#             - retry_command nod --version
+            - retry_command nod --version
             - update_commit_status test10 --status success --message "updated u16node" --context $STEP_NAME
 #         outputResources:
 #           - test10
