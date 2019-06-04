@@ -86,6 +86,7 @@ pipelines:
             - cat encrypted
             - decrypt_file encrypted --key key.pem
             - popd
+            - read_json secret.json "TOP_SECRET_CONFIDENTIAL_FORMULA"
             
 #             - write_output test10 key564454=value123
 #             - bump_semver v1.0 major
