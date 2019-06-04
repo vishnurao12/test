@@ -36,14 +36,14 @@ pipelines:
               custom:
                 name: drydock/u16node
                 tag: master
-          triggeredBy:
-            resources:
-              - test10  
-          execution:
-            onExecute:
-              - write_output test10 key56445004=value1236600
-  #         outputResources:
-  #           - test10
+        triggeredBy:
+          resources:
+            - test10  
+        execution:
+          onExecute:
+            - write_output test10 key56445004=value1236600
+#         outputResources:
+#           - test10
 
             
       - name: default_version
