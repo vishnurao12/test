@@ -1,5 +1,5 @@
 resources:
-  - name: test10
+  - name: test18
     type: gitRepo
     repoPath: ranjansingh41/test
     configuration:
@@ -38,9 +38,9 @@ resources:
       
       
 pipelines:
-  - name: pipeline12
+  - name: pipeline19
     steps:    
-      - name: test1
+      - name: test14
         type: bash
 #         configuration:
 #           affinityGroup: sita
@@ -71,7 +71,7 @@ pipelines:
 #            - test10
         triggeredBy:
           resources:
-            - test10
+            - test18
             - pvtrepo
         execution:
           onExecute:
@@ -107,7 +107,7 @@ pipelines:
 #             nodePool: kermit_ubuntu_pool
         triggeredBy:
          steps:
-           - test1
+           - test14
         setup:
          runtime:
            type: image
