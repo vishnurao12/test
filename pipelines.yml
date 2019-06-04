@@ -25,10 +25,7 @@ pipelines:
           environmentVariables:
             readOnly:
               ENV1: ranjan
-              ENV2: kumar
-        triggeredBy:
-          resources:
-            - test10    
+              ENV2: kumar    
         runtime:
           type: image
           image:
@@ -39,6 +36,9 @@ pipelines:
             custom:
               name: drydock/u16node
               tag: master
+        triggeredBy:
+          resources:
+            - test10  
         execution:
           onExecute:
             - write_output test10 key56445004=value1236600
