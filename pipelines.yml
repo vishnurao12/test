@@ -69,6 +69,9 @@ pipelines:
 #         requires:
 #           resources:
 #            - test10
+        requires:
+          integrations:
+            - ranjan_slack
         triggeredBy:
           resources:
             - test18
@@ -93,6 +96,7 @@ pipelines:
             - cache_files README.md my_file
             - restore_cache my_file README.md
             - add_run_variable ranjan=kumar
+            - send_notification ranjan_slack
             
 #             - write_output test10 key564454=value123
 #             - bump_semver v1.0 major
