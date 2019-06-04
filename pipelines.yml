@@ -22,10 +22,10 @@ pipelines:
       - name: test1
         type: bash
         setup:
-#           environmentVariables:
-#             readOnly:
-#               ENV1: ranjan
-#               ENV2: kumar
+          environmentVariables:
+            readOnly:
+              ENV1: ranjan
+              ENV2: kumar
           triggeredBy:
             resources:
               - test10    
