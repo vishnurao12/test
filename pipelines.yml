@@ -88,6 +88,10 @@ pipelines:
             - popd
             - pushd $res_test18_resourcePath
             - read_json secret.json "TOP_SECRET_CONFIDENTIAL_FORMULA"
+            - popd
+            - pushd $res_test18_resourcePath
+            - cache_files README.md my_file
+            - restore_cache my_file README.md
             
 #             - write_output test10 key564454=value123
 #             - bump_semver v1.0 major
