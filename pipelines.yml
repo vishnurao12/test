@@ -92,6 +92,7 @@ pipelines:
             - pushd $res_test18_resourcePath
             - cache_files README.md my_file
             - restore_cache my_file README.md
+            - add_run_variable ranjan=kumar
             
 #             - write_output test10 key564454=value123
 #             - bump_semver v1.0 major
@@ -123,6 +124,8 @@ pipelines:
            onExecute:
              - echo - echo TEST_FOR_DEFAULT_VERSION
              - node --version
+             - add_run_variable ranjan=kumar
+
 
 
              
