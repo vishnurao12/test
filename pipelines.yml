@@ -26,8 +26,8 @@ pipelines:
             readOnly:
               ENV1: ranjan
               ENV2: kumar
-#           triggeredBy:
-            resources:
+          triggeredBy:
+#             resources:
               - test10    
           runtime:
             type: image
