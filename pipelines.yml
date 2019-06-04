@@ -124,7 +124,7 @@ pipelines:
            onExecute:
              - echo - echo TEST_FOR_DEFAULT_VERSION
              - node --version
-             - add_run_variable ranjan=kumar
+             - echo $ranjan
 
 
 
