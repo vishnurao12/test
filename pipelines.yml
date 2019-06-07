@@ -1,9 +1,9 @@
 resources:
-  - name: test10
-    type: gitRepo
-    repoPath: ranjansingh41/test
+  - name: gitResource
+    type: GitRepo
+#     repoPath: ranjansingh41/test
     configuration:
-      integrationName: ranjan_github
+      gitProvider: ranjan_github
 #       files:
 #         only: README|install.sh|node
       branches:
