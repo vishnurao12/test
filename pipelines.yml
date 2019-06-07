@@ -1,6 +1,6 @@
 resources:
   - name: test18
-#     type: gitRepo
+    type: GitRepo
     repoPath: ranjansingh41/test
     configuration:
       integrationName: 
