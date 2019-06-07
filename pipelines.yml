@@ -4,6 +4,7 @@ resources:
 #     repoPath: ranjansingh41/test
     configuration:
       gitProvider: ranjan_github
+      path: Ranjansingh41/test
 #       files:
 #         only: README|install.sh|node
       branches:
