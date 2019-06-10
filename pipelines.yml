@@ -21,7 +21,7 @@ pipelines:
   - name: pipeline12
     steps:
       - name: test
-        step: Bash
+        type: Bash
         configuration:
           inputResources:
             - name: gitResource
