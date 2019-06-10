@@ -38,10 +38,10 @@ pipelines:
             - java -version
             - echo $JAVA_HOME
             - echo $PATH
-#             - _set_jdk openjdk11
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
+            - _set_jdk openjdk11
+            - java -version
+            - echo $JAVA_HOME
+            - echo $PATH
             - _set_jdk oraclejdk11
             - java -version
             - echo $JAVA_HOME
