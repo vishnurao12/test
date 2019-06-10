@@ -38,7 +38,6 @@ pipelines:
             - java --version
             - echo $JAVA_HOME
             - echo $PATH
-            - 
         configuration:
           inputSteps:
             - name: test
