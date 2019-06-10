@@ -20,7 +20,7 @@ resources:
 pipelines:
   - name: pipeline12
     steps:
-      - name: chutiya
+      - name: test
         step: Bash
         configuration:
           inputResources:
@@ -29,7 +29,7 @@ pipelines:
           onExecute:
             - printenv
             - pushd $res_gitResource_resPath
-            - docker build -t=chutiya/u16java:dev .
+            - docker build -t=test/u16java:dev .
       - name: test1
         type: Bash
         execution:
@@ -41,12 +41,12 @@ pipelines:
             - 
         configuration:
           inputSteps:
-            - name: chutiya
+            - name: test
           runtime:
             type: image
             image:
               custom:
-                name: chutiya/u16java
+                name: test/u16java
                 tag: dev
                 autoPull: false
         
