@@ -5,6 +5,7 @@ resources:
     configuration:
       gitProvider: ranjan_github
       path: Ranjansingh41/c7java
+      nodePool: ranjan_test
 #       files:
 #         only: README|install.sh|node
       branches:
