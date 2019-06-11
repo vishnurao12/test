@@ -5,7 +5,6 @@ resources:
     configuration:
       gitProvider: ranjan_github
       path: Ranjansingh41/c7java
-      nodePool: ranjan_test
 #       files:
 #         only: README|install.sh|node
       branches:
@@ -24,6 +23,7 @@ pipelines:
       - name: test
         type: Bash
         configuration:
+          nodePool: ranjan_test
           inputResources:
             - name: gitResource
         execution:
