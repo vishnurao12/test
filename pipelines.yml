@@ -4,7 +4,7 @@ resources:
 #     repoPath: ranjansingh41/test
     configuration:
       gitProvider: ranjan_github
-      path: Ranjansingh41/u16java
+      path: Ranjansingh41/c7java
 #       files:
 #         only: README|install.sh|node
       branches:
@@ -29,7 +29,7 @@ pipelines:
           onExecute:
             - printenv
             - pushd $res_gitResource_resourcePath
-            - docker build -t=test/u16java:dev .
+            - docker build -t=test/c7java:dev .
       - name: test1
         type: Bash
         execution:
@@ -62,7 +62,7 @@ pipelines:
             type: image
             image:
               custom:
-                name: test/u16java
+                name: test/c7java
                 tag: dev
                 autoPull: false
         
