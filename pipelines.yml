@@ -23,7 +23,7 @@ pipelines:
       - name: java
         type: Bash
         configuration:
-          nodePool: ranjan_node        
+          nodePool: vijay_node        
           runtime:
             type: image
             image:
@@ -78,7 +78,7 @@ pipelines:
       - name: cpp
         type: Bash
         configuration:
-          nodePool: ranjan_node           
+          nodePool: vijay_node           
           inputSteps:
             - name: go      
           runtime:
