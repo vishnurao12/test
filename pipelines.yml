@@ -22,8 +22,8 @@ pipelines:
     steps:
       - name: java
         type: Bash
-        configuration:
-          nodePool: vijay_node        
+#         configuration:
+#           nodePool: vijay_node        
           runtime:
             type: image
             image:
@@ -52,8 +52,8 @@ pipelines:
             - ant -version
       - name: go
         type: Bash
-        configuration:
-          nodePool: vijay_node           
+#         configuration:
+#           nodePool: vijay_node           
           inputSteps:
             - name: java      
           runtime:
@@ -77,8 +77,8 @@ pipelines:
             - go version                
       - name: cpp
         type: Bash
-        configuration:
-          nodePool: vijay_node           
+#         configuration:
+#           nodePool: vijay_node           
           inputSteps:
             - name: go      
           runtime:
