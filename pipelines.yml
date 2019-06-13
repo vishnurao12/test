@@ -63,7 +63,7 @@ pipelines:
               auto:
                 language: go
                 versions:
-                  - 1.12.0
+                  - 1.12.5
 #               custom:
 #                 name: drydock/u18go
 #                 tag: master
