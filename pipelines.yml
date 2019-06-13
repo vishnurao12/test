@@ -52,7 +52,7 @@ pipelines:
             - ant -version
       - name: go
         type: Bash
-#         configuration:
+        configuration:
 #           nodePool: vijay_node           
           inputSteps:
             - name: java      
@@ -77,7 +77,7 @@ pipelines:
             - go version                
       - name: cpp
         type: Bash
-#         configuration:
+        configuration:
 #           nodePool: vijay_node           
           inputSteps:
             - name: go      
