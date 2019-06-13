@@ -1,5 +1,5 @@
 resources:
-  - name: gitResource1
+  - name: gitResource123
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
@@ -35,7 +35,7 @@ pipelines:
 #                 tag: master
 #                 autoPull: true      
           inputResources:
-            - name: gitResource1
+            - name: gitResource123
         execution:
           onExecute:
             - printenv 
