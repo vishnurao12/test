@@ -23,49 +23,52 @@ pipelines:
       - name: test
         type: Bash
         configuration:
-          nodePool: ranjan_test
+          nodePool: varsha_u16
           inputResources:
             - name: gitResource
         execution:
           onExecute:
-            - printenv
-            - pushd $res_gitResource_resourcePath
-            - docker build -t=test/u16java:dev .
+#             - printenv
+#             - pushd $res_gitResource_resourcePath
+#             - docker build -t=test/u16java:dev .
       - name: test1
         type: Bash
         execution:
           onExecute:
-            - ant -version
-            - gradle --version 
-            - mvn --version
-            - _set_jdk openjdk8
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - ant -version
-            - gradle --version 
-            - mvn --version
-            - _set_jdk openjdk11
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - ant -version
-            - gradle --version 
-            - mvn --version
-#             - _set_jdk oraclejdk11
+#             - ant -version
+#             - gradle --version 
+#             - mvn --version
+#             - _set_jdk openjdk8
 #             - java -version
 #             - echo $JAVA_HOME
 #             - echo $PATH
+#             - ant -version
+#             - gradle --version 
+#             - mvn --version
+#             - _set_jdk openjdk11
+#             - java -version
+#             - echo $JAVA_HOME
+#             - echo $PATH
+#             - ant -version
+#             - gradle --version 
+#             - mvn --version
+# #             - _set_jdk oraclejdk11
+# #             - java -version
+# #             - echo $JAVA_HOME
+# #             - echo $PATH
         configuration:
           inputSteps:
             - name: test
           runtime:
             type: image
             image:
-              custom:
-                name: test/u16java
-                tag: dev
-                autoPull: false
+              auto
+                language: java
+                versions: nono
+#               custom:
+#                 name: test/u16java
+#                 tag: dev
+#                 autoPull: false
         
         
 #         setup:
