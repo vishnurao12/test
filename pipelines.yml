@@ -22,7 +22,7 @@ pipelines:
     steps:
       - name: java
         type: Bash
-#         configuration:
+        configuration:
 #           nodePool: vijay_node        
           runtime:
             type: image
