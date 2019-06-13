@@ -29,7 +29,8 @@ pipelines:
             image:
               auto:
                 language: java
-#                 versions:            
+                versions:
+                  - openjdk8
 #               custom:
 #                 name: drydock/u18java
 #                 tag: master
@@ -61,7 +62,8 @@ pipelines:
             image:
               auto:
                 language: go
-#                 versions:            
+                versions:
+                  - 1.12.0
 #               custom:
 #                 name: drydock/u18go
 #                 tag: master
@@ -71,10 +73,10 @@ pipelines:
             - source /root/.gvm/scripts/gvm
             - gvm list
             - go version
-            - gvm use 1.11.10 
-            - go version
-            - gvm use 1.12.5
-            - go version                
+#             - gvm use 1.11.10 
+#             - go version
+#             - gvm use 1.12.5
+#             - go version                
       - name: cpp
         type: Bash
         configuration:
