@@ -1,12 +1,12 @@
 resources:
-  - name: gitResource
+  - name: gitResource1
     type: GitRepo
-#     repoPath: ranjansingh41/test
     configuration:
       gitProvider: ranjan_github
-      path: Ranjansingh41/u16java
+      path: Ranjansingh41/test
 #       files:
-#         only: README|install.sh|node
+#         include: jfrog.yml
+# #         exclude:   
       branches:
         only: master
 #       tags:
@@ -15,102 +15,83 @@ resources:
 #         commit: false
 #       shallowDepth: 2
     version:
-      sha: master
+      sha: master  
       
 pipelines:
-  - name: pipeline12
+  - name: pipeline_ranjan
     steps:
-      - name: test
+      - name: java
         type: Bash
         configuration:
-          nodePool: varsha_u16
-          inputResources:
-            - name: gitResource
-        execution:
-          onExecute:
-#             - printenv
-#             - pushd $res_gitResource_resourcePath
-#             - docker build -t=test/u16java:dev .
-      - name: test1
-        type: Bash
-        execution:
-          onExecute:
-#             - ant -version
-#             - gradle --version 
-#             - mvn --version
-#             - _set_jdk openjdk8
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - ant -version
-#             - gradle --version 
-#             - mvn --version
-#             - _set_jdk openjdk11
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - ant -version
-#             - gradle --version 
-#             - mvn --version
-# #             - _set_jdk oraclejdk11
-# #             - java -version
-# #             - echo $JAVA_HOME
-# #             - echo $PATH
-        configuration:
-          inputSteps:
-            - name: test
+          nodePool: ranjan_node        
           runtime:
             type: image
             image:
-              auto
+              auto:
                 language: java
-                versions: nono
+#                 versions:            
 #               custom:
-#                 name: test/u16java
-#                 tag: dev
-#                 autoPull: false
-        
-        
-#         setup:
-#           environmentVariables:
-#             readOnly:
-#               ENV1: ranjan
-#               ENV2: kumar    
-#           runtime:
-#             type: image
-#             image:
-#   #               auto:
-#   #                 language: nodejs
-#   #                 versions:
-#   #                   - 10.15.3
-#               custom:
-#                 name: drydock/u16node
+#                 name: drydock/u18java
 #                 tag: master
-#         triggeredBy:
-#           resources:
-#             - gitResource  
-#         execution:
-#           onExecute:
-#             - node --version
-# #         outputResources:
-# #           - test10
-
-            
-#       - name: default_version
-#         type: bash
-# #         configuration:
-# #             affinityGroup: sita 
-# #             nodePool: kermit_ubuntu_pool
-#         triggeredBy:
-#          steps:
-#            - test1
-#         setup:
-#          runtime:
-#            type: image
-#            image:
-#              auto:
-#                language: nodejs                  
-#         execution:
-#            onExecute:
-#              - echo - echo TEST_FOR_DEFAULT_VERSION
-#              - node -v
+#                 autoPull: true      
+          inputResources:
+            - name: gitResource1
+        execution:
+          onExecute:
+            - printenv 
+            - java -version
+            - _set_jdk openjdk8
+            - java -version
+            - echo $JAVA_HOME
+            - echo $PATH
+            - _set_jdk openjdk11
+            - java -version
+            - echo $JAVA_HOME
+            - echo $PATH
+            - mvn --version
+            - ant -version
+      - name: go
+        type: Bash
+        configuration:
+          nodePool: vijay_node           
+          inputSteps:
+            - name: java      
+          runtime:
+            type: image
+            image:
+              auto:
+                language: go
+#                 versions:            
+#               custom:
+#                 name: drydock/u18go
+#                 tag: master
+#                 autoPull: true
+        execution:
+          onExecute:
+            - source /root/.gvm/scripts/gvm
+            - gvm list
+            - go version
+            - gvm use 1.11.10 
+            - go version
+            - gvm use 1.12.5
+            - go version                
+      - name: cpp
+        type: Bash
+        configuration:
+          nodePool: ranjan_node           
+          inputSteps:
+            - name: go      
+          runtime:
+            type: image
+            image:
+              auto:
+                language: c
+#                 versions:            
+#               custom:
+#                 name: drydock/u18cpp
+#                 tag: master
+#                 autoPull: true
+        execution:
+          onExecute:
+            - gcc --version
+            - clang --version
