@@ -69,7 +69,7 @@ pipelines:
           releaseBundleVersion: 1.0.0
           releaseNotes:         
             content: bundle_test 
-            syntax:  bundle_tests 
+            syntax:  plain_text 
           inputResources:
             - name: npm_build_promote 
 #             - name: my_aql  # one Aql 
