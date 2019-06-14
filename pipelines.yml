@@ -22,7 +22,7 @@ pipelines:
           repositoryName: ranjan_npm_test
           sourceLocation: .
           inputResources:
-            - name: npm_project
+            - name: real_npm_project
           integrations:
             - name: varsha_artifactory
             
