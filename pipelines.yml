@@ -22,13 +22,11 @@ resources:
       buildName: npm-testing
   
   - name: my_releaseBundle
-    type: artifactoryReleaseBundle
     type: ReleaseBundle
     configuration:
-      integrationName: artifactoryIntegration
-      sourceArtifactory: artifactoryIntegration
+      sourceArtifactory: varsha_artifactory
       name: ranjan
-      version: 1.0.0
+      version: v1.0.0
       isSigned: false
       
 pipelines:
@@ -77,7 +75,7 @@ pipelines:
             - name: npm_build_promote 
 #             - name: my_aql  # one Aql 
           outputResources:
-            - name: npm_bundle
+            - name: my_releaseBundle
 
 
 
