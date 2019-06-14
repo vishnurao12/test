@@ -33,7 +33,7 @@ pipelines:
           autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
-          integrations:
-            - name: ranjan_artifactory
+#           integrations:
+#             - name: ranjan_artifactory
           outputResources:
             - name: npm_build_info
