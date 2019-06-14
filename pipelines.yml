@@ -14,7 +14,7 @@ resources:
       buildName: npm-testing
 
 pipelines:
-  - name: test_pipeline01
+  - name: test_pipeline11112
     steps:
       - name: start_npm_build
         type: NpmBuild
