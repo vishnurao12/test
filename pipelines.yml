@@ -13,6 +13,13 @@ resources:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
       buildName: npm-testing
+      
+  - name: npm_build_promote
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      buildNumber: 1
+      buildName: npm-testing    
 
 pipelines:
   - name: test_pipeline_ranjan
@@ -38,3 +45,16 @@ pipelines:
             - name: varsha_artifactory
           outputResources:
             - name: npm_build_info
+            
+      - name: promote
+        type: PromoteBuild
+        configuration:
+          targetRepository: ranjan_npmlocal
+#           includeDependencies: <boolean>    # default false
+          buildNumber: 1
+          buildName: npmPromote
+          inputResources:
+            - name: npm_build_info
+          outputResources:
+            - name: npm_build_promote 
+     
