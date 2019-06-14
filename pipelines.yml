@@ -1,15 +1,15 @@
 resources:
-  - name: npm_project
+  - name: npm_project11
     type: GitRepo
     configuration:
-      gitProvider: github
+      gitProvider: ranjan_github
       path: ranjansingh41/test
       sha: npmtest.yml
       
-  - name: npm_build_info
+  - name: npm_build_info11
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: ranjan_artifactory
       buildNumber: 1
       buildName: npm-testing
 
@@ -22,9 +22,9 @@ pipelines:
           repositoryName: ranjan_npm_test
           sourceLocation: .
           inputResources:
-            - name: npm_project
+            - name: npm_project11
           integrations:
-            - name: art
+            - name: ranjan_artifactory
             
       - name: start_npm_pub_autopub_true
         type: NpmPublish
@@ -34,6 +34,6 @@ pipelines:
           inputSteps:
             - name: start_npm_build
           integrations:
-            - name: art
+            - name: ranjan_artifactory
           outputResources:
-            - name: npm_build_info
+            - name: npm_build_info11
