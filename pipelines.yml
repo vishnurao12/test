@@ -27,14 +27,14 @@ pipelines:
           runtime:
             type: image
             image:
-              auto:
-                language: java
-                versions:
-                  - openjdk8
-#               custom:
-#                 name: drydock/u18java
-#                 tag: master
-#                 autoPull: true      
+#               auto:
+#                 language: java
+#                 versions:
+#                   - openjdk8
+              custom:
+                name: drydock/u18java
+                tag: master
+                autoPull: true      
           inputResources:
             - name: gitResource123
         execution:
@@ -60,14 +60,14 @@ pipelines:
           runtime:
             type: image
             image:
-              auto:
-                language: go
-                versions:
-                  - 1.12.5
-#               custom:
-#                 name: drydock/u18go
-#                 tag: master
-#                 autoPull: true
+#               auto:
+#                 language: go
+#                 versions:
+#                   - 1.12.5
+              custom:
+                name: drydock/u18go
+                tag: master
+                autoPull: true
         execution:
           onExecute:
             - source /root/.gvm/scripts/gvm
@@ -86,13 +86,13 @@ pipelines:
           runtime:
             type: image
             image:
-              auto:
-                language: c
+#               auto:
+#                 language: c
 #                 versions:            
-#               custom:
-#                 name: drydock/u18cpp
-#                 tag: master
-#                 autoPull: true
+              custom:
+                name: drydock/u18cpp
+                tag: master
+                autoPull: true
         execution:
           onExecute:
             - gcc --version
