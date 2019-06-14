@@ -50,9 +50,6 @@ pipelines:
         type: PromoteBuild
         configuration:
           targetRepository: ranjan_npmlocal
-#           includeDependencies: <boolean>    # default false
-          buildNumber: 1
-          buildName: npmPromote
           inputResources:
             - name: npm_build_info
           outputResources:
