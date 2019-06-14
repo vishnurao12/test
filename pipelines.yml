@@ -9,7 +9,7 @@ resources:
   - name: npm_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: ranjan_artifactory
+      sourceArtifactory: art
       buildNumber: 1
       buildName: npm-testing
 
@@ -24,7 +24,7 @@ pipelines:
           inputResources:
             - name: npm_project
           integrations:
-            - name: ranjan_artifactory
+            - name: art
             
       - name: start_npm_pub_autopub_true
         type: NpmPublish
@@ -34,6 +34,6 @@ pipelines:
           inputSteps:
             - name: start_npm_build
           integrations:
-            - name: ranjan_artifactory
+            - name: art
           outputResources:
             - name: npm_build_info
