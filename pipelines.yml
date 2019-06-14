@@ -9,7 +9,7 @@ resources:
   - name: npm_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: varsha_artifactory
       buildNumber: 1
       buildName: npm-testing
 
@@ -24,7 +24,7 @@ pipelines:
           inputResources:
             - name: npm_project
           integrations:
-            - name: art
+            - name: varsha_artifactory
             
       - name: start_npm_pub_autopub_true
         type: NpmPublish
@@ -34,6 +34,6 @@ pipelines:
           inputSteps:
             - name: start_npm_build
           integrations:
-            - name: art
+            - name: varsha_artifactory
           outputResources:
             - name: npm_build_info
