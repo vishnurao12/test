@@ -20,7 +20,7 @@ pipelines:
       - name: start_npm_build
         type: NpmBuild
         configuration:
-          repositoryName: ranjan_npm_test
+          repositoryName: ranjan_npmtest
           sourceLocation: .
           inputResources:
             - name: real_npm_project
@@ -30,7 +30,7 @@ pipelines:
       - name: start_npm_pub_autopub_true
         type: NpmPublish
         configuration:
-          repositoryName: ranjan_npm_local
+          repositoryName: ranjan_npmlocal
           autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
