@@ -25,6 +25,7 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
+      ReleaseBundle : ranjan
       buildNumber: 1
       buildName: npm-testing  
 
