@@ -1,99 +1,39 @@
-# resources:
-#   - name: gitResource123
-#     type: GitRepo
-#     configuration:
-#       gitProvider: ranjan_github
-#       path: Ranjansingh41/test
-# #       files:
-# #         include: jfrog.yml
-# # #         exclude:   
-#       branches:
-#         only: master
-# #       tags:
-# #         only: tagv*
-# #       buildOn:
-# #         commit: false
-# #       shallowDepth: 2
-#     version:
-#       sha: master  
+resources:
+  - name: npm_project
+    type: GitRepo
+    configuration:
+      gitProvider: github
+      path: ranjansingh41/test
+      sha: npmtest.yml
       
+  - name: npm_build_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      buildNumber: 1
+      buildName: npm-testing
+
 pipelines:
-  - name: pipeline_ranjan
+  - name: test_pipeline
     steps:
-      - name: java
-        type: Bash
+      - name: start_npm_build
+        type: NpmBuild
         configuration:
-#           nodePool: vijay_node        
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: java
-#                 versions:
-#                   - openjdk8
-              custom:
-                name: drydock/u18java
-                tag: master
-                autoPull: true      
-#           inputResources:
-#             - name: gitResource123
-        execution:
-          onExecute:
-            - printenv 
-            - java -version
-            - _set_jdk openjdk8
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - _set_jdk openjdk11
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - mvn --version
-            - ant -version
-      - name: go
-        type: Bash
+          repositoryName: ranjan_npm_test
+          sourceLocation: .
+          inputResources:
+            - name: npm_project
+          integrations:
+            - name: art
+            
+      - name: start_npm_pub_autopub_true
+        type: NpmPublish
         configuration:
-#           nodePool: vijay_node           
+          repositoryName: ranjan_npm_local
+          autoPublishBuildInfo: true
           inputSteps:
-            - name: java      
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: go
-#                 versions:
-#                   - 1.12.5
-              custom:
-                name: drydock/u18go
-                tag: master
-                autoPull: true
-        execution:
-          onExecute:
-            - source /root/.gvm/scripts/gvm
-            - gvm list
-            - go version
-#             - gvm use 1.11.10 
-#             - go version
-#             - gvm use 1.12.5
-#             - go version                
-      - name: cpp
-        type: Bash
-        configuration:
-#           nodePool: vijay_node           
-          inputSteps:
-            - name: go      
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: c
-#                 versions:            
-              custom:
-                name: drydock/u18cpp
-                tag: master
-                autoPull: true
-        execution:
-          onExecute:
-            - gcc --version
-            - clang --version
+            - name: start_npm_build
+          integrations:
+            - name: art
+          outputResources:
+            - name: npm_build_info
