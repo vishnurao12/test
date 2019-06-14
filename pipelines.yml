@@ -19,7 +19,14 @@ resources:
     configuration:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
-      buildName: npm-testing    
+      buildName: npm-testing
+  
+  - name: npm_bundle
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      buildNumber: 1
+      buildName: npm-testing  
 
 pipelines:
   - name: test_pipeline_ranjan
@@ -54,4 +61,18 @@ pipelines:
             - name: npm_build_info
           outputResources:
             - name: npm_build_promote 
+            
+      - name: bundle
+        type: CreateReleaseBundle
+        configuration:
+          releaseBundleName: bundle_relese
+          releaseBundleVersion: 1.0.0
+          inputResources:
+            - name: npm_build_promote 
+#             - name: my_aql  # one Aql 
+          outputResources:
+            - name: npm_bundle
+
+
+
      
