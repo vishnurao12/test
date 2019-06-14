@@ -1,21 +1,21 @@
-resources:
-  - name: gitResource123
-    type: GitRepo
-    configuration:
-      gitProvider: ranjan_github
-      path: Ranjansingh41/test
-#       files:
-#         include: jfrog.yml
-# #         exclude:   
-      branches:
-        only: master
-#       tags:
-#         only: tagv*
-#       buildOn:
-#         commit: false
-#       shallowDepth: 2
-    version:
-      sha: master  
+# resources:
+#   - name: gitResource123
+#     type: GitRepo
+#     configuration:
+#       gitProvider: ranjan_github
+#       path: Ranjansingh41/test
+# #       files:
+# #         include: jfrog.yml
+# # #         exclude:   
+#       branches:
+#         only: master
+# #       tags:
+# #         only: tagv*
+# #       buildOn:
+# #         commit: false
+# #       shallowDepth: 2
+#     version:
+#       sha: master  
       
 pipelines:
   - name: pipeline_ranjan
@@ -35,8 +35,8 @@ pipelines:
                 name: drydock/u18java
                 tag: master
                 autoPull: true      
-          inputResources:
-            - name: gitResource123
+#           inputResources:
+#             - name: gitResource123
         execution:
           onExecute:
             - printenv 
