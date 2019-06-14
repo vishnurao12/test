@@ -29,6 +29,7 @@ pipelines:
       - name: start_npm_pub_autopub_true
         type: NpmPublish
         abc: def
+        lol: 1
         configuration:
           repositoryName: ranjan_npm_local
           autoPublishBuildInfo: true
