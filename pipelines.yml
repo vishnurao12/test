@@ -1,5 +1,5 @@
 resources:
-  - name: real_npm_project
+  - name: real_npm_project1
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
@@ -38,7 +38,7 @@ pipelines:
           repositoryName: ranjan_npmtest
           sourceLocation: .
           inputResources:
-            - name: real_npm_project
+            - name: real_npm_project1
           integrations:
             - name: varsha_artifactory
             
