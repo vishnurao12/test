@@ -21,13 +21,21 @@ resources:
       buildNumber: 1
       buildName: npm-testing
   
-  - name: my_releaseBundle
+  - name: my_signed_releaseBundle 
     type: ReleaseBundle
     configuration:
       sourceArtifactory: varsha_artifactory
       name: ranjan
       version: v1.0.0
       isSigned: false
+      
+  - name: my_releaseBundle
+    type: SignReleaseBundle
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      name: ranjan
+      version: v1.0.0
+      isSigned: false    
       
 pipelines:
   - name: test_pipeline_ranjan
