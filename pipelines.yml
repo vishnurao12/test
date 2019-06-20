@@ -87,14 +87,12 @@ pipelines:
             
       - name: Sign_Release_Bundle
         type: SignReleaseBundle
-        configuration:
-          inputSteps:
-            - name: myStep  
+        configuration: 
           inputResources:
             - name: my_releaseBundle  # one ReleaseBundle is mandatory
               trigger: false    # default true
           outputResources:
-            - name:  mysignedreleaseBundle    # ReleaseBundle resource       
+            - name: mysignedreleaseBundle    # ReleaseBundle resource       
 
 
 
