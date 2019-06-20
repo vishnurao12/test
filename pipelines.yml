@@ -21,7 +21,7 @@ resources:
       buildNumber: 1
       buildName: npm-testing
   
-  - name: mysignedreleaseBundle 
+  - name: my_releaseBundle 
     type: ReleaseBundle
     configuration:
       sourceArtifactory: varsha_artifactory
