@@ -83,10 +83,10 @@ pipelines:
 #           inputSteps:
 #             - name: myStep  
           inputResources:
-            - name: npm_build_promote # one ReleaseBundle is mandatory
+            - name: my_releaseBundle  # one ReleaseBundle is mandatory
               trigger: false    # default true
           outputResources:
-            - name: my_releaseBundle   # ReleaseBundle resource       
+            - name:  my_signed_releaseBundle    # ReleaseBundle resource       
 
 
 
