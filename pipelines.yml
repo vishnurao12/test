@@ -92,7 +92,7 @@ pipelines:
             - name: my_releaseBundle  # one ReleaseBundle is mandatory
               #trigger: false    # default true
           outputResources:
-            - name: mysignedreleaseBundle    # ReleaseBundle resource       
+            - name: my_signed_releaseBundle    # ReleaseBundle resource       
 
 
 
