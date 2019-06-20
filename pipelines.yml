@@ -30,7 +30,7 @@ resources:
       isSigned: false
       
   - name: my_releaseBundle
-    type: SignReleaseBundle
+    type: ReleaseBundle
     configuration:
       sourceArtifactory: varsha_artifactory
       name: ranjan
