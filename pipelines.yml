@@ -76,6 +76,17 @@ pipelines:
 #             - name: my_aql  # one Aql 
           outputResources:
             - name: my_releaseBundle
+            
+      - name: my_release
+        type: SignReleaseBundle
+        configuration:
+          inputSteps:
+            - name: myStep  
+          inputResources:
+            - name: my_releaseBundle # one ReleaseBundle is mandatory
+              trigger: false    # default true
+          outputResources:
+            - name: my_signed_releaseBundle   # ReleaseBundle resource       
 
 
 
