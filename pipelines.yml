@@ -45,7 +45,7 @@ pipelines:
       - name: start_npm_pub_autopub_true
         type: NpmPublish
         configuration:
-          repositoryName: ranjan_npmlocal
+          repositoryName: ranjan-local-npm
           autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
@@ -57,7 +57,7 @@ pipelines:
       - name: promote
         type: PromoteBuild
         configuration:
-          targetRepository: ranjan_npmlocal
+          targetRepository: ranjan-local-npm
           inputResources:
             - name: npm_build_info
           outputResources:
