@@ -29,7 +29,7 @@ resources:
       version: v1.0.0
       isSigned: false
       
-  - name: my_releaseBundle
+  - name: my_signed_releaseBundle
     type: ReleaseBundle
     configuration:
       sourceArtifactory: varsha_artifactory
