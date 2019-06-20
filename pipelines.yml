@@ -35,7 +35,7 @@ pipelines:
       - name: start_npm_build
         type: NpmBuild
         configuration:
-          repositoryName: ranjan_npmtest
+          repositoryName: ranjan-local-npm
           sourceLocation: .
           inputResources:
             - name: real_npm_project
