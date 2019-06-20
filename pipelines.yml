@@ -90,7 +90,7 @@ pipelines:
         configuration: 
           inputResources:
             - name: my_releaseBundle  # one ReleaseBundle is mandatory
-              trigger: false    # default true
+              #trigger: false    # default true
           outputResources:
             - name: mysignedreleaseBundle    # ReleaseBundle resource       
 
