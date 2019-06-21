@@ -30,7 +30,7 @@ pipelines:
             image:
               custom:
                 name: drydock/u16java
-                tag: 0.9.0
+                tag: master
         execution:
           onStart:
             - javac -version
