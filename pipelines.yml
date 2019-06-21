@@ -7,7 +7,7 @@ resources:
       buildNumber: 1
       
 pipelines:
-  - name: ranjanmvn
+  - name: mvntest_ranjan
     steps:
       - name: mvnBuild_sample
         type: MvnBuild
