@@ -1,5 +1,5 @@
 resources:
-  - name: mvnBuild_info
+  - name: mvnBuild_inf
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
