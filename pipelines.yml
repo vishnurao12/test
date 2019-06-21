@@ -1,5 +1,5 @@
 resources:
-  - name: mvnBuild_info
+  - name: mvnBuild_info1
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
@@ -21,7 +21,7 @@ pipelines:
           inputResources:
             - name: mvn_repo
           inputSteps:
-            - name: input_script_bash
+            - name: mvnBuild_info1
           integrations:
             - name: varsha_artifactory
             - name: varsha_slack
