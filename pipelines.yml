@@ -20,8 +20,8 @@ pipelines:
           configFileName: mvn-art-config
           inputResources:
             - name: mvn_repo
-          inputSteps:
-            - name: mvnBuild_info1
+#           inputSteps:
+#             - name: mvnBuild_info1
           integrations:
             - name: varsha_artifactory
             - name: varsha_slack
