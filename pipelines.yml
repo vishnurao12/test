@@ -1,99 +1,39 @@
-# resources:
-#   - name: gitResource123
-#     type: GitRepo
-#     configuration:
-#       gitProvider: ranjan_github
-#       path: Ranjansingh41/test
-# #       files:
-# #         include: jfrog.yml
-# # #         exclude:   
-#       branches:
-#         only: master
-# #       tags:
-# #         only: tagv*
-# #       buildOn:
-# #         commit: false
-# #       shallowDepth: 2
-#     version:
-#       sha: master  
+resources:
+  - name: mvnBuild_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      buildName: mvn_sample_build
+      buildNumber: 1
       
 pipelines:
-  - name: pipeline_ranjan
+  - name: ranjanmvn
     steps:
-      - name: java
-        type: Bash
+      - name: mvnBuild_sample
+        type: MvnBuild
         configuration:
-#           nodePool: vijay_node        
-          runtime:
+          affinityGroup: mvnbuild
+#           nodePool: ubuntu16
+          sourceLocation: ./artifactory-maven-plugin-example
+          mvnCommand: clean install -f ./pom.xml
+          configFileLocation: .
+          configFileName: mvn-art-config
+          inputResources:
+            - name: mvn_repo
+          inputSteps:
+            - name: input_script_bash
+          integrations:
+            - name: varsha_artifactory
+            - name: varsha_slack
+          runtime:            
             type: image
             image:
-#               auto:
-#                 language: java
-#                 versions:
-#                   - openjdk8
               custom:
-                name: drydock/u18java
+                name: drydock/u16java
                 tag: master
-                autoPull: true      
-#           inputResources:
-#             - name: gitResource123
         execution:
-          onExecute:
-            - printenv 
-            - java -version
-            - _set_jdk openjdk8
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - _set_jdk openjdk11
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
+          onStart:
+            - javac -version
             - mvn --version
-            - ant -version
-      - name: go
-        type: Bash
-        configuration:
-#           nodePool: vijay_node           
-          inputSteps:
-            - name: java      
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: go
-#                 versions:
-#                   - 1.12.5
-              custom:
-                name: drydock/u18go
-                tag: master
-                autoPull: true
-        execution:
-          onExecute:
-            - source /root/.gvm/scripts/gvm
-            - gvm list
-            - go version
-#             - gvm use 1.11.10 
-#             - go version
-#             - gvm use 1.12.5
-#             - go version                
-      - name: cpp
-        type: Bash
-        configuration:
-#           nodePool: vijay_node           
-          inputSteps:
-            - name: go      
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: c
-#                 versions:            
-              custom:
-                name: drydock/u18cpp
-                tag: master
-                autoPull: true
-        execution:
-          onExecute:
-            - gcc --version
-            - clang --version
+          onSuccess:
+            - send_notification varsha_slack      
