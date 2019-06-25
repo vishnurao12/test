@@ -29,8 +29,8 @@ pipelines:
             type: image
             image:
               custom:
-                name: pipelines-docker.jfrog.io/jfrog/pipelines-u16java:0.9.0
-                tag: master
+                name: pipelines-docker.jfrog.io/jfrog/pipelines-u16java
+                tag: 0.9.0
         execution:
           onStart:
             - javac -version
