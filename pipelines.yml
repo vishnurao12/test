@@ -79,7 +79,7 @@ pipelines:
         configuration:
           targetRepository: bindu_mvn_local
           inputResources:
-            - name: mvn_Buildinfo
+            - name: mvn_build_promote
           outputResources:
             - name: mvn_build_promote
       - name: mvnCreatebundle
