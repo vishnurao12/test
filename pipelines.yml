@@ -19,7 +19,7 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: mvn_repo
+            - name: mvnBuild_inf
 #           inputSteps:
 #             - name: mvnBuild_info1
           integrations:
