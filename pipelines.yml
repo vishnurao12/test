@@ -6,6 +6,13 @@ resources:
       buildName: mvn_sample_build
       buildNumber: 1
       
+  - name: mvnBuild_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      buildName: mvn_scan
+      buildNumber: 2    
+      
 pipelines:
   - name: mvntest_ranjan
     steps:
@@ -36,4 +43,21 @@ pipelines:
             - javac -version
             - mvn --version
           onSuccess:
-            - send_notification varsha_slack      
+            - send_notification varsha_slack
+            
+  - name: mvnBuild_publish
+        type: PublishBuildInfo
+        configuration:
+          affinityGroup: mvnbuild
+#           nodePool: ubuntu16
+          integrations:
+            - name: varsha_slack
+          inputSteps:
+            - name: mvnBuild_sample
+          outputResources:
+            - name: mvnBuild_info
+        execution:
+          onSuccess:
+            - send_notification varsha_slack          
+            
+            
