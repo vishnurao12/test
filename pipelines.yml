@@ -29,7 +29,7 @@ pipelines:
             type: image
             image:
               custom:
-                name: drydock/u16java
+                name: pipelines-docker.jfrog.io/jfrog/pipelines-u16java:0.9.0
                 tag: master
         execution:
           onStart:
