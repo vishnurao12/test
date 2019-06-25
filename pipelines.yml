@@ -11,7 +11,21 @@ resources:
     configuration:
       sourceArtifactory: varsha_artifactory
       buildName: mvn_scan
-      buildNumber: 2    
+      buildNumber: 2
+      
+  - name: mvn_build_promote
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      buildNumber: 3
+  
+  - name: my_releaseBundle 
+    type: ReleaseBundle
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      name: ranjan
+      version: v1.0.0
+      isSigned: false    
       
 pipelines:
   - name: mvntest_ranjan
@@ -60,4 +74,23 @@ pipelines:
           onSuccess:
             - send_notification varsha_slack          
             
-            
+      - name: mvnPromote
+        type: PromoteBuild
+        configuration:
+          targetRepository: bindu_mvn_local
+          inputResources:
+            - name: mvn_Buildinfo
+          outputResources:
+            - name: mvn_build_promote
+      - name: mvnCreatebundle
+        type: CreateReleaseBundle
+        configuration:
+          releaseBundleName: mvnbundle
+          releaseBundleVersion: v1.1.1
+          dryRun: false
+          sign: false
+          description: test mvn description
+          inputResources:
+            - name: mvn_build_promote
+          outputResources:
+            - name: my_releaseBundle
