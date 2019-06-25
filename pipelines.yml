@@ -45,7 +45,7 @@ pipelines:
           onSuccess:
             - send_notification varsha_slack
             
-  - name: mvnBuild_publish
+      - name: mvnBuild_publish
         type: PublishBuildInfo
         configuration:
           affinityGroup: mvnbuild
