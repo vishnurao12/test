@@ -6,7 +6,7 @@ resources:
       buildName: mvn_sample_build
       buildNumber: 1
       
-  - name: mvnBuild_info
+  - name: mvnBuild_info09
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
@@ -55,7 +55,7 @@ pipelines:
           inputSteps:
             - name: mvnBuild_sample
           outputResources:
-            - name: mvnBuild_info
+            - name: mvnBuild_info09
         execution:
           onSuccess:
             - send_notification varsha_slack          
