@@ -13,19 +13,19 @@ resources:
       buildName: mvn_scan
       buildNumber: 2
       
-  - name: mvn_build_promote
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: varsha_artifactory
-      buildNumber: 3
+#   - name: mvn_build_promote
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: varsha_artifactory
+#       buildNumber: 3
   
-  - name: my_releaseBundle 
-    type: ReleaseBundle
-    configuration:
-      sourceArtifactory: varsha_artifactory
-      name: ranjan
-      version: v1.0.0
-      isSigned: false    
+#   - name: my_releaseBundle 
+#     type: ReleaseBundle
+#     configuration:
+#       sourceArtifactory: varsha_artifactory
+#       name: ranjan
+#       version: v1.0.0
+#       isSigned: false    
       
 pipelines:
   - name: mvntest_ranjan
@@ -59,38 +59,38 @@ pipelines:
           onSuccess:
             - send_notification varsha_slack
             
-      - name: mvnBuild_publish
-        type: PublishBuildInfo
-        configuration:
-          affinityGroup: mvnbuild
-#           nodePool: ubuntu16
-          integrations:
-            - name: varsha_slack
-          inputSteps:
-            - name: mvnBuild_sample
-          outputResources:
-            - name: mvnBuild_info09
-        execution:
-          onSuccess:
-            - send_notification varsha_slack          
+#       - name: mvnBuild_publish
+#         type: PublishBuildInfo
+#         configuration:
+#           affinityGroup: mvnbuild
+# #           nodePool: ubuntu16
+#           integrations:
+#             - name: varsha_slack
+#           inputSteps:
+#             - name: mvnBuild_sample
+#           outputResources:
+#             - name: mvnBuild_info09
+#         execution:
+#           onSuccess:
+#             - send_notification varsha_slack          
             
-      - name: mvnPromote
-        type: PromoteBuild
-        configuration:
-          targetRepository: bindu_mvn_local
-          inputResources:
-            - name: mvn_build_promote
-          outputResources:
-            - name: mvn_build_promote
-      - name: mvnCreatebundle
-        type: CreateReleaseBundle
-        configuration:
-          releaseBundleName: mvnbundle
-          releaseBundleVersion: v1.1.1
-          dryRun: false
-          sign: false
-          description: test mvn description
-          inputResources:
-            - name: mvn_build_promote
-          outputResources:
-            - name: my_releaseBundle
+#       - name: mvnPromote
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: bindu_mvn_local
+#           inputResources:
+#             - name: mvn_build_promote
+#           outputResources:
+#             - name: mvn_build_promote
+#       - name: mvnCreatebundle
+#         type: CreateReleaseBundle
+#         configuration:
+#           releaseBundleName: mvnbundle
+#           releaseBundleVersion: v1.1.1
+#           dryRun: false
+#           sign: false
+#           description: test mvn description
+#           inputResources:
+#             - name: mvn_build_promote
+#           outputResources:
+#             - name: my_releaseBundle
