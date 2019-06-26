@@ -59,20 +59,20 @@ pipelines:
           onSuccess:
             - send_notification varsha_slack
             
-#       - name: mvnBuild_publish
-#         type: PublishBuildInfo
-#         configuration:
-#           affinityGroup: mvnbuild
-# #           nodePool: ubuntu16
-#           integrations:
-#             - name: varsha_slack
-#           inputSteps:
-#             - name: mvnBuild_sample
-#           outputResources:
-#             - name: mvnBuild_info09
-#         execution:
-#           onSuccess:
-#             - send_notification varsha_slack          
+      - name: mvnBuild_publish
+        type: PublishBuildInfo
+        configuration:
+          affinityGroup: mvnbuild
+#           nodePool: ubuntu16
+          integrations:
+            - name: varsha_slack
+          inputSteps:
+            - name: mvnBuild_sample
+          outputResources:
+            - name: mvnBuild_info09
+        execution:
+          onSuccess:
+            - send_notification varsha_slack          
             
 #       - name: mvnPromote
 #         type: PromoteBuild
