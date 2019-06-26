@@ -39,6 +39,7 @@ pipelines:
           mvnCommand: clean install -f ./pom.xml
           configFileLocation: .
           configFileName: mvn-art-config
+          nodePool: ubuntu16
           inputResources:
             - name: mvn_repo
 #           inputSteps:
@@ -63,7 +64,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           affinityGroup: mvnbuild
-#           nodePool: ubuntu16
+          nodePool: ubuntu16
           integrations:
             - name: varsha_slack
           inputSteps:
