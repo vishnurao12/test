@@ -55,7 +55,7 @@ pipelines:
                 tag: 0.9.0
         execution:
           onStart:
-            - java --version
+            - javac -version
             - mvn --version
           onSuccess:
             - send_notification varsha_slack
