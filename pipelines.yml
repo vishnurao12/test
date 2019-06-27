@@ -34,7 +34,7 @@ pipelines:
         type: MvnBuild
         configuration:
           affinityGroup: mvnbuild
-#           nodePool: ubuntu16
+          nodePool: ubuntu16
           sourceLocation: ./artifactory-maven-plugin-example
           mvnCommand: clean install -f ./pom.xml
           configFileLocation: .
@@ -63,7 +63,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           affinityGroup: mvnbuild
-#           nodePool: ubuntu16
+          nodePool: ubuntu16
           integrations:
             - name: varsha_slack
           inputSteps:
