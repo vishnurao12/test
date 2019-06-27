@@ -43,7 +43,7 @@ pipelines:
         type: NpmBuild
         configuration:
           repositoryName: ranjan-local-npm
-          nodepools: ubuntu16
+          nodepool: ubuntu16
           sourceLocation: .
           inputResources:
             - name: real_npm_project
@@ -54,7 +54,7 @@ pipelines:
         type: NpmPublish
         configuration:
           repositoryName: ranjan-local-npm
-          nodepools: ubuntu16
+          nodepool: ubuntu16
           autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
@@ -67,7 +67,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           targetRepository: ranjan-local-npm
-          nodepools: ubuntu16
+          nodepool: ubuntu16
           inputResources:
             - name: npm_build_info
           outputResources:
@@ -78,7 +78,7 @@ pipelines:
         configuration:
           releaseBundleName: bundle_relese
           releaseBundleVersion: 1.0.0
-          nodepools: ubuntu16
+          nodepool: ubuntu16
           releaseNotes:         
             content: bundle_test 
             syntax:  plain_text 
@@ -91,7 +91,7 @@ pipelines:
       - name: Sign_Release_Bundle
         type: SignReleaseBundle
         configuration: 
-          nodepools: ubuntu16
+          nodepool: ubuntu16
           inputResources:
             - name: my_releaseBundle  # one ReleaseBundle is mandatory
               #trigger: false    # default true
