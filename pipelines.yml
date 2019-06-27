@@ -39,7 +39,6 @@ pipelines:
           mvnCommand: clean install -f ./pom.xml
           configFileLocation: .
           configFileName: mvn-art-config
-          nodePool: ubuntu16
           inputResources:
             - name: mvn_repo
 #           inputSteps:
