@@ -64,7 +64,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           affinityGroup: mvnbuild
-          nodePool: ubuntu16
+#           nodePool: ubuntu16
           integrations:
             - name: varsha_slack
           inputSteps:
