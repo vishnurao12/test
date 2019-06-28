@@ -37,10 +37,10 @@ resources:
 #       isSigned: false    
       
 pipelines:
-  - name: test_pipeline_ranjan@
+  - name: test_pipeline_ranjan
     steps:
       - name: start_npm_build
-        type: NpmBuild
+        type: NpmBuil
         configuration:
           repositoryName: ranjan-local-npm
 #           nodepool: ubuntu16
