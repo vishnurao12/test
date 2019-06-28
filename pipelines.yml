@@ -40,7 +40,7 @@ pipelines:
   - name: test_pipeline_ranjan
     steps:
       - name: start_npm_build
-        type: NpmBuil
+        type: NpmBuild
         configuration:
           repositoryName: ranjan-local-npm
 #           nodepool: ubuntu16
