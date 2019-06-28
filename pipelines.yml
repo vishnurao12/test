@@ -4,7 +4,7 @@ resources:
     configuration:
       gitProvider: ranjan_github
       path: ranjansingh41/j-sample-node
-      sha: npmtest.yml
+#       sha: npmtest.yml
        
 #   - name: npm_build_info
 #     type: BuildInfo
