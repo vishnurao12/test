@@ -1,7 +1,7 @@
 resources:
   - name: real_npm_project
-    type: gitRepo
-    configuration:
+    type: GitRepo
+#     configuration:
       gitProvider: ranjan_github
       path: ranjansingh41/j-sample-node
       sha: npmtest.yml
