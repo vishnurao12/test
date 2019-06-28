@@ -6,35 +6,35 @@ resources:
       path: ranjansingh41/j-sample-node
       sha: npmtest.yml
        
-  - name: npm_build_info
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: varsha_artifactory
-      buildNumber: 1
-      buildName: npm-testing
+#   - name: npm_build_info
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: varsha_artifactory
+#       buildNumber: 1
+#       buildName: npm-testing
       
-  - name: npm_build_promote
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: varsha_artifactory
-      buildNumber: 1
-      buildName: npm-testing
+#   - name: npm_build_promote
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: varsha_artifactory
+#       buildNumber: 1
+#       buildName: npm-testing
   
-  - name: my_releaseBundle 
-    type: ReleaseBundle
-    configuration:
-      sourceArtifactory: varsha_artifactory
-      name: ranjan
-      version: v1.0.0
-      isSigned: false
+#   - name: my_releaseBundle 
+#     type: ReleaseBundle
+#     configuration:
+#       sourceArtifactory: varsha_artifactory
+#       name: ranjan
+#       version: v1.0.0
+#       isSigned: false
       
-  - name: my_signed_releaseBundle
-    type: ReleaseBundle
-    configuration:
-      sourceArtifactory: varsha_artifactory
-      name: ranjan
-      version: v1.0.0
-      isSigned: false    
+#   - name: my_signed_releaseBundle
+#     type: ReleaseBundle
+#     configuration:
+#       sourceArtifactory: varsha_artifactory
+#       name: ranjan
+#       version: v1.0.0
+#       isSigned: false    
       
 pipelines:
   - name: test_pipeline_ranjan
@@ -50,50 +50,50 @@ pipelines:
           integrations:
             - name: varsha_artifactory
             
-      - name: start_npm_pub_autopub_true
-        type: NpmPublish
-        configuration:
-          repositoryName: ranjan-local-npm
-#           nodepool: ubuntu16
-          autoPublishBuildInfo: true
-          inputSteps:
-            - name: start_npm_build
-          integrations:
-            - name: varsha_artifactory
-          outputResources:
-            - name: npm_build_info
+#       - name: start_npm_pub_autopub_true
+#         type: NpmPublish
+#         configuration:
+#           repositoryName: ranjan-local-npm
+# #           nodepool: ubuntu16
+#           autoPublishBuildInfo: true
+#           inputSteps:
+#             - name: start_npm_build
+#           integrations:
+#             - name: varsha_artifactory
+#           outputResources:
+#             - name: npm_build_info
             
-      - name: promote
-        type: PromoteBuild
-        configuration:
-          targetRepository: ranjan-local-npm
-#           nodepool: ubuntu16
-          inputResources:
-            - name: npm_build_info
-          outputResources:
-            - name: npm_build_promote 
+#       - name: promote
+#         type: PromoteBuild
+#         configuration:
+#           targetRepository: ranjan-local-npm
+# #           nodepool: ubuntu16
+#           inputResources:
+#             - name: npm_build_info
+#           outputResources:
+#             - name: npm_build_promote 
             
-      - name: bundle
-        type: CreateReleaseBundle
-        configuration:
-          releaseBundleName: bundle_relese
-          releaseBundleVersion: 1.0.0
-#           nodepool: ubuntu16
-          releaseNotes:         
-            content: bundle_test 
-            syntax:  plain_text 
-          inputResources:
-            - name: npm_build_promote 
-#             - name: my_aql  # one Aql 
-          outputResources:
-            - name: my_releaseBundle
+#       - name: bundle
+#         type: CreateReleaseBundle
+#         configuration:
+#           releaseBundleName: bundle_relese
+#           releaseBundleVersion: 1.0.0
+# #           nodepool: ubuntu16
+#           releaseNotes:         
+#             content: bundle_test 
+#             syntax:  plain_text 
+#           inputResources:
+#             - name: npm_build_promote 
+# #             - name: my_aql  # one Aql 
+#           outputResources:
+#             - name: my_releaseBundle
             
-      - name: Sign_Release_Bundle
-        type: SignReleaseBundle
-        configuration: 
-#           nodepool: ubuntu16
-          inputResources:
-            - name: my_releaseBundle  # one ReleaseBundle is mandatory
-              #trigger: false    # default true
-          outputResources:
-            - name: my_signed_releaseBundle    # ReleaseBundle resource       
+#       - name: Sign_Release_Bundle
+#         type: SignReleaseBundle
+#         configuration: 
+# #           nodepool: ubuntu16
+#           inputResources:
+#             - name: my_releaseBundle  # one ReleaseBundle is mandatory
+#               #trigger: false    # default true
+#           outputResources:
+#             - name: my_signed_releaseBundle    # ReleaseBundle resource       
