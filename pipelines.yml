@@ -1,6 +1,6 @@
 resources:
   - name: real_npm_project
-    type: GitRepo
+    type: gitRepo
     configuration:
       gitProvider: ranjan_github
       path: ranjansingh41/j-sample-node
