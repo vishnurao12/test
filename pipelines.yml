@@ -1,5 +1,5 @@
 resources:
-  - name: real_npm_project
+  - name: real_npm_project@
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
