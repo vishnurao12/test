@@ -8,7 +8,7 @@ resources:
        
   - name: npm_publish_info
     type: BuildInfow
-    configuration:
+#     configuration:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
       buildName: npm-testing
