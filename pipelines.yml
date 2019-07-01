@@ -53,7 +53,7 @@ pipelines:
       - name: start_npm_pub_autopub_true
         type: NpmPublishl
         configuration:
-          repositoryName: ranjan-local-npm
+#           repositoryName: ranjan-local-npm
 #           nodepool: ubuntu16
           autoPublishBuildInfo: false
           inputSteps:
