@@ -48,7 +48,7 @@ pipelines:
           inputResources:
             - name: real_npm_project
           integrations:
-#             - name: varsha_artifactory
+            - name: varsha_artifactory
             
 #       - name: start_npm_pub_autopub_true
 #         type: NpmPublish
