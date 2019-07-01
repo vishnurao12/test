@@ -60,8 +60,8 @@ pipelines:
             - name: start_npm_build
           integrations:
             - name: varsha_artifactory
-          outputResources:
-            - name: npm_publish_info
+#           outputResources:
+#             - name: npm_publish_info
             
 #       - name: promote
 #         type: PromoteBuild
