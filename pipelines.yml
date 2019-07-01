@@ -11,7 +11,7 @@ resources:
     configuration:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
-      buildName: npm-testing
+      buildName: npm-testing1
       
 #   - name: npm_build_promote
 #     type: BuildInfo
