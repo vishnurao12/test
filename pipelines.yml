@@ -56,10 +56,10 @@ pipelines:
           repositoryName: test-npm-local
 #           nodepool: ubuntu16
 #           autoPublishBuildInfo: false
-          inputSteps:
-            - name: start_npm_build
-#           integrations:
-#             - name: varsha_artifactory
+#           inputSteps:
+#             - name: start_npm_build
+          integrations:
+            - name: varsha_artifactory
           outputResources:
             - name: npm_publish_info
             
