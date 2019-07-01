@@ -55,7 +55,7 @@ pipelines:
         configuration:
           repositoryName: test-npm-local
 #           nodepool: ubuntu16
-#           autoPublishBuildInfo: false
+          autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
           integrations:
