@@ -55,7 +55,7 @@ pipelines:
         configuration:
           repositoryName: ranjan-local-npm
 #           nodepool: ubuntu16
-          autoPublishBuildInfo: false
+          autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
           integrations:
