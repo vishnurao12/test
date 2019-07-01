@@ -6,7 +6,7 @@ resources:
       path: ranjansingh41/j-sample-node
 #       sha: npmtest.yml
        
-  - name: npm_publish_info
+  - name: npm_publish_infoe
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
