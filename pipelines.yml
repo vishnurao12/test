@@ -50,7 +50,7 @@ pipelines:
           integrations:
             - name: varsha_artifactory
             
-      - name: start_npm_pub_autopub_true
+      - name: start_npm_pub_autopub_true@
         type: NpmPublish
         configuration:
           repositoryName: ranjan-local-npm
