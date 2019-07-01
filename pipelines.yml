@@ -6,12 +6,12 @@ resources:
       path: ranjansingh41/j-sample-node
 #       sha: npmtest.yml
        
-#   - name: npm_build_info
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: varsha_artifactory
-#       buildNumber: 1
-#       buildName: npm-testing
+  - name: npm_publish_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      buildNumber: 1
+      buildName: npm-testing
       
 #   - name: npm_build_promote
 #     type: BuildInfo
@@ -45,23 +45,23 @@ pipelines:
           repositoryName: ranjan-local-npm
 #           nodepool: ubuntu16
           sourceLocation: .
-#           inputResources:
-#             - name: real_npm_project
+          inputResources:
+            - name: real_npm_project
           integrations:
             - name: varsha_artifactory
             
-#       - name: start_npm_pub_autopub_true
-#         type: NpmPublish
-#         configuration:
-#           repositoryName: ranjan-local-npm
-# #           nodepool: ubuntu16
-#           autoPublishBuildInfo: true
-#           inputSteps:
-#             - name: start_npm_build
-#           integrations:
-#             - name: varsha_artifactory
-#           outputResources:
-#             - name: npm_build_info
+      - name: start_npm_pub_autopub_true
+        type: NpmPublish
+        configuration:
+          repositoryName: ranjan-local-npm
+#           nodepool: ubuntu16
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: start_npm_build
+          integrations:
+            - name: varsha_artifactory
+          outputResources:
+            - name: npm_build_info
             
 #       - name: promote
 #         type: PromoteBuild
