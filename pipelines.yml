@@ -44,7 +44,7 @@ pipelines:
         configuration:
           repositoryName: ranjan-local-npm
 #           nodepool: ubuntu16
-          sourceLocation: .
+#           sourceLocation: .
           inputResources:
             - name: real_npm_project
           integrations:
