@@ -42,7 +42,7 @@ pipelines:
       - name: start_npm_build
         type: NpmBuild
         configuration:
-          repositoryName: ranjan-local-npm
+          repositoryName: test-npm-local
 #           nodepool: ubuntu16
           sourceLocation: .
           inputResources:
@@ -53,7 +53,7 @@ pipelines:
       - name: start_npm_pub_autopub_true
         type: NpmPublish
         configuration:
-          repositoryName: ranjan-local-npm
+          repositoryName: test-npm-local
 #           nodepool: ubuntu16
           autoPublishBuildInfo: false
           inputSteps:
