@@ -61,7 +61,7 @@ pipelines:
           integrations:
             - name: varsha_artifactory
           outputResources:
-            - name: npm_build_info
+            - name: npm_publish_info
             
 #       - name: promote
 #         type: PromoteBuild
