@@ -45,8 +45,8 @@ pipelines:
           repositoryName: ranjan-local-npm
 #           nodepool: ubuntu16
           sourceLocation: .
-          inputResources:
-            - name: real_npm_project
+#           inputResources:
+#             - name: real_npm_project
           integrations:
             - name: varsha_artifactory
             
