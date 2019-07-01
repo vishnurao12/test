@@ -47,7 +47,7 @@ pipelines:
           sourceLocation: .
           inputResources:
             - name: real_npm_project
-#           integrations:
+          integrations:
 #             - name: varsha_artifactory
             
 #       - name: start_npm_pub_autopub_true
