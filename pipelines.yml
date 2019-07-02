@@ -7,13 +7,13 @@ resources:
 #       sha: npmtest.yml
        
   - name: npm_publish_info
-    type: BuildInfo
+    type: BuildInfou
     configuration:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
       buildName: npm-testing
       
-  - name: npm_build_promote@
+  - name: npm_build_promote
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
@@ -66,12 +66,12 @@ pipelines:
       - name: promote
         type: PromoteBuild
         configuration:
-          targetRepository: ranjan-local-npm
+          targetRepository: test-npm-local
 #           nodepool: ubuntu16
           inputResources:
             - name: npm_publish_info
           outputResources:
-            - name: npm_build_promote@ 
+            - name: npm_build_promote 
             
 #       - name: bundle
 #         type: CreateReleaseBundle
