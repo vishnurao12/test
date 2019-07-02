@@ -64,9 +64,9 @@ pipelines:
             - name: npm_publish_info
             
       - name: promote
-        type: PromoteBuildr
+        type: PromoteBuild
         configuration:
-          targetRepository: test-npm-local
+#           targetRepository: test-npm-local
 #           nodepool: ubuntu16
           inputResources:
             - name: npm_publish_info
