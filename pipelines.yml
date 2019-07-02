@@ -6,19 +6,19 @@ resources:
       path: ranjansingh41/j-sample-node
 #       sha: npmtest.yml
        
-  - name: npm_publish_infoe
+  - name: npm_publish_info
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
       buildName: npm-testing
       
-#   - name: npm_build_promote
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: varsha_artifactory
-#       buildNumber: 1
-#       buildName: npm-testing
+  - name: npm_build_promote
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: varsha_artifactory
+      buildNumber: 1
+      buildName: npm-testing
   
 #   - name: my_releaseBundle 
 #     type: ReleaseBundle
@@ -63,15 +63,15 @@ pipelines:
           outputResources:
             - name: npm_publish_info
             
-#       - name: promote
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: ranjan-local-npm
-# #           nodepool: ubuntu16
-#           inputResources:
-#             - name: npm_build_info
-#           outputResources:
-#             - name: npm_build_promote 
+      - name: promote
+        type: PromoteBuild
+        configuration:
+          targetRepository: ranjan-local-npm
+#           nodepool: ubuntu16
+          inputResources:
+            - name: npm_build_info
+          outputResources:
+            - name: npm_build_promote 
             
 #       - name: bundle
 #         type: CreateReleaseBundle
