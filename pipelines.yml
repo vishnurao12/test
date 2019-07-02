@@ -17,7 +17,7 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
-      buildNumber: 1qq
+      buildNumber: 1
       buildName: npm-testing
   
 #   - name: my_releaseBundle 
