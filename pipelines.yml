@@ -40,7 +40,7 @@ pipelines:
   - name: test_pipeline_ranjan
     steps:
       - name: start_npm_build
-        type: NpmBuilde
+        type: NpmBuild
         configuration:
           repositoryName: test-npm-local
 #           nodepool: ubuntu16
@@ -63,8 +63,8 @@ pipelines:
           outputResources:
             - name: npm_publish_info
             
-      - name: promote@
-        type: PromoteBuild
+      - name: promote
+        type: PromoteBuildr
         configuration:
           targetRepository: test-npm-local
 #           nodepool: ubuntu16
