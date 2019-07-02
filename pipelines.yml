@@ -70,7 +70,7 @@ pipelines:
 #           nodepool: ubuntu16
           inputResources:
             - name: npm_publish_info
-            - trigger: false
+#             - trigger: false
           outputResources:
             - name: npm_build_promote 
             
