@@ -7,14 +7,14 @@ resources:
 #       sha: npmtest.yml
        
   - name: npm_publish_info
-    type: BuildInfou
+    type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
       buildName: npm-testing
       
   - name: npm_build_promote
-    type: BuildInfo
+    type: BuildInfora
     configuration:
       sourceArtifactory: varsha_artifactory
       buildNumber: 1
