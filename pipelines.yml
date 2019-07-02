@@ -69,7 +69,7 @@ pipelines:
           targetRepository: ranjan-local-npm
 #           nodepool: ubuntu16
           inputResources:
-            - name: npm_build_info
+            - name: npm_publish_info
           outputResources:
             - name: npm_build_promote 
             
