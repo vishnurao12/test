@@ -63,7 +63,7 @@ pipelines:
           outputResources:
             - name: npm_publish_info
             
-      - name: promote
+      - name: promote@
         type: PromoteBuild
         configuration:
           targetRepository: test-npm-local
