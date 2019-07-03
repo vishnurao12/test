@@ -27,8 +27,8 @@ pipelines:
                 name: drydock/u16go
                 tag: latest
                 autoPull: false      
-#           inputResources:
-#             - name: gitResource123
+          inputResources:
+            - name: real_npm_project
         execution:
           onStart:
              - jfrog --version
