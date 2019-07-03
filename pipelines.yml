@@ -12,7 +12,7 @@ pipelines:
         type: GoBuild
         configuration:
           sourceLocation: .  # required
-          outputLocation: /tem # required
+          outputLocation: /tmp/dist # required
           outputFile: hello      # required
           repository: test-go-local
           nodePool : ubuntu16
