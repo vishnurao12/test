@@ -28,7 +28,7 @@ resources:
       name: go_service
       version: v1.16
       
-  - name: promoted_go_build0
+  - name: promoted_go_buildo
     type: BuildInfo
     configuration:
       sourceArtifactory: art 
