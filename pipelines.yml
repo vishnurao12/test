@@ -9,7 +9,7 @@ pipelines:
   - name: pipeline_ranjan
     steps:
       - name: go
-        type: Gobuild
+        type: GoBuild
         configuration:
           runtime:
             type: image
