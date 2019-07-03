@@ -27,7 +27,7 @@ pipelines:
 #                 versions:
 #                   - openjdk8
               custom:
-                name: u16node
+                name: u16node #this is go repo
                 tag: latest
                 autoPull: false      
           inputResources:
