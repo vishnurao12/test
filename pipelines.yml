@@ -15,6 +15,7 @@ pipelines:
           outputLocation: /tem # required
           outputFile: hello      # required
           repository: test-go-local
+          nodepool : ubuntu16
           integrations:
             - name: varsha_artifactory
 
