@@ -14,7 +14,9 @@ pipelines:
           sourceLocation: .  # required
           outputLocation: /tem # required
           outputFile: hello      # required
-          repository: test-go-local      # required
+          repository: test-go-local
+          integrations:
+            - name: varsha_artifactory
 
           runtime:
             type: image
