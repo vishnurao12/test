@@ -1,5 +1,5 @@
 resources:
-  - name: artifactory_go
+  - name: artifactory_goo
     type: GitRepo
     configuration:
       path: ranjansingh41/artifactory-go-example
@@ -7,35 +7,35 @@ resources:
         include: master
       gitProvider: ranjan_github
       
-  - name: go_build_info
+  - name: go_build_infoo
     type: BuildInfo
     configuration:
       sourceArtifactory: art
       buildName: go_example_build
       buildNumber: 1
       
-  - name: unsigned_release_bundle_go
+  - name: unsigned_release_bundle_goo
     type: ReleaseBundle
     configuration:
       sourceDistribution: dist 
       name: go_service
       version: v1.16
       
-  - name: signed_release_bundle_go
+  - name: signed_release_bundle_goo
     type: ReleaseBundle
     configuration:
       sourceDistribution: dist 
       name: go_service
       version: v1.16
       
-  - name: promoted_go_build
+  - name: promoted_go_build0
     type: BuildInfo
     configuration:
       sourceArtifactory: art 
       buildName: promote_go_build_publish
       buildNumber: 1
       
-  - name: distribution_rule_go
+  - name: distribution_rule_goo
     type: DistributionRule
     configuration:
       sourceDistribution: dist
@@ -96,9 +96,9 @@ pipelines:
           inputSteps:
             - name: publish_go_binary
           outputResources:
-            - name: go_build_info
+            - name: go_build_infoo
             
-      - name: promote_build_go
+      - name: promote_build_goo
         type: PromoteBuild
         configuration:
           nodePool: ubuntu16        
@@ -106,11 +106,11 @@ pipelines:
           integrations:
             - name: art
           inputResources:
-            - name: go_build_info
+            - name: go_build_infoo
           outputResources:
-            - name: promoted_go_build
+            - name: promoted_go_buildo
             
-      - name: bundle_go_publish
+      - name: bundle_go_publisho
         type: CreateReleaseBundle
         configuration:
           nodePool: ubuntu16        
@@ -120,24 +120,24 @@ pipelines:
           releaseBundleVersion: v2.1.$run_number
           sign: false
           inputResources:
-            - name: promoted_go_build
+            - name: promoted_go_buildo
           outputResources:
-            - name: unsigned_release_bundle_go
+            - name: unsigned_release_bundle_goo
             
-      - name: sign_release_bundle_go
+      - name: sign_release_bundle_goo
         type: SignReleaseBundle
         configuration:
           inputResources:
-            - name: unsigned_release_bundle_go
+            - name: unsigned_release_bundle_goo
           outputResources:
-            - name: signed_release_bundle_go
+            - name: signed_release_bundle_goo
             
-      - name: distribute_signed_release_bundle
+      - name: distribute_signed_release_bundleo
         type: DistributeReleaseBundle
         configuration:
           dryRun: false
           inputResources:
-            - name: signed_release_bundle_go
-            - name: distribution_rule_go
+            - name: signed_release_bundle_goo
+            - name: distribution_rule_goo
           integrations: 
             - name: dist
