@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
-      path: ranjansingh41/test 
+      path: Ranjansingh41/artifactory-go-example 
       
 pipelines:
   - name: pipeline_ranjan
@@ -11,6 +11,11 @@ pipelines:
       - name: go
         type: GoBuild
         configuration:
+          sourceLocation: .  # required
+          outputLocation: /tem # required
+          outputFile: hello      # required
+          repository: test-go-local      # required
+
           runtime:
             type: image
             image:
