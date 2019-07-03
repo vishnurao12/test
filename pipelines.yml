@@ -27,7 +27,7 @@ pipelines:
 #                 versions:
 #                   - openjdk8
               custom:
-                name: drydock/u16go
+                name: u16node
                 tag: latest
                 autoPull: false      
           inputResources:
