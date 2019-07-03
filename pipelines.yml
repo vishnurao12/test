@@ -36,6 +36,10 @@ pipelines:
           onStart:
              - jfrog --version
              - _set_go 1.11.10
+             - jfrog --version
+             - _set_go 1.12.5
+             - jfrog --version
+
 #             - printenv 
 #             - java -version
 #             - _set_jdk openjdk8
