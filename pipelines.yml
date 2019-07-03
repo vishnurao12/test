@@ -1,29 +1,16 @@
-# resources:
-#   - name: gitResource123
-#     type: GitRepo
-#     configuration:
-#       gitProvider: ranjan_github
-#       path: Ranjansingh41/test
-# #       files:
-# #         include: jfrog.yml
-# # #         exclude:   
-#       branches:
-#         only: master
-# #       tags:
-# #         only: tagv*
-# #       buildOn:
-# #         commit: false
-# #       shallowDepth: 2
-#     version:
-#       sha: master  
+resources:
+  - name: real_npm_project
+    type: GitRepo
+    configuration:
+      gitProvider: ranjan_github
+      path: ranjansingh41/test 
       
 pipelines:
   - name: pipeline_ranjan
     steps:
-      - name: java
-        type: Bash
+      - name: go
+        type: gobuild
         configuration:
-#           nodePool: vijay_node        
           runtime:
             type: image
             image:
@@ -32,68 +19,68 @@ pipelines:
 #                 versions:
 #                   - openjdk8
               custom:
-                name: drydock/u18java
-                tag: master
-                autoPull: true      
+                name: drydock/u16go
+                tag: latest
+                autoPull: false      
 #           inputResources:
 #             - name: gitResource123
         execution:
-          onExecute:
-            - printenv 
-            - java -version
-            - _set_jdk openjdk8
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - _set_jdk openjdk11
-            - java -version
-            - echo $JAVA_HOME
-            - echo $PATH
-            - mvn --version
-            - ant -version
-      - name: go
-        type: Bash
-        configuration:
-#           nodePool: vijay_node           
-          inputSteps:
-            - name: java      
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: go
-#                 versions:
-#                   - 1.12.5
-              custom:
-                name: drydock/u18go
-                tag: master
-                autoPull: true
-        execution:
-          onExecute:
-            - source /root/.gvm/scripts/gvm
-            - gvm list
-            - go version
+          onStart:
+             - jfrog --version
+#             - printenv 
+#             - java -version
+#             - _set_jdk openjdk8
+#             - java -version
+#             - echo $JAVA_HOME
+#             - echo $PATH
+#             - _set_jdk openjdk11
+#             - java -version
+#             - echo $JAVA_HOME
+#             - echo $PATH
+#             - mvn --version
+#             - ant -version
+#       - name: go
+#         type: Bash
+#         configuration:
+#           inputSteps:
+#             - name: java      
+#           runtime:
+#             type: image
+#             image:
+# #               auto:
+# #                 language: go
+# #                 versions:
+# #                   - 1.12.5
+#               custom:
+#                 name: drydock/u18go
+#                 tag: master
+#                 autoPull: false
+#         execution:
+#           onExecute:
+#             - source /root/.gvm/scripts/gvm
+#             - gvm list
+#             - go version
 #             - gvm use 1.11.10 
 #             - go version
 #             - gvm use 1.12.5
 #             - go version                
-      - name: cpp
-        type: Bash
-        configuration:
-#           nodePool: vijay_node           
-          inputSteps:
-            - name: go      
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: c
-#                 versions:            
-              custom:
-                name: drydock/u18cpp
-                tag: master
-                autoPull: true
-        execution:
-          onExecute:
-            - gcc --version
-            - clang --version
+#       - name: cpp
+#         type: Bash
+#         configuration:
+# #           nodePool: vijay_node           
+#           inputSteps:
+#             - name: go      
+#           runtime:
+#             type: image
+#             image:
+# #               auto:
+# #                 language: c
+# #                 versions:            
+#               custom:
+#                 name: drydock/u18cpp
+#                 tag: master
+#                 autoPull: true
+#         execution:
+#           onExecute:
+#             - gcc --version
+#             - clang --version
