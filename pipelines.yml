@@ -84,7 +84,7 @@ pipelines:
         configuration:
           nodePool: ubuntu16        
           inputSteps:
-            - name: build_go
+            - name: build_goo
           targetRepository: test-go-local
           integrations:
             - name: art    
