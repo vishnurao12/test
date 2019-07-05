@@ -48,7 +48,7 @@ resources:
 
 
 pipelines:
-  - name: go_build
+  - name: go_builds
     configuration:   
       runtime:       
         type: image
@@ -58,7 +58,7 @@ pipelines:
             tag: gotesting
             options: " "   
     steps:
-      - name: build_go
+      - name: build_goo
         type: GoBuild
         configuration:
           nodePool: ubuntu16
