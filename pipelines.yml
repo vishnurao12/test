@@ -35,15 +35,15 @@ resources:
       buildName: promote_go_build_publish
       buildNumber: 1
       
-  - name: distribution_rule_goo
-    type: DistributionRule
-    configuration:
-      sourceDistribution: dist
-      cityName: "*"
-      serviceName: "*"
-      siteName: "*"
-      countryCodes:
-        - CN      
+#   - name: distribution_rule_goo
+#     type: DistributionRule
+#     configuration:
+#       sourceDistribution: dist
+#       cityName: "*"
+#       serviceName: "*"
+#       siteName: "*"
+#       countryCodes:
+#         - CN      
 
 
 
@@ -132,12 +132,12 @@ pipelines:
           outputResources:
             - name: signed_release_bundle_goo
             
-      - name: distribute_signed_release_bundleo
-        type: DistributeReleaseBundle
-        configuration:
-          dryRun: false
-          inputResources:
-            - name: signed_release_bundle_goo
-            - name: distribution_rule_goo
-          integrations: 
-            - name: dist
+#       - name: distribute_signed_release_bundleo
+#         type: DistributeReleaseBundle
+#         configuration:
+#           dryRun: false
+#           inputResources:
+#             - name: signed_release_bundle_goo
+#             - name: distribution_rule_goo
+#           integrations: 
+#             - name: dist
