@@ -25,7 +25,7 @@ resources:
     configuration:
       sourceDistribution: dist 
       name: test-npm-local
-      version: v1.0.0
+      version: 2.0.0
       isSigned: false
       
   - name: my_signed_releaseBundle
@@ -89,7 +89,7 @@ pipelines:
         configuration:
 #           dryRun: false
           releaseBundleName: bundle_relese
-          releaseBundleVersion: 1.0.0
+          releaseBundleVersion: 2.0.0
 #           nodepool: ubuntu16
           releaseNotes:         
             content: bundle_test 
