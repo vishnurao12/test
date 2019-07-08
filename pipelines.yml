@@ -114,7 +114,7 @@ pipelines:
         configuration:
           dryRun: false
           inputResources:
-            - name: signed_release_bundle_npm
+            - name: my_signed_releaseBundle
             - name: distribution_rule_npm
           integrations: 
             - name: dist
