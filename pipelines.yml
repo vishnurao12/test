@@ -1,12 +1,12 @@
 resources:
-  - name: real_npm_project
+  - name: npm_project
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
       path: ranjansingh41/j-sample-node
 #       sha: npmtest.yml
        
-  - name: npm_publish_info
+  - name: publish_info
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
@@ -56,7 +56,7 @@ pipelines:
 #           nodepool: ubuntu16
           sourceLocation: .
           inputResources:
-            - name: real_npm_project
+            - name: npm_project
           integrations:
             - name: varsha_artifactory
             
@@ -71,7 +71,7 @@ pipelines:
           integrations:
             - name: varsha_artifactory
           outputResources:
-            - name: npm_publish_info
+            - name: publish_info
             
       - name: promote
         type: PromoteBuild
