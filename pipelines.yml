@@ -23,10 +23,10 @@ resources:
   - name: my_releaseBundle 
     type: ReleaseBundle
     configuration:
-      sourceArtifactory: varsha_artifactory
-      name: ranjan
+      sourceDistribution: dist 
+      name: test-npm-local
       version: v1.0.0
-      isSigned: false
+#       isSigned: false
       
 #   - name: my_signed_releaseBundle
 #     type: ReleaseBundle
