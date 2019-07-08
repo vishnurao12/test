@@ -87,6 +87,7 @@ pipelines:
       - name: bundle
         type: CreateReleaseBundle
         configuration:
+          dryRun: true
           releaseBundleName: bundle_relese
           releaseBundleVersion: 1.0.0
 #           nodepool: ubuntu16
