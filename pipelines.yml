@@ -34,7 +34,17 @@ resources:
       sourceDistribution: dist 
       name: test-npm-local
       version: v1.0.0
-#       isSigned: false    
+#       isSigned: false  
+
+  - name: distribution_rule_npm
+    type: DistributionRule
+    configuration:
+      sourceDistribution: dist
+      cityName: "*"
+      serviceName: "*"
+      siteName: "*"
+      countryCodes:
+        - IN  
       
 pipelines:
   - name: test_pipeline_ranjan
@@ -55,7 +65,7 @@ pipelines:
         configuration:
           repositoryName: test-npm-local
 #           nodepool: ubuntu16
-          autoPublishBuildInfo: false
+          autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
           integrations:
@@ -97,4 +107,15 @@ pipelines:
             - name: my_releaseBundle  # one ReleaseBundle is mandatory
               #trigger: false    # default true
           outputResources:
-            - name: my_signed_releaseBundle    # ReleaseBundle resource       
+            - name: my_signed_releaseBundle    # ReleaseBundle resource
+            
+      - name: distribute_signed_release_bundleo
+        type: DistributeReleaseBundle
+        configuration:
+          dryRun: false
+          inputResources:
+            - name: signed_release_bundle_npm
+            - name: distribution_rule_npm
+          integrations: 
+            - name: dist
+      
