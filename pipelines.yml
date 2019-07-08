@@ -79,7 +79,7 @@ pipelines:
           targetRepository: test-npm-local
 #           nodepool: ubuntu16
           inputResources:
-            - name: npm_publish_info
+            - name: publish_info
 #               trigger: false
           outputResources:
             - name: npm_build_promote 
