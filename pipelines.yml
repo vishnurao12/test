@@ -28,12 +28,12 @@ resources:
       version: v1.0.0
 #       isSigned: false
       
-#   - name: my_signed_releaseBundle
-#     type: ReleaseBundle
-#     configuration:
-#       sourceArtifactory: varsha_artifactory
-#       name: ranjan
-#       version: v1.0.0
+  - name: my_signed_releaseBundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: dist 
+      name: test-npm-local
+      version: v1.0.0
 #       isSigned: false    
       
 pipelines:
@@ -89,12 +89,12 @@ pipelines:
           outputResources:
             - name: my_releaseBundle
             
-#       - name: Sign_Release_Bundle
-#         type: SignReleaseBundle
-#         configuration: 
-# #           nodepool: ubuntu16
-#           inputResources:
-#             - name: my_releaseBundle  # one ReleaseBundle is mandatory
-#               #trigger: false    # default true
-#           outputResources:
-#             - name: my_signed_releaseBundle    # ReleaseBundle resource       
+      - name: Sign_Release_Bundle
+        type: SignReleaseBundle
+        configuration: 
+#           nodepool: ubuntu16
+          inputResources:
+            - name: my_releaseBundle  # one ReleaseBundle is mandatory
+              #trigger: false    # default true
+          outputResources:
+            - name: my_signed_releaseBundle    # ReleaseBundle resource       
