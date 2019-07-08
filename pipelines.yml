@@ -46,7 +46,6 @@ resources:
         - IN      
 
 
-
 pipelines:
   - name: go_builds
     configuration:   
@@ -117,7 +116,7 @@ pipelines:
           dryRun: false
           description: "This is to test GoBuild -> PushArtifactoryPackage -> PublishBuildInfo -> Promote -> CreateRelease -> Sign -> Distribute pipeline chain"
           releaseBundleName: test-go-local
-          releaseBundleVersion: v3.1.$run_number
+          releaseBundleVersion: v4.1.$run_number
           sign: false
           inputResources:
             - name: promoted_go_buildo
