@@ -64,7 +64,7 @@ pipelines:
           sourceLocation: .
           repository: test-go-local
           outputLocation: tmp
-          outputFile: hello
+          outputFile: helloranjan
           inputResources:
             - name: artifactory_go
           integrations:
