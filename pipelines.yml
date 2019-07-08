@@ -23,7 +23,7 @@ resources:
   - name: my_releaseBundle 
     type: ReleaseBundle
     configuration:
-#       sourceArtifactory: varsha_artifactory
+      sourceArtifactory: varsha_artifactory
       name: ranjan
       version: v1.0.0
       isSigned: false
