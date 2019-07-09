@@ -9,14 +9,14 @@ resources:
   - name: publish_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_artifactory
+      sourceArtifactory: art
       buildNumber: 1
       buildName: npm-testing
       
   - name: npm_build_promote
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_artifactory
+      sourceArtifactory: art
       buildNumber: 1
       buildName: npm-testing
   
