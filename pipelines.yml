@@ -35,17 +35,17 @@ resources:
       version: v1.0.0
       isSigned: true
   
-  - name: mvn_distribution_rule
+  - name: mvn_distribution_rules
     type: DistributionRule
     configuration:
-      sourceDistribution: varsha_distribution
+      sourceDistribution: dist
       cityName: "*"
       serviceName: "*"
       siteName: "*"
       countryCodes:
-        - GB #edge node -> intend EU
+#         - GB #edge node -> intend EU
        # - CN #edge node
-       # - IN #artifactory
+       - IN #artifactory
        # - US #artifactory
        
   - name: mvn_repo04
@@ -154,7 +154,7 @@ pipelines:
      - name: mvn_distribute_signed_release
        type: DistributeReleaseBundle
     #    configuration:
-         nodePool: ubuntu16
+#          nodePool: ubuntu16
          inputResources:
            - name: signed_mvn_release_bundles
-           - name: mvn_distribution_rule
+           - name: mvn_distribution_rules
