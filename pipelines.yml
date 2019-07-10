@@ -1,25 +1,25 @@
 resources:
-  - name: mvnBuild_info
+  - name: mvnBuild_infoo
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_artifactory
-      buildName: mvn_sample_build_varsha
+      sourceArtifactory: art
+      buildName: mvn_sample_build
       buildNumber: 9
-  - name: mvnBuild_infoScaned
+  - name: mvnBuild_infoScaneds
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_artifactory
+      sourceArtifactory: art
       buildName: mvn_scan_varsha
       buildNumber: 2
       
-  - name: mvnBuild_infopromoted
+  - name: mvnBuild_infopromoted01
     type: BuildInfo
     configuration:
       sourceArtifactory: varsha_artifactory
       buildName: mvn_promote_build_varsha
       buildNumber: 3
       
-  - name: unsigned_mvn_release_bundle
+  - name: unsigned_mvn_release_bundles
     type: ReleaseBundle
     configuration:
       sourceDistribution: varsha_distribution
@@ -27,7 +27,7 @@ resources:
       version: v0.2.3
       isSigned: false
   
-  - name: signed_mvn_release_bundle
+  - name: signed_mvn_release_bundles
     type: ReleaseBundle
     configuration:
       sourceDistribution: varsha_distribution
@@ -47,13 +47,13 @@ resources:
        # - CN #edge node
        # - IN #artifactory
        # - US #artifactory
-  - name: mvn_repo1
+  - name: mvn_repo02
     type: GitRepo
     configuration:
       gitProvider: varsha_bbs
       path: KER/project-examples
  
-  - name: script_repo1
+  - name: script_repo02
     type: GitRepo
     configuration:
       gitProvider: varsha_bbs
@@ -62,76 +62,76 @@ resources:
       include: master
       
 pipelines:
-  - name: varshabash
-    steps:
-      - name: testReport_u16
-        type: Bash
-        configuration:
-          nodePool: ubuntu16
-          inputResources:
-            - name: script_repo1
-         # runtime: 
-          #  type: image
-            #image:
-             # auto:
-             #   language: java
-             #   versions:
-             #     - openjdk8
-              #custom:
-              #  name: pipelines-docker.jfrog.io/jfrog/pipelines-u16go
-              #  tag: 0.9.0 #master #
-        execution:
-          onExecute:
-            - printenv
-            - cd $res_script_repo1_resourcePath
-            - python -m py_compile calc.py
-            - sleep 20
-            - pip install pytest
-            - cd $res_script_repo1_resourcePath            
-            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
-            - save_tests $res_script_repo1_resourcePath/test-reports/results.xml     
+#   - name: maven_test
+#     steps:
+#       - name: testReport
+#         type: Bash
+#         configuration:
+# #           nodePool: ubuntu16
+#           inputResources:
+#             - name: script_repo1
+#          # runtime: 
+#           #  type: image
+#             #image:
+#              # auto:
+#              #   language: java
+#              #   versions:
+#              #     - openjdk8
+#               #custom:
+#               #  name: pipelines-docker.jfrog.io/jfrog/pipelines-u16go
+#               #  tag: 0.9.0 #master #
+#         execution:
+#           onExecute:
+#             - printenv
+#             - cd $res_script_repo1_resourcePath
+#             - python -m py_compile calc.py
+#             - sleep 20
+#             - pip install pytest
+#             - cd $res_script_repo1_resourcePath            
+#             - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+#             - save_tests $res_script_repo1_resourcePath/test-reports/results.xml     
       
-      - name: testReport_u18
-        type: Bash
-        configuration:
-          inputResources:
-            - name: script_repo1
-        execution:
-          onExecute:
-            - printenv
-            - cd $res_script_repo1_resourcePath
-            - python -m py_compile calc.py
-            - sleep 20
-            - pip install pytest
-            - cd $res_script_repo1_resourcePath            
-            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
-            - save_tests $res_script_repo1_resourcePath/test-reports/results.xml   
+#       - name: testReport_u18
+#         type: Bash
+#         configuration:
+#           inputResources:
+#             - name: script_repo1
+#         execution:
+#           onExecute:
+#             - printenv
+#             - cd $res_script_repo1_resourcePath
+#             - python -m py_compile calc.py
+#             - sleep 20
+#             - pip install pytest
+#             - cd $res_script_repo1_resourcePath            
+#             - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+#             - save_tests $res_script_repo1_resourcePath/test-reports/results.xml   
             
-      - name: testReport_c7
-        type: Bash
-        configuration:
-          nodePool: bharath_c7
-          inputResources:
-            - name: script_repo1
-        execution:
-          onExecute:
-            - printenv
-            - cd $res_script_repo1_resourcePath
-            - python -m py_compile calc.py
-            - sleep 20
-            - pip install pytest
-            - cd $res_script_repo1_resourcePath            
-            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
-            - save_tests $res_script_repo1_resourcePath/test-reports/results.xml   
+#       - name: testReport_c7
+#         type: Bash
+#         configuration:
+#           nodePool: bharath_c7
+#           inputResources:
+#             - name: script_repo1
+#         execution:
+#           onExecute:
+#             - printenv
+#             - cd $res_script_repo1_resourcePath
+#             - python -m py_compile calc.py
+#             - sleep 20
+#             - pip install pytest
+#             - cd $res_script_repo1_resourcePath            
+#             - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
+#             - save_tests $res_script_repo1_resourcePath/test-reports/results.xml   
             
-  - name: varshamvn
+  - name: mvn_test
     steps:
       - name: input_script_bash
         type: Bash
         configuration:
-          nodePool: ubuntu16
+#           nodePool: ubuntu16
           inputResources:
-            - name: script_repo1
+            - name: script_repo02
           runtime: 
             type: image
             image:
@@ -158,13 +158,13 @@ pipelines:
       - name: mvnBuild_sample
         type: MvnBuild
         configuration:
-          nodePool: ubuntu16
+#           nodePool: ubuntu16
           sourceLocation: ./artifactory-maven-plugin-example
           mvnCommand: clean install -f ./pom.xml
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: mvn_repo1
+            - name: mvn_repo02
           inputSteps:
             - name: input_script_bash
           integrations:
@@ -192,16 +192,16 @@ pipelines:
           onSuccess:
             - send_notification varsha_slack
             
-      - name: mvnBuild_publish
+      - name: mvnBuild_publishs
         type: PublishBuildInfo
         configuration:
-          nodePool: ubuntu16
+#           nodePool: ubuntu16
           integrations:
             - name: varsha_slack
           inputSteps:
             - name: mvnBuild_sample
           outputResources:
-            - name: mvnBuild_info
+            - name: mvnBuild_infoo
         execution:
           onSuccess:
             - send_notification varsha_slack
@@ -212,23 +212,23 @@ pipelines:
           nodePool: ubuntu16
           #waitUntilFinish: false
           inputResources:
-            - name: mvnBuild_info  
+            - name: mvnBuild_infoo  
           outputResources:
-            - name: mvnBuild_infoScaned
+            - name: mvnBuild_infoScaneds
                 
       - name: mvn_build_promote
         type: PromoteBuild
         configuration:
-          nodePool: ubuntu16
+#           nodePool: ubuntu16
           targetRepository: test-maven-local # required 
           includeDependencies: true    # default false
           status: "promote success" # for mvn_build_promoted" # optional
           comment: "maven build should be promoted from varsha-local. maven build should be promoted from varsha-local. maven build should be promoted from varsha-local. maven build should be promoted from varsha-local" # for mvn_build_promoted" # optional
           copy: true #optional - no need to have delete access it wont delete from base repo just moves copy to target repo
           inputResources:
-            - name: mvnBuild_info #required
+            - name: mvnBuild_infoo #required
           outputResources:
-            - name: mvnBuild_infopromoted #required
+            - name: mvnBuild_infopromoted01 #required
       - name: mvn_release_bundle_unsigned
         type: CreateReleaseBundle
         configuration:
@@ -239,21 +239,21 @@ pipelines:
           releaseBundleVersion: v0.0.2
           sign: false
           inputResources:
-            - name: mvnBuild_infopromoted
+            - name: mvnBuild_infopromoted01
           outputResources:
-            - name: unsigned_mvn_release_bundle
+            - name: unsigned_mvn_release_bundles
       - name: signed_release_mvn_bundle
         type: SignReleaseBundle
         configuration:
           nodePool: ubuntu16
           inputResources:
-            - name: unsigned_mvn_release_bundle
+            - name: unsigned_mvn_release_bundles
           outputResources:
-            - name: signed_mvn_release_bundle
+            - name: signed_mvn_release_bundles
     #  - name: mvn_distribute_signed_release
     #    type: DistributeReleaseBundle
     ##    configuration:
     #      nodePool: ubuntu16
     #      inputResources:
-    #        - name: signed_mvn_release_bundle
+    #        - name: signed_mvn_release_bundles
     #        - name: mvn_distribution_rule
