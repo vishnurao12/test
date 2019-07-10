@@ -48,7 +48,7 @@ resources:
        # - IN #artifactory
        # - US #artifactory
        
-  - name: mvn_repo02
+  - name: mvn_repo04
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
@@ -67,9 +67,7 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: mvn_repo02
-          inputSteps:
-            - name: input_script_bash
+            - name: mvn_repo04
           integrations:
             - name: art
             - name: varsha_slack
