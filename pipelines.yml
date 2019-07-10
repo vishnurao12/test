@@ -47,114 +47,17 @@ resources:
        # - CN #edge node
        # - IN #artifactory
        # - US #artifactory
+       
   - name: mvn_repo02
     type: GitRepo
     configuration:
-      gitProvider: varsha_bbs
-      path: KER/project-examples
+      gitProvider: ranjan_github
+      path: Ranjansingh41/project-examples
  
-  - name: script_repo02
-    type: GitRepo
-    configuration:
-      gitProvider: varsha_bbs
-      path: KER/sample-script
-    branches:
-      include: master
       
-pipelines:
-  - name: maven_test
-    steps:
-      - name: testReport
-        type: Bash
-        configuration:
-#           nodePool: ubuntu16
-          inputResources:
-            - name: script_repo1
-         # runtime: 
-          #  type: image
-            #image:
-             # auto:
-             #   language: java
-             #   versions:
-             #     - openjdk8
-              #custom:
-              #  name: pipelines-docker.jfrog.io/jfrog/pipelines-u16go
-              #  tag: 0.9.0 #master #
-        execution:
-          onExecute:
-            - printenv
-            - cd $res_script_repo1_resourcePath
-            - python -m py_compile calc.py
-            - sleep 20
-            - pip install pytest
-            - cd $res_script_repo1_resourcePath            
-            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
-            - save_tests $res_script_repo1_resourcePath/test-reports/results.xml     
-      
-      - name: testReport_u18
-        type: Bash
-        configuration:
-          inputResources:
-            - name: script_repo1
-        execution:
-          onExecute:
-            - printenv
-            - cd $res_script_repo1_resourcePath
-            - python -m py_compile calc.py
-            - sleep 20
-            - pip install pytest
-            - cd $res_script_repo1_resourcePath            
-            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
-            - save_tests $res_script_repo1_resourcePath/test-reports/results.xml   
-            
-      - name: testReport_c7
-        type: Bash
-        configuration:
-#           nodePool: bharath_c7
-          inputResources:
-            - name: script_repo1
-        execution:
-          onExecute:
-            - printenv
-            - cd $res_script_repo1_resourcePath
-            - python -m py_compile calc.py
-            - sleep 20
-            - pip install pytest
-            - cd $res_script_repo1_resourcePath            
-            - py.test --verbose --junit-xml test-reports/results.xml test_calc.py
-            - save_tests $res_script_repo1_resourcePath/test-reports/results.xml   
-            
+pipelines:          
   - name: mvn_test
-    steps:
-      - name: input_script_bash
-        type: Bash
-        configuration:
-#           nodePool: ubuntu16
-          inputResources:
-            - name: script_repo02
-          runtime: 
-            type: image
-            image:
-             # auto:
-             #   language: java
-             #   versions:
-             #     - openjdk8
-              custom:
-                name: pipelines-docker.jfrog.io/jfrog/pipelines-u16java
-                tag: 0.9.0
-        execution:
-          onExecute:
-            - printenv
-            - echo $test
-            - echo $ribbit
-            - pushd $res_script_repo1_resourcePath
-            - source example.env
-            - echo ~
-            - ./echo.sh
-            - echo $test
-            - echo $ribbit
-            - popd
-            
+    steps:     
       - name: mvnBuild_sample
         type: MvnBuild
         configuration:
@@ -168,7 +71,7 @@ pipelines:
           inputSteps:
             - name: input_script_bash
           integrations:
-            - name: varsha_artifactory
+            - name: art
             - name: varsha_slack
           runtime:            
             type: image
