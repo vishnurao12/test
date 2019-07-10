@@ -151,10 +151,10 @@ pipelines:
             - name: unsigned_mvn_release_bundles
           outputResources:
             - name: signed_mvn_release_bundles
-    #  - name: mvn_distribute_signed_release
-    #    type: DistributeReleaseBundle
-    ##    configuration:
-    #      nodePool: ubuntu16
-    #      inputResources:
-    #        - name: signed_mvn_release_bundles
-    #        - name: mvn_distribution_rule
+     - name: mvn_distribute_signed_release
+       type: DistributeReleaseBundle
+    #    configuration:
+         nodePool: ubuntu16
+         inputResources:
+           - name: signed_mvn_release_bundles
+           - name: mvn_distribution_rule
