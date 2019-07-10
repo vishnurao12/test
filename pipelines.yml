@@ -15,14 +15,14 @@ resources:
   - name: mvnBuild_infopromoted01
     type: BuildInfo
     configuration:
-      sourceArtifactory: varsha_artifactory
+      sourceArtifactory: art
       buildName: mvn_promote_build_varsha
       buildNumber: 3
       
   - name: unsigned_mvn_release_bundles
     type: ReleaseBundle
     configuration:
-      sourceDistribution: varsha_distribution
+      sourceDistribution: dist
       name: mvn_release_bundle_unsigned_varsha
       version: v0.2.3
       isSigned: false
@@ -133,7 +133,7 @@ pipelines:
       - name: mvn_release_bundle_unsigned
         type: CreateReleaseBundle
         configuration:
-          nodePool: ubuntu16
+#           nodePool: ubuntu16
           dryRun: false 
           description: "This is to test mvn build"
           releaseBundleName: mvn_release_bundle_varsha
@@ -146,7 +146,7 @@ pipelines:
       - name: signed_release_mvn_bundle
         type: SignReleaseBundle
         configuration:
-          nodePool: ubuntu16
+#           nodePool: ubuntu16
           inputResources:
             - name: unsigned_mvn_release_bundles
           outputResources:
