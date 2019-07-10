@@ -74,13 +74,13 @@ pipelines:
           runtime:            
             type: image
             image:
-              auto:
-                language: java
-                versions: 
-                  - openjdk8
-         #     custom:
-         #       name: drydock/u16java
-         #       tag: master
+#               auto:
+#                 language: java
+#                 versions: 
+#                   - openjdk8
+             custom:
+               name: drydock/u16java
+               tag: master
         execution:
           onStart:
            ######## if jave image is not there then install java using following commands
