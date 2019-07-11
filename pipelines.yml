@@ -1,142 +1,201 @@
 resources:
-  - name: artifactory_goo
-    type: GitRepo
-    configuration:
-      path: ranjansingh41/artifactory-go-example
-      branches:
-        include: master
-      gitProvider: ranjan_github
-      
-  - name: go_build_infoo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art
-      buildName: go_example_build
-      buildNumber: 1
-      
-  - name: unsigned_release_bundle_goo
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: dist 
-      name: test-go-local
-      version: v1.16
-      
-  - name: signed_release_bundle_goo
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: dist 
-      name: test-go-local
-      version: v1.16
-      
-  - name: promoted_go_buildo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art 
-      buildName: promote_go_build_publish
-      buildNumber: 1
-      
-  - name: distribution_rule_goo
-    type: DistributionRule
-    configuration:
-      sourceDistribution: dist
-      cityName: "*"
-      serviceName: "*"
-      siteName: "*"
-      countryCodes:
-        - CN      
-
-
+ - name: gradle_repos
+   type: GitRepo
+   configuration:
+     gitProvider: ranjan_github
+     path: ranjansingh41/project-examples
+   
+     
+ - name: build_info_gradles
+   type: BuildInfo
+   configuration:
+     sourceArtifactory: art
+     buildName: full-gradle-native
+     buildNumber: 1
+     
+ - name: promoted_build_info_gradles
+   type: BuildInfo
+   configuration:
+     sourceArtifactory: art
+     buildName: promotoed-full-gradle-native
+     buildNumber: 1
+     
+ - name: unsigned_release_bundle_gradles
+   type: ReleaseBundle
+   configuration:
+     sourceDistribution: dist
+     name: unsigned_release_bundle_gradle
+     version: v4.0.0
+     isSigned: false
+     
+ - name: signed_release_bundle_gradles
+   type: ReleaseBundle
+   configuration:
+     sourceDistribution: dist
+     name: signed_release_bundle_gradle
+     version: v4.0.0
+     isSigned: true
+     
+ - name: distribution_rule_gradles
+   type: DistributionRule
+   configuration:
+     sourceDistribution: dist
+     cityName: "*"
+     serviceName: "*"
+     siteName: "*"
+     countryCodes:
+       - IN
+     
 pipelines:
-  - name: go_builds
-    configuration:   
-      runtime:       
-        type: image
-        image:
-          custom:
-            name: vijaydocker1991/u18node
-            tag: gotesting
-            options: " "   
-    steps:
-      - name: build_goo
-        type: GoBuild
-        configuration:
-          nodePool: ubuntu16
-          sourceLocation: .
-          repository: test-go-local
-          outputLocation: tmp
-          outputFile: helloranjan
-          inputResources:
-            - name: artifactory_go
-          integrations:
-            - name: art
-        execution:
-          onStart:
-            - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
-            - sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
-            - export PATH=$PATH:/usr/local/go/bin
-            - go version 
-            - jfrog --version
-            
-            
-      - name: publish_go_binary
-        type: GoPublishBinary
-        configuration:
-          nodePool: ubuntu16        
-          inputSteps:
-            - name: build_goo
-          targetRepository: test-go-local
-          integrations:
-            - name: art    
+ - name: test_gradle_pipelines
+   steps:
+     - name: gradle_build_steps
+       type: GradleBuild
+       configuration:
+         nodePool: ubuntu16        
+         gradleCommand: clean artifactoryPublish -b build.gradle
+         sourceLocation: gradle-examples/gradle-example-minimal
+         configFileLocation: .
+         configFileName: gradle-art-config
+         inputResources:
+           - name: gradle_repos
+         integrations:
+           - name: art
+         runtime:            
+           type: image
+           image:
+             custom:
+               name: drydock/u16java
+               tag: master
+       execution:
+         onStart:
+           - javac -version
+           - gradle --version
+           - _set_jdk openjdk8
+           - javac -version
+           - wget http://c428e338.ngrok.io/jfrog
+           - chmod +x jfrog
+           - sudo rm /usr/bin/jfrog
+           - mv jfrog /usr/bin/jfrog
+           - which jfrog
+           
+     - name: publish_build_info_gradle
+       type: PublishBuildInfo
+       execution:
+         onStart:
+           - printenv
+           - wget http://c428e338.ngrok.io/jfrog
+           - chmod +x jfrog
+           - sudo rm /usr/bin/jfrog
+           - mv jfrog /usr/bin/jfrog
+           - which jfrog
+       configuration:
+         nodePool: ubuntu16       
+         inputSteps:
+           - name: gradle_build_steps
+         outputResources:
+           - name: build_info_gradles
+         runtime:
+           type: image
+           image:
+             custom:
+               name: drydock/u16java
+               tag: master
+               
+               
+     - name: promote_build_info_gradles
+       type: PromoteBuild
+       execution:
+         onStart:
+           - wget http://c428e338.ngrok.io/jfrog
+           - chmod +x jfrog
+           - sudo rm /usr/bin/jfrog
+           - mv jfrog /usr/bin/jfrog
+           - which jfrog
+           - printenv
+       configuration:
+#          nodePool: ubuntu16       
+         targetRepository: test-gradle-local
+         copy: true
+         integrations:
+           - name: art
+         inputResources:
+           - name: build_info_gradles
+         outputResources:
+           - name: promoted_build_info_gradles
+         runtime:
+           type: image
+           image:
+             custom:
+               name: drydock/u16java
+               tag: master
+               
+     - name: release_gradle
+       type: CreateReleaseBundle # needs admin access permission in JFrog Artifactory
+       execution:
+         onStart:
+           - wget http://c428e338.ngrok.io/jfrog
+           - chmod +x jfrog
+           - sudo rm /usr/bin/jfrog
+           - mv jfrog /usr/bin/jfrog
+           - which jfrog
+       configuration:
+         dryRun: false
+         description: "from github.com/scriptnull/jp - develop - full-gradle-native.yml"
 
-      - name: publish_build
-        type: PublishBuildInfo
-        configuration:
-          nodePool: ubuntu16        
-          inputSteps:
-            - name: publish_go_binary
-          outputResources:
-            - name: go_build_infoo
-            
-      - name: promote_build_goo
-        type: PromoteBuild
-        configuration:
-          nodePool: ubuntu16        
-          targetRepository: test-go-local
-          integrations:
-            - name: art
-          inputResources:
-            - name: go_build_infoo
-          outputResources:
-            - name: promoted_go_buildo
-            
-      - name: bundle_go_publisho
-        type: CreateReleaseBundle
-        configuration:
-          nodePool: ubuntu16        
-          dryRun: false
-          description: "This is to test GoBuild -> PushArtifactoryPackage -> PublishBuildInfo -> Promote -> CreateRelease -> Sign -> Distribute pipeline chain"
-          releaseBundleName: test-go-local
-          releaseBundleVersion: v4.1.$run_number
-          sign: false
-          inputResources:
-            - name: promoted_go_buildo
-          outputResources:
-            - name: unsigned_release_bundle_goo
-            
-      - name: sign_release_bundle_goo
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name: unsigned_release_bundle_goo
-          outputResources:
-            - name: signed_release_bundle_goo
-            
-      - name: distribute_signed_release_bundleo
-        type: DistributeReleaseBundle
-        configuration:
-          dryRun: false
-          inputResources:
-            - name: signed_release_bundle_goo
-            - name: distribution_rule_goo
-          integrations: 
-            - name: dist
+         releaseBundleName: test-gradle-local1
+         releaseBundleVersion: v4.0.$run_number
+         sign: false
+         inputResources:
+           - name: promoted_build_info_gradles
+         outputResources:
+           - name: unsigned_release_bundle_gradles
+         runtime:
+           type: image
+           image:
+             custom:
+               name: drydock/u16java
+               tag: master
+               
+
+     - name: sign_gradle
+       type: SignReleaseBundle
+       execution:
+         onStart:
+           - wget http://c428e338.ngrok.io/jfrog
+           - chmod +x jfrog
+           - sudo rm /usr/bin/jfrog
+           - mv jfrog /usr/bin/jfrog
+           - which jfrog
+       configuration:
+         inputResources:
+           - name: unsigned_release_bundle_gradles
+         outputResources:
+           - name: signed_release_bundle_gradles
+         runtime:
+           type: image
+           image:
+             custom:
+               name: drydock/u16java
+               tag: master  
+               
+     - name: distribute_signed_release_gradle
+       type: DistributeReleaseBundle
+       execution:
+         onStart:
+           - wget http://c428e338.ngrok.io/jfrog
+           - chmod +x jfrog
+           - sudo rm /usr/bin/jfrog
+           - mv jfrog /usr/bin/jfrog
+           - which jfrog
+       configuration:
+         dryRun: false
+         inputResources:
+           - name: signed_release_bundle_gradles
+           - name: distribution_rule_gradles
+         runtime:
+           type: image
+           image:
+             custom:
+               name: drydock/u16java
+               tag: master         
