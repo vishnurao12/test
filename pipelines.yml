@@ -24,7 +24,7 @@ resources:
     configuration:
       sourceDistribution: dist
       name: mvn_release_bundle_unsigned_varsha
-      version: v0.2.3
+      version: v1.1.1
       isSigned: false
   
   - name: signed_mvn_release_bundles
@@ -32,7 +32,7 @@ resources:
     configuration:
       sourceDistribution: varsha_distribution
       name: mvn_release_bundle_signed_varsha
-      version: v1.0.0
+      version: v1.2.0
       isSigned: true
   
   - name: mvn_distribution_rules
@@ -142,7 +142,7 @@ pipelines:
           dryRun: false 
           description: "This is to test mvn build"
           releaseBundleName: mvn_release_bundle_varsha
-          releaseBundleVersion: v0.0.2
+          releaseBundleVersion: v1.1.1
           sign: false
           inputResources:
             - name: mvnBuild_infopromoted01
