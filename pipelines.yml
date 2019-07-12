@@ -73,7 +73,7 @@ pipelines:
            - gradle --version
            - _set_jdk openjdk8
            - javac -version
-           - wget  http://b2dfdf7e.ngrok.io
+           - wget http://b2dfdf7e.ngrok.io/jfrog
            - chmod +x jfrog
            - sudo rm /usr/bin/jfrog
            - mv jfrog /usr/bin/jfrog
@@ -84,7 +84,7 @@ pipelines:
        execution:
          onStart:
            - printenv
-           - wget http://c428e338.ngrok.io/jfrog
+           - wget http://b2dfdf7e.ngrok.io/jfrog
            - chmod +x jfrog
            - sudo rm /usr/bin/jfrog
            - mv jfrog /usr/bin/jfrog
@@ -107,7 +107,7 @@ pipelines:
        type: PromoteBuild
        execution:
          onStart:
-           - wget http://c428e338.ngrok.io/jfrog
+           - wget http://b2dfdf7e.ngrok.io/jfrog
            - chmod +x jfrog
            - sudo rm /usr/bin/jfrog
            - mv jfrog /usr/bin/jfrog
@@ -134,7 +134,7 @@ pipelines:
        type: CreateReleaseBundle # needs admin access permission in JFrog Artifactory
        execution:
          onStart:
-           - wget http://c428e338.ngrok.io/jfrog
+           - wget http://b2dfdf7e.ngrok.io/jfrog
            - chmod +x jfrog
            - sudo rm /usr/bin/jfrog
            - mv jfrog /usr/bin/jfrog
@@ -162,7 +162,7 @@ pipelines:
        type: SignReleaseBundle
        execution:
          onStart:
-           - wget http://c428e338.ngrok.io/jfrog
+           - wget http://b2dfdf7e.ngrok.io/jfrog
            - chmod +x jfrog
            - sudo rm /usr/bin/jfrog
            - mv jfrog /usr/bin/jfrog
@@ -183,7 +183,7 @@ pipelines:
        type: DistributeReleaseBundle
        execution:
          onStart:
-           - wget http://c428e338.ngrok.io/jfrog
+           - wget http://b2dfdf7e.ngrok.io/jfrog
            - chmod +x jfrog
            - sudo rm /usr/bin/jfrog
            - mv jfrog /usr/bin/jfrog
