@@ -1,5 +1,5 @@
 resources:
-  - name: real_npm_project
+  - name: simple_test
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
@@ -11,8 +11,8 @@ pipelines:
       - name: node
         type: Bash
         configuration:
-          inputResource:
-            - name: real_npm_project
+          inputResources:
+            - name: simple_test
           runtime:
             type: image
             image:
