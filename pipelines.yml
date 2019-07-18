@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: ranjan_github
-      path: Ranjansingh41/artifactory-go-example 
+      path: Ranjansingh41/test 
       
 pipelines:
   - name: pipeline_ranjan
