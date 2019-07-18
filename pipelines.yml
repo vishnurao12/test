@@ -8,92 +8,66 @@ resources:
 pipelines:
   - name: pipeline_ranjan
     steps:
-      - name: go
-        type: GoBuild
-        configuration:
-          sourceLocation: .  # required
-          outputLocation: . # required
-          outputFile: hello      # required
-          repository: test-go-local
-          nodePool : ubuntu16
-          integrations:
-            - name: varsha_artifactory
-
+      - name: node
+        type: Bash
+        configuration:     
           runtime:
             type: image
             image:
-#               auto:
-#                 language: java
-#                 versions:
-#                   - openjdk8
-              custom:
-                name: u16node #this is go repo
-                tag: latest
-                autoPull: false      
-          inputResources:
-            - name: real_npm_project
+              auto:
+                language: nodejs
+                versions:
+                  - 10.16.0
+#               custom:
+#                 name: drydock/u16node
+#                 tag: master
+#                 autoPull: false
         execution:
-          onStart:
-             - jfrog --version
-             - _set_go 1.11.10
-             - jfrog --version
-             - _set_go 1.12.5
-             - jfrog --version
-
-#             - printenv 
-#             - java -version
-#             - _set_jdk openjdk8
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - _set_jdk openjdk11
-#             - java -version
-#             - echo $JAVA_HOME
-#             - echo $PATH
-#             - mvn --version
-#             - ant -version
-#       - name: go
-#         type: Bash
-#         configuration:
-#           inputSteps:
-#             - name: java      
-#           runtime:
-#             type: image
-#             image:
-# #               auto:
-# #                 language: go
-# #                 versions:
-# #                   - 1.12.5
+          onExecute:
+            - nvm list
+            - node --version         
+      - name: go
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: node
+          runtime:
+            type: image
+            image:
+              auto:
+                language: go
+                versions:
+                  - 1.12.6
 #               custom:
 #                 name: drydock/u18go
 #                 tag: master
 #                 autoPull: false
-#         execution:
-#           onExecute:
-#             - source /root/.gvm/scripts/gvm
-#             - gvm list
-#             - go version
-#             - gvm use 1.11.10 
-#             - go version
-#             - gvm use 1.12.5
-#             - go version                
-#       - name: cpp
-#         type: Bash
-#         configuration:
-# #           nodePool: vijay_node           
-#           inputSteps:
-#             - name: go      
-#           runtime:
-#             type: image
-#             image:
-# #               auto:
-# #                 language: c
-# #                 versions:            
+        execution:
+          onExecute:
+            - source /root/.gvm/scripts/gvm
+            - gvm list
+            - go version
+            - gvm use 1.11.11 
+            - go version
+            - gvm use 1.12.6
+            - go version                
+      - name: cpp
+        type: Bash
+        configuration:
+#           nodePool: vijay_node           
+          inputSteps:
+            - name: go      
+          runtime:
+            type: image
+            image:
+              auto:
+                language: c
+                versions: 8.0.0           
 #               custom:
 #                 name: drydock/u18cpp
 #                 tag: master
 #                 autoPull: true
-#         execution:
-#           onExecute:
-#             - gcc --version
-#             - clang --version
+        execution:
+          onExecute:
+            - gcc --version
+            - clang --version
