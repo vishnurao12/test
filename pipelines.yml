@@ -11,7 +11,7 @@ pipelines:
       - name: node
         type: Bash
         configuration:
-          inputSteps:
+          inputResource:
             - name: real_npm_project
           runtime:
             type: image
