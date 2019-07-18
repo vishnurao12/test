@@ -62,7 +62,8 @@ pipelines:
             image:
               auto:
                 language: c
-                versions: 8.0.0           
+                versions:
+                  - 8.0.0
 #               custom:
 #                 name: drydock/u18cpp
 #                 tag: master
