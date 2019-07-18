@@ -10,7 +10,9 @@ pipelines:
     steps:
       - name: node
         type: Bash
-        configuration:     
+        configuration:
+          inputSteps:
+            - name: real_npm_project
           runtime:
             type: image
             image:
