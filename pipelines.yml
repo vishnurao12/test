@@ -27,50 +27,53 @@ pipelines:
         execution:
           onExecute:
             - nvm list
-            - node --version         
-      - name: go
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: node
-          runtime:
-            type: image
-            image:
-              auto:
-                language: go
-                versions:
-                  - 1.12.6
-#               custom:
-#                 name: drydock/u18go
-#                 tag: master
-#                 autoPull: false
-        execution:
-          onExecute:
-            - source /root/.gvm/scripts/gvm
-            - gvm list
-            - go version
-            - gvm use 1.11.11 
-            - go version
-            - gvm use 1.12.6
-            - go version                
-      - name: cpp
-        type: Bash
-        configuration:
-#           nodePool: vijay_node           
-          inputSteps:
-            - name: go      
-          runtime:
-            type: image
-            image:
-              auto:
-                language: c
-                versions:
-                  - 8.0.0
-#               custom:
-#                 name: drydock/u18cpp
-#                 tag: master
-#                 autoPull: true
-        execution:
-          onExecute:
-            - gcc --version
-            - clang --version
+            - node --version 
+            - add_run_variables imageTag="master"
+
+
+#       - name: go
+#         type: Bash
+#         configuration:
+#           inputSteps:
+#             - name: node
+#           runtime:
+#             type: image
+#             image:
+#               auto:
+#                 language: go
+#                 versions:
+#                   - 1.12.6
+# #               custom:
+# #                 name: drydock/u18go
+# #                 tag: master
+# #                 autoPull: false
+#         execution:
+#           onExecute:
+#             - source /root/.gvm/scripts/gvm
+#             - gvm list
+#             - go version
+#             - gvm use 1.11.11 
+#             - go version
+#             - gvm use 1.12.6
+#             - go version                
+#       - name: cpp
+#         type: Bash
+#         configuration:
+# #           nodePool: vijay_node           
+#           inputSteps:
+#             - name: go      
+#           runtime:
+#             type: image
+#             image:
+#               auto:
+#                 language: c
+#                 versions:
+#                   - 8.0.0
+# #               custom:
+# #                 name: drydock/u18cpp
+# #                 tag: master
+# #                 autoPull: true
+#         execution:
+#           onExecute:
+#             - gcc --version
+#             - clang --version
