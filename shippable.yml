@@ -29,3 +29,4 @@ pipelines:
             - nvm list
             - node --version 
             - add_run_variables imageTag="master"
+            - touch $step_workspace_dir/upload/test.sh
