@@ -2,7 +2,7 @@ resources:
   - name: simple_test
     type: GitRepo
     configuration:
-      gitProvider: ranjan_github
+      gitProvider: git58
       path: Ranjansingh41/test 
       
 pipelines:
