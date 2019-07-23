@@ -1,16 +1,31 @@
+resources:
+  - name: simple_test
+    type: GitRepo
+    configuration:
+      gitProvider: ranjan_github
+      path: Ranjansingh41/test 
+      
 pipelines:
-  - name: RanjanBash
+  - name: pipeline_ranjan1
     steps:
-      - name: Ranjan
+      - name: node
         type: Bash
-        configuration:   
-          runtime:       
+        configuration:
+          inputResources:
+            - name: simple_test
+          runtime:
             type: image
             image:
-              custom:
-                name: vijaydocker1991/u18node
-                tag: gotesting
-                options: " "          
+              auto:
+                language: nodejs
+                versions:
+                  - 10.15.3
+#               custom:
+#                 name: drydock/u16node
+#                 tag: master
+#                 autoPull: false
         execution:
           onExecute:
-            - printenv
+            - nvm list
+            - node --version 
+            - add_run_variables imageTag="master"
