@@ -16,17 +16,16 @@ pipelines:
           runtime:
             type: image
             image:
-              auto:
-                language: nodejs
-                versions:
-                  - 10.15.3
-#               custom:
-#                 name: drydock/u16node
-#                 tag: master
-#                 autoPull: false
+#               auto:
+#                 language: nodejs
+#                 versions:
+#                   - 10.15.3
+              custom:
+                name:  pipelines-u16node
+                tag: 0.9.1
+                autoPull: true
         execution:
           onExecute:
             - nvm list
-            - node --version 
-            - add_run_variables imageTag="master"
-            - touch $step_workspace_dir/upload/test.sh
+            - node --version
+            - kubctl --version
