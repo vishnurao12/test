@@ -16,15 +16,17 @@ pipelines:
           runtime:
             type: image
             image:
-#               auto:
-#                 language: nodejs
-#                 versions:
-#                   - 10.15.3
-              custom:
-                name:  pipelines-docker.jfrog.io/jfrog/pipelines-u16go
-                tag: 0.9.1
-                autoPull: true
+              auto:
+                language: nodejs
+                versions:
+                  - 10.15.3
+#               custom:
+#                 name:  pipelines-docker.jfrog.io/jfrog/pipelines-c7node
+#                 tag: 0.9.1
+#                 autoPull: true
         execution:
           onExecute:
-            - jfrog --version
-            - kubectl version --client
+            - node --version 
+            - nvm list
+#             - jfrog --version
+#             - kubectl version --client
