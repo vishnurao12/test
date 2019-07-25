@@ -4,7 +4,6 @@ resources:
     configuration:
       gitProvider: ranjan_github
       path: ranjansingh41/j-sample-node
-#       sha: npmtest.yml
        
   - name: publish_info
     type: BuildInfo
@@ -38,7 +37,7 @@ pipelines:
         type: NpmPublish
         configuration:
           repositoryName: test-npm-local
-          nodepool: ubuntu16
+#           nodepool: ubuntu16
           autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
