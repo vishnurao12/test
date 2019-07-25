@@ -26,7 +26,6 @@ pipelines:
                 autoPull: false
         execution:
           onExecute:
-            - gvm use 1.11.10
-            - gvm usee 1.12.5
+            - go version
             - jfrog --version
             - kubectl version --client
