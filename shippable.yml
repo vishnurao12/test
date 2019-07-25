@@ -21,11 +21,12 @@ pipelines:
 #                 versions:
 #                   - 10.15.3
               custom:
-                name:  pipelines-docker.jfrog.io/jfrog/pipelines-c7go
+                name:  pipelines-docker.jfrog.io/jfrog/pipelines-c7nodee
                 tag: 0.9.1
                 autoPull: false
         execution:
           onExecute:
-#             - go version
+            - node --version
+            - nvm list
             - jfrog --version
             - kubectl version --client
