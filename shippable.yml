@@ -28,4 +28,4 @@ pipelines:
           onExecute:
             - nvm list
             - node --version
-            - kubctl --version
+            - kubectl version --client
