@@ -13,12 +13,12 @@ resources:
       buildNumber: 1
       buildName: npm-testing
       
-#   - name: npm_build_promote
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: art
-#       buildNumber: 1
-#       buildName: npm-testing
+  - name: npm_build_promote
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      buildNumber: 1
+      buildName: npm-testing
       
 pipelines:
   - name: test_pipeline_ranjan
@@ -47,16 +47,16 @@ pipelines:
           outputResources:
             - name: publish_info
             
-#       - name: promote
-#         type: PromoteBuild
-#         configuration:
-#           targetRepository: test-npm-local
-# #           nodepool: ubuntu16
-#           inputResources:
-#             - name: publish_info
-# #               trigger: false
-#           outputResources:
-#             - name: npm_build_promote 
+      - name: promote
+        type: PromoteBuild
+        configuration:
+          targetRepository: promote-test
+#           nodepool: ubuntu16
+          inputResources:
+            - name: publish_info
+#               trigger: false
+          outputResources:
+            - name: npm_build_promote 
             
      
           
