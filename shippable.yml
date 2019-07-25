@@ -21,7 +21,7 @@ pipelines:
 #                 versions:
 #                   - 10.15.3
               custom:
-                name:  pipelines-docker.jfrog.io/jfrog/pipelines-u16node
+                name:  pipelines-docker.jfrog.io/jfrog/pipelines-c7node
                 tag: master
                 autoPull: false
         execution:
