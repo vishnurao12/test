@@ -26,6 +26,6 @@ pipelines:
                 autoPull: false
         execution:
           onExecute:
-            - go version
+#             - go version
             - jfrog --version
             - kubectl version --client
