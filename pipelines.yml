@@ -19,32 +19,6 @@ resources:
       sourceArtifactory: art
       buildNumber: 1
       buildName: npm-testing
-  
-  - name: my_releaseBundle 
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: dist 
-      name: test-npm-local
-      version: 4.0.4
-      isSigned: false
-      
-  - name: my_signed_releaseBundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: dist 
-      name: test-npm-local
-      version: v1.0.0
-#       isSigned: false  
-
-  - name: distribution_rule_npm
-    type: DistributionRule
-    configuration:
-      sourceDistribution: dist
-      cityName: "*"
-      serviceName: "*"
-      siteName: "*"
-      countryCodes:
-        - IN  
       
 pipelines:
   - name: test_pipeline_ranjan
@@ -84,38 +58,5 @@ pipelines:
           outputResources:
             - name: npm_build_promote 
             
-      - name: bundle
-        type: CreateReleaseBundle
-        configuration:
-          dryRun: false
-          releaseBundleName: bundle_relese
-          releaseBundleVersion: 4.0.4
-#           nodepool: ubuntu16
-          releaseNotes:         
-            content: bundle_test 
-            syntax:  plain_text 
-          inputResources:
-            - name: npm_build_promote 
-#             - name: my_aql  # one Aql 
-          outputResources:
-            - name: my_releaseBundle
-            
-      - name: Sign_Release_Bundle
-        type: SignReleaseBundle
-        configuration: 
-#           nodepool: ubuntu16
-          inputResources:
-            - name: my_releaseBundle  # one ReleaseBundle is mandatory
-              #trigger: false    # default true
-          outputResources:
-            - name: my_signed_releaseBundle    # ReleaseBundle resource
-            
-      - name: distribute_signed_release_bundleo
-        type: DistributeReleaseBundle
-        configuration:
-          dryRun: false
-          inputResources:
-            - name: my_signed_releaseBundle
-            - name: distribution_rule_npm
-          integrations: 
-            - name: dist
+     
+          
