@@ -21,11 +21,10 @@ pipelines:
 #                 versions:
 #                   - 10.15.3
               custom:
-                name:  pipelines-docker.jfrog.io/jfrog/pipelines-u16node
+                name:  pipelines-docker.jfrog.io/jfrog/pipelines-u16go
                 tag: 0.9.1
                 autoPull: true
         execution:
           onExecute:
-            - nvm list
-            - node --version
+            - gvm list
             - kubectl version --client
