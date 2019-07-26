@@ -60,7 +60,7 @@ pipelines:
           onComplete:
             - send_notification Demo_slack
              
-      - name: promote
+      - name: npm_promote
         type: PromoteBuild
         configuration:
           targetRepository: npm-demo
