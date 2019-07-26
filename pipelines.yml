@@ -20,7 +20,7 @@ resources:
       buildName: npm-testingPromote
       
 pipelines:
-  - name: test_pipeline_ranjan
+  - name: Demo
     steps:
       - name: start_npm_build
         type: NpmBuild
