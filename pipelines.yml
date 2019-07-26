@@ -32,9 +32,7 @@ pipelines:
             - name: npm_project
           integrations:
             - name: art_aws_demo
-        execution:        
-          onSuccess:
-            - send_notification Demo_slack
+        
       - name: npm_publish
         type: NpmPublish
         configuration:
@@ -47,9 +45,7 @@ pipelines:
             - name: art_aws_demo
           outputResources:
             - name: publish_info
-        execution:        
-          onSuccess:
-            - send_notification Demo_slack
+        
              
       - name: npm_promote
         type: PromoteBuild
@@ -61,9 +57,7 @@ pipelines:
 #               trigger: false
           outputResources:
             - name: npm_build_promote 
-        execution:        
-          onSuccess:
-            - send_notification Demo_slack
+        
           
      
           
