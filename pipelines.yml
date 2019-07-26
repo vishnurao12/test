@@ -35,7 +35,7 @@ pipelines:
         execution:        
           onSuccess:
             - send_notifications Demo_slack
-          onFaliure:
+          onFailure:
             - send_notifications Demo_slack
           onComplete:
             - send_notifications Demo_slack
@@ -55,7 +55,7 @@ pipelines:
         execution:        
           onSuccess:
             - send_notifications Demo_slack
-          onFaliure:
+          onFailure:
             - send_notifications Demo_slack
           onComplete:
             - send_notifications Demo_slack
@@ -73,7 +73,7 @@ pipelines:
         execution:        
           onSuccess:
             - send_notifications Demo_slack
-          onFaliure:
+          onFailure:
             - send_notifications Demo_slack
           onComplete:
             - send_notifications Demo_slack    
