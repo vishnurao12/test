@@ -40,7 +40,7 @@ pipelines:
           onComplete:
             - send_notification Demo_slack
     
-      - name: npm_pub_autopub_true
+      - name: npm_publish
         type: NpmPublish
         configuration:
           repositoryName: npm-remote-cache
