@@ -32,7 +32,14 @@ pipelines:
             - name: npm_project
           integrations:
             - name: varsha_artifactory
-            
+        execution:        
+          onSuccess:
+            - send_notifications Demo_slack
+          onFaliure:
+            - send_notifications Demo_slack
+          onComplete
+             - send_notifications Demo_slack
+    
       - name: start_npm_pub_autopub_true
         type: NpmPublish
         configuration:
@@ -45,7 +52,14 @@ pipelines:
             - name: varsha_artifactory
           outputResources:
             - name: publish_info
-            
+        execution:        
+          onSuccess:
+            - send_notifications Demo_slack
+          onFaliure:
+            - send_notifications Demo_slack
+          onComplete
+             - send_notifications Demo_slack
+             
       - name: promote
         type: PromoteBuild
         configuration:
@@ -56,6 +70,12 @@ pipelines:
 #               trigger: false
           outputResources:
             - name: npm_build_promote 
-            
+        execution:        
+          onSuccess:
+            - send_notifications Demo_slack
+          onFaliure:
+            - send_notifications Demo_slack
+          onComplete
+             - send_notifications Demo_slack    
      
           
