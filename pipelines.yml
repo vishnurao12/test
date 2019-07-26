@@ -22,7 +22,7 @@ resources:
 pipelines:
   - name: Demo
     steps:
-      - name: start_npm_build
+      - name: npm_build
         type: NpmBuild
         configuration:
           repositoryName: npm-remote-cache
@@ -40,14 +40,14 @@ pipelines:
           onComplete:
             - send_notification Demo_slack
     
-      - name: start_npm_pub_autopub_true
+      - name: npm_pub_autopub_true
         type: NpmPublish
         configuration:
           repositoryName: npm-remote-cache
 #           nodepool: ubuntu16
           autoPublishBuildInfo: true
           inputSteps:
-            - name: start_npm_build
+            - name: npm_build
           integrations:
             - name: art_aws_demo_2
           outputResources:
