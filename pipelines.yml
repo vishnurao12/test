@@ -38,7 +38,7 @@ pipelines:
           onFaliure:
             - send_notifications Demo_slack
           onComplete
-             - send_notifications Demo_slack
+            - send_notifications Demo_slack
     
       - name: start_npm_pub_autopub_true
         type: NpmPublish
@@ -58,7 +58,7 @@ pipelines:
           onFaliure:
             - send_notifications Demo_slack
           onComplete
-             - send_notifications Demo_slack
+            - send_notifications Demo_slack
              
       - name: promote
         type: PromoteBuild
@@ -76,6 +76,6 @@ pipelines:
           onFaliure:
             - send_notifications Demo_slack
           onComplete
-             - send_notifications Demo_slack    
+            - send_notifications Demo_slack    
      
           
