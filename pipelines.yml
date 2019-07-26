@@ -25,7 +25,7 @@ pipelines:
       - name: npm_build
         type: NpmBuild
         configuration:
-          repositoryName: npm-remote
+          repositoryName: npm-awsdemo
           nodePool: aws-demo-pool-2
           sourceLocation: .
           inputResources:
@@ -36,7 +36,7 @@ pipelines:
       - name: npm_publish
         type: NpmPublish
         configuration:
-          repositoryName: npm-remote
+          repositoryName: npm-awsdemo
           nodePool: aws-demo-pool-2
           autoPublishBuildInfo: true
           inputSteps:
