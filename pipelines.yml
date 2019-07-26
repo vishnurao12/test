@@ -35,8 +35,8 @@ pipelines:
         execution:        
           onSuccess:
             - send_notification Demo_slack
-          onFailure:
-            - send_notification Demo_slack
+#           onFailure:
+#             - send_notification Demo_slack
           onComplete:
             - send_notification Demo_slack
     
