@@ -25,7 +25,7 @@ pipelines:
       - name: npm_build
         type: NpmBuild
         configuration:
-          repositoryName: npm-remote-cache
+          repositoryName: npm-remote
           nodePool: aws-demo-pool-2
           sourceLocation: .
           inputResources:
@@ -35,15 +35,10 @@ pipelines:
         execution:        
           onSuccess:
             - send_notification Demo_slack
-#           onFailure:
-#             - send_notification Demo_slack
-#           onComplete:
-#             - send_notification Demo_slack
-    
       - name: npm_publish
         type: NpmPublish
         configuration:
-          repositoryName: npm-remote-cache
+          repositoryName: npm-remote
           nodePool: aws-demo-pool-2
           autoPublishBuildInfo: true
           inputSteps:
@@ -54,10 +49,6 @@ pipelines:
             - name: publish_info
         execution:        
           onSuccess:
-            - send_notification Demo_slack
-          onFailure:
-            - send_notification Demo_slack
-          onComplete:
             - send_notification Demo_slack
              
       - name: npm_promote
@@ -73,9 +64,6 @@ pipelines:
         execution:        
           onSuccess:
             - send_notification Demo_slack
-          onFailure:
-            - send_notification Demo_slack
-          onComplete:
-            - send_notification Demo_slack    
+          
      
           
