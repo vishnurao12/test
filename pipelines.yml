@@ -34,11 +34,11 @@ pipelines:
             - name: varsha_artifactory
         execution:        
           onSuccess:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
           onFailure:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
           onComplete:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
     
       - name: start_npm_pub_autopub_true
         type: NpmPublish
@@ -54,11 +54,11 @@ pipelines:
             - name: publish_info
         execution:        
           onSuccess:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
           onFailure:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
           onComplete:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
              
       - name: promote
         type: PromoteBuild
@@ -72,10 +72,10 @@ pipelines:
             - name: npm_build_promote 
         execution:        
           onSuccess:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
           onFailure:
-            - send_notifications Demo_slack
+            - send_notification Demo_slack
           onComplete:
-            - send_notifications Demo_slack    
+            - send_notification Demo_slack    
      
           
