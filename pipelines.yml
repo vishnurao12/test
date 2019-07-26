@@ -8,14 +8,14 @@ resources:
   - name: publish_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: art_aws_demo_2
       buildNumber: 1
       buildName: npm-testing
       
   - name: npm_build_promote
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: art_aws_demo_2
       buildNumber: 1
       buildName: npm-testing
       
@@ -31,7 +31,7 @@ pipelines:
           inputResources:
             - name: npm_project
           integrations:
-            - name: varsha_artifactory
+            - name: art_aws_demo_2
         execution:        
           onSuccess:
             - send_notification Demo_slack
@@ -49,7 +49,7 @@ pipelines:
           inputSteps:
             - name: start_npm_build
           integrations:
-            - name: varsha_artifactory
+            - name: art_aws_demo_2
           outputResources:
             - name: publish_info
         execution:        
