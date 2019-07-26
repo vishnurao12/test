@@ -63,13 +63,13 @@ pipelines:
       - name: promote
         type: PromoteBuild
         configuration:
-          targetRepository: promote-test
+          targetRepository: npm-demo
 #           nodepool: ubuntu16
           inputResources:
             - name: publish_info
 #               trigger: false
           outputResources:
-            - name: npm-demo 
+            - name: npm_build_promote 
         execution:        
           onSuccess:
             - send_notification Demo_slack
