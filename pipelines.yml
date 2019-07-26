@@ -17,7 +17,7 @@ resources:
     configuration:
       sourceArtifactory: art_aws_demo_2
       buildNumber: 1
-      buildName: npm-testing
+      buildName: npm-testingPromote
       
 pipelines:
   - name: test_pipeline_ranjan
