@@ -64,7 +64,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           targetRepository: npm-demo
-          nodepool: aws-demo-pool-2
+#           nodepool: aws-demo-pool-2
           inputResources:
             - name: publish_info
 #               trigger: false
