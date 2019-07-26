@@ -37,7 +37,7 @@ pipelines:
             - send_notifications Demo_slack
           onFaliure:
             - send_notifications Demo_slack
-          onComplete
+          onComplete:
             - send_notifications Demo_slack
     
       - name: start_npm_pub_autopub_true
@@ -57,7 +57,7 @@ pipelines:
             - send_notifications Demo_slack
           onFaliure:
             - send_notifications Demo_slack
-          onComplete
+          onComplete:
             - send_notifications Demo_slack
              
       - name: promote
@@ -75,7 +75,7 @@ pipelines:
             - send_notifications Demo_slack
           onFaliure:
             - send_notifications Demo_slack
-          onComplete
+          onComplete:
             - send_notifications Demo_slack    
      
           
