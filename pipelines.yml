@@ -32,7 +32,9 @@ pipelines:
             - name: npm_project
           integrations:
             - name: art_aws_demo
-        
+        execution:
+          onSuccess:
+            - send_notification Demo_slack
       - name: npm_publish
         type: NpmPublish
         configuration:
