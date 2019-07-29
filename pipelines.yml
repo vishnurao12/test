@@ -26,7 +26,7 @@ pipelines:
         type: NpmBuild
         configuration:
           repositoryName: npm-awsdemo
-          nodePool: aws-demo-pool-2
+#           nodePool: aws-demo-pool-2
           sourceLocation: .
           inputResources:
             - name: npm_project
@@ -37,7 +37,7 @@ pipelines:
         type: NpmPublish
         configuration:
           repositoryName: npm-awsdemo
-          nodePool: aws-demo-pool-2
+#           nodePool: aws-demo-pool-2
           autoPublishBuildInfo: true
           inputSteps:
             - name: npm_build
@@ -51,7 +51,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           targetRepository: npm-demo
-          nodePool: aws-demo-pool-2
+#           nodePool: aws-demo-pool-2
           inputResources:
             - name: publish_info
 #               trigger: false
