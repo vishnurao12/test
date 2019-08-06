@@ -58,7 +58,7 @@ pipelines:
           inputResources:
             - name: npm_project
           integrations:
-            - name: varsha_artifactory
+            - name: art
             
       - name: start_npm_pub_autopub_true
         type: NpmPublish
@@ -69,7 +69,7 @@ pipelines:
           inputSteps:
             - name: start_npm_build
           integrations:
-            - name: varsha_artifactory
+            - name: art
           outputResources:
             - name: publish_info
             
