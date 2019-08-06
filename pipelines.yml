@@ -20,31 +20,31 @@ resources:
       buildNumber: 1
       buildName: npm-testing
   
-#   - name: my_releaseBundle 
-#     type: ReleaseBundle
-#     configuration:
-#       sourceDistribution: vijay_distribution 
-#       name: test-npm-local
-#       version: 4.0.5
-#       isSigned: false
+  - name: my_releaseBundle 
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: vijay_distribution 
+      name: test-npm-local
+      version: 4.0.5
+      isSigned: false
       
-#   - name: my_signed_releaseBundle
-#     type: ReleaseBundle
-#     configuration:
-#       sourceDistribution: vijay_distribution 
-#       name: test-npm-local
-#       version: v1.0.0
-# #       isSigned: false  
+  - name: my_signed_releaseBundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: vijay_distribution 
+      name: test-npm-local
+      version: v1.0.0
+#       isSigned: false  
 
-#   - name: distribution_rule_npm
-#     type: DistributionRule
-#     configuration:
-#       sourceDistribution: vijay_distribution
-#       cityName: "*"
-#       serviceName: "*"
-#       siteName: "*"
-#       countryCodes:
-#         - IN  
+  - name: distribution_rule_npm
+    type: DistributionRule
+    configuration:
+      sourceDistribution: vijay_distribution
+      cityName: "*"
+      serviceName: "*"
+      siteName: "*"
+      countryCodes:
+        - IN  
       
 pipelines:
   - name: Npm_netive_step_pipeline
