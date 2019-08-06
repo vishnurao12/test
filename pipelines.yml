@@ -64,7 +64,7 @@ pipelines:
         type: NpmPublish
         configuration:
           repositoryName: test-npm-local
-          nodPool: ric03uec
+          nodePool: ric03uec
           autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
