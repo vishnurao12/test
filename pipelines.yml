@@ -53,7 +53,7 @@ pipelines:
         type: NpmBuild
         configuration:
           repositoryName: test-npm-local
-          nodepool: ric03uec
+          nodePool: ric03uec
           sourceLocation: .
           inputResources:
             - name: npm_project
@@ -64,7 +64,7 @@ pipelines:
         type: NpmPublish
         configuration:
           repositoryName: test-npm-local
-          nodepool: ric03uec
+          nodPool: ric03uec
           autoPublishBuildInfo: true
           inputSteps:
             - name: start_npm_build
@@ -77,7 +77,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           targetRepository: test-npm-local
-          nodepool: ric03uec
+          nodePool: ric03uec
           inputResources:
             - name: publish_info
 #               trigger: false
