@@ -47,7 +47,7 @@ resources:
 #         - IN  
       
 pipelines:
-  - name: test_pipeline_ranjan
+  - name: Npm_netive_step_pipeline
     steps:
       - name: start_npm_build
         type: NpmBuild
