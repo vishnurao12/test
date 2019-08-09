@@ -126,3 +126,12 @@ pipelines:
 #                 name: drydock/u18go
 #                 tag: master
 #                 autoPull: false
+        execution:
+          onExecute:
+            - source /root/.gvm/scripts/gvm
+            - gvm list
+            - go version
+            - gvm use 1.11.11 
+            - go version
+            - gvm use 1.12.6
+            - go version 
