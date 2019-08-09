@@ -152,5 +152,20 @@ pipelines:
           onExecute:
             - gvm list
             - go version
-                
-          
+        
+      - name: java 
+        type: Bash 
+        configuration:
+          inputSteps : 
+            - name : node
+          runtime: 
+            type: image
+            image:
+                  custom:
+                        name: drydock/u16java
+                        tag: master
+                        autopull: true 
+                        
+        execution:
+            onExecute:
+                  - java version
