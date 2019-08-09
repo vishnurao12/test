@@ -147,7 +147,7 @@ pipelines:
               auto:
                 language: go
                 versions: 
-                  -1.11.10
+                  - 1.11.10
         execution:
           onExecute:
             - gvm list
