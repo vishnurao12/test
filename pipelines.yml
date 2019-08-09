@@ -136,7 +136,7 @@ pipelines:
             - gvm use 1.12.6
             - go version 
             
-      - name: go
+      - name: go1
         type: Bash 
         configuration:
           inputResources :
