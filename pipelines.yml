@@ -1,12 +1,12 @@
 resources:
-  - name: simple_test
+  - name: simple_test1
     type: GitRepo
     configuration:
-      gitProvider: ranjan_github
-      path: Ranjansingh41/test 
+      gitProvider: vishnurao_github
+      path: vishnurao12/test 
       
 pipelines:
-  - name: pipeline_ranjan
+  - name: pipeline_vishnu
     steps:
       - name: node
         type: Bash
