@@ -135,3 +135,22 @@ pipelines:
             - go version
             - gvm use 1.12.6
             - go version 
+            
+      - name: go
+        type: Bash 
+        configuration:
+          inputResources :
+            - name: test1
+          runtime: 
+            type: image
+            image:
+              auto:
+                language: go
+                versions: 
+                  -1.11.10
+      execution:
+        onExecute:
+         - gvm list
+         - go version
+                
+          
