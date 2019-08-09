@@ -5,30 +5,30 @@
 #       gitProvider: vishnurao_github
 #       path: vishnurao12/test 
       
-pipelines:
-  - name: pipeline_vishnu
-    steps:
-      - name: node
-        type: Bash
-        configuration:
-#           inputResources:
-#             - name: simple_test1
-          runtime:
-            type: image
-            image:
-              auto:
-                language: nodejs
-                versions:
-                  - 10.15.3
-#               custom:
-#                 name: drydock/u16node
-#                 tag: master
-#                 autoPull: false
-        execution:
-          onExecute:
-            - nvm list
-            - node --version 
-            - add_run_variables imageTag="master"
+# pipelines:
+#   - name: pipeline_vishnu
+#     steps:
+#       - name: node
+#         type: Bash
+#         configuration:
+# #           inputResources:
+# #             - name: simple_test1
+#           runtime:
+#             type: image
+#             image:
+#               auto:
+#                 language: nodejs
+#                 versions:
+#                   - 10.15.3
+# #               custom:
+# #                 name: drydock/u16node
+# #                 tag: master
+# #                 autoPull: false
+#         execution:
+#           onExecute:
+#             - nvm list
+#             - node --version 
+#             - add_run_variables imageTag="master"
 
 
 #       - name: go
