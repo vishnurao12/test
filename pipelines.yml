@@ -148,9 +148,9 @@ pipelines:
                 language: go
                 versions: 
                   -1.11.10
-      execution:
-        onExecute:
-         - gvm list
-         - go version
+        execution:
+          onExecute:
+            - gvm list
+            - go version
                 
           
