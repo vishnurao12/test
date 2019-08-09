@@ -164,7 +164,7 @@ pipelines:
                   custom:
                         name: drydock/u16java
                         tag: master
-                        autopull: true 
+                        autopull: false 
                         
         execution:
             onExecute:
