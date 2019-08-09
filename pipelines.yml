@@ -104,8 +104,20 @@ pipelines:
 #                 name: drydock/u16node
 #                 tag: master
 #                 autoPull: false
-        execution:
-          onExecute:
-            - nvm list
-            - node --version 
-            - add_run_variables imageTag="master"
+        
+      - name: go
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: node
+          runtime:
+            type: image
+            image:
+              auto:
+                language: go
+                versions:
+                  - 1.12.6
+#               custom:
+#                 name: drydock/u18go
+#                 tag: master
+#                 autoPull: false
