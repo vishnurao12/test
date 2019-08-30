@@ -1,32 +1,27 @@
 resources:
-  - name: simple_test
-    type: GitRepo
+  - name: testRes
+    type: BuildInfo
     configuration:
-      gitProvider: ranjan_github
-      path: Ranjansingh41/test 
-      
+      sourceArtifactory: art
+      buildName: test
+      buildNumber: 1
+ 
 pipelines:
-  - name: pipeline_ranjan1
-    steps:
-      - name: node
+  - name: pipeline2db
+    steps:          
+      - name: testJenkins_2
+        type: Jenkins
+        configuration:
+          integrations:
+            - name: jenkins
+#           outputResources:
+#             - name: testRes
+  
+      - name: stepB
         type: Bash
         configuration:
-          inputResources:
-            - name: simple_test
-          runtime:
-            type: image
-            image:
-#               auto:
-#                 language: nodejs
-#                 versions:
-#                   - 10.15.3
-              custom:
-                name:  pipelines-docker.jfrog.io/jfrog/pipelines-c7node
-                tag: 0.9.1
-                autoPull: false
+          inputSteps:
+            - name: testJenkins_2
         execution:
           onExecute:
-            - node --version
-            - nvm list
-            - jfrog --version
-            - kubectl version --client
+            - echo "executing stepB..."
