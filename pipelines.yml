@@ -1,5 +1,5 @@
 resources:
-  - name: myCronTrigger
+  - name: vishnuCronTrigger
     type: CronTrigger
     configuration: 
       interval: "*/2 * * * *"
