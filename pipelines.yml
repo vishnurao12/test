@@ -12,3 +12,9 @@ pipelines:
         configuration: 
           inputResources: 
             - name: myCronTrigger 
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            - test "$ENV1" == "value1"
+            - test "$ENV2" == "value2"
