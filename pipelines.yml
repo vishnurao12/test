@@ -12,6 +12,9 @@ pipelines:
         configuration: 
           inputResources: 
             - name: myCronTrigger 
+          environmentVariables:
+            ENV1: value1
+            ENV2: value2  
         execution:
           onExecute:
             - printenv
