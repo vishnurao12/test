@@ -11,7 +11,7 @@ pipelines:
         type: Bash
         configuration: 
           inputResources: 
-            - name: myCronTrigger 
+            - name: vishnuCronTrigger 
           environmentVariables:
             ENV1: value1
             ENV2: value2  
