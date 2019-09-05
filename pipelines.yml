@@ -1,9 +1,9 @@
 resources:
   - name: tr_ext_hook_2
-    type: ExternalWebhook
+    type: External Webhook
     configuration:
       webhookName: outing_hook
-      method: "PUT"
+      method: "POST"
       path: "/api/v2/test"
       parameters: "name=$STEP_NAME"
       headers:
