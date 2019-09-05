@@ -1,4 +1,19 @@
-- name: tr_int_hook
-  type: InternalWebhook
-  configuration:
-  	webhookName: incoming_hook
+resources:
+  - name: tr_int_hook
+    type: InternalWebhook
+    configuration:
+      webhookName: incoming_hook
+
+pipelines:
+  - name: tr_hooks_aplenty
+    steps:
+      - name: tr_start_by_hook
+        type: Bash
+        configuration:
+          inputResources:
+            - name: tr_int_hook
+            
+        execution:
+          onExecute:
+            - apt-get install -y tree
+            - echo "Hello world"    
