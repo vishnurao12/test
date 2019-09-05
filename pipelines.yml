@@ -1,4 +1,4 @@
 - name: tr_int_hook
-    type: InternalWebhook
-    configuration:
-      webhookName: incoming_hook
+  type: InternalWebhook
+  configuration:
+  	webhookName: incoming_hook
