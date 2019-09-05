@@ -1,11 +1,4 @@
-resources:
-  - name: tr_ext_hook_2
-    type: External Webhook
+- name: tr_int_hook
+    type: InternalWebhook
     configuration:
-      webhookName: outing_hook
-      method: "POST"
-      path: "/api/v2/test"
-      parameters: "name=$STEP_NAME"
-      headers:
-        content-type: application/json
-        accept: $res_tr_ext_hook_webhookName_webhookURL
+      webhookName: incoming_hook
