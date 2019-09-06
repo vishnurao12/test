@@ -1,8 +1,8 @@
-# resources:
-#   - name: vishnuCronTrigger
-#     type: CronTrigger
-#     configuration: 
-#       interval: "*/2 * * * *"
+resources:
+  - name: vishnuCronTrigger
+    type: CronTrigger
+    configuration: 
+      interval: "2 4 6 8 *"
 
 pipelines: 
   - name: myPipeline
