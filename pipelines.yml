@@ -9,13 +9,13 @@
   - name: tr_ext_webhook
     type: ExternalWebhook
     configuration:
-      webhookName: outgoing_hook
+      webhookName: slack_test
       method: "POST"
-      path: "pipelineSteps/351/trigger"
-#       parameters: "name=$STEP_NAME"
-      headers:
-        content-type: application/json
-#         accept: $res_tr_ext_hook_webhookName_webhookURL
+      path: "services/T0KNGPCD7/BLFA8C7JP/Se4EstETTZqvzb1QEiBzkb3l"
+      parameters: "name=slack_test"
+#       headers:
+#         content-type: application/json
+#          accept: $res_tr_ext_hook_webhookName_webhookURL
         
   - name: tr_int_hook
     type: InternalWebhook
@@ -36,19 +36,19 @@
         execution:
           onExecute:
             - printenv
-            - set_payload tr_ext_webhook "{\"test\":\"payload\"}"
+            - set_payload tr_ext_webhook "{\"text\":\"Optional text that appears within the attachment\"}"
             - export tr_ext_hook_2_skipWebhook="true"
             - apt-get install -y tree
             - echo "Hello world"
           #  - echo ""
   
-      - name: tr_hook_connection
-        type: Bash
-        configuration:
-          inputResources:
-            - name: tr_int_hook
-        execution:
-          onExecute:
-            - apt-get install -y tree
-            - echo "Hello world"
-          #  - echo ""
+#       - name: tr_hook_connection
+#         type: Bash
+#         configuration:
+#           inputResources:
+#             - name: tr_int_hook
+#         execution:
+#           onExecute:
+#             - apt-get install -y tree
+#             - echo "Hello world"
+#           #  - echo ""
