@@ -1,10 +1,21 @@
  resources:
-  - name: tr_ext_hook_2
+#   - name: tr_ext_hook_2
+#     type: ExternalWebhook
+#     configuration:
+#       webhookName: outgoing_hook
+#       method: "POST"
+#       path: "/resources"
+  
+  - name: tr_ext_webhook
     type: ExternalWebhook
     configuration:
-      webhookName: outgoing_hook
-      method: "GET"
-      path: "/resources"
+      webhookName: test_external
+      method: "POST"
+      path: "v1/projectIntegrations/3/hook"
+#       parameters: "name=$STEP_NAME"
+      headers:
+        content-type: application/json
+#         accept: $res_tr_ext_hook_webhookName_webhookURL
         
   - name: tr_int_hook
     type: InternalWebhook
@@ -20,8 +31,8 @@
 #           inputResources:
 #             - name: tr_int_hook
           outputResources:
-            - name: tr_ext_hook_2
-            - name: tr_int_hook
+           # - name: tr_ext_hook_2
+            - name: tr_ext_webhook
         execution:
           onExecute:
             - apt-get install -y tree
