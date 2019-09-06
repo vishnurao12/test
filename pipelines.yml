@@ -3,7 +3,15 @@ resources:
     type: CronTrigger
     configuration: 
       interval: "2 4 6 8 *"
-
+  
+  - name: s_image
+    type: Image
+    configuration:
+      registry: docker
+#       sourceRepository:    <name of the artifactory repo>   # required if registry is Artifactory
+      imageName: shippabledocker/sample_python
+      imageTag: latest
+      
 pipelines: 
   - name: myPipeline
     steps: 
@@ -11,7 +19,7 @@ pipelines:
         type: Bash
         configuration: 
           inputResources: 
-            - name: vishnuCronTrigger 
+            - name: s_image
           environmentVariables:
             ENV1: value1
             ENV2: value2  
