@@ -1,10 +1,10 @@
  resources:
-#   - name: tr_ext_hook_2
-#     type: ExternalWebhook
-#     configuration:
-#       webhookName: outgoing_hook
-#       method: "GET"
-#       path: "/resources"
+  - name: tr_ext_hook_2
+    type: ExternalWebhook
+    configuration:
+      webhookName: outgoing_hook
+      method: "GET"
+      path: "/resources"
         
   - name: tr_int_hook
     type: InternalWebhook
@@ -19,7 +19,15 @@
         configuration:
           inputResources:
             - name: tr_int_hook
-            
+  
+      - name: tr_hook_connection
+            type: Bash
+            configuration:
+              inputResources:
+                - name: tr_int_hook
+              outputResources:
+                - name: tr_ext_hook_2
+  
         execution:
           onExecute:
             - apt-get install -y tree
