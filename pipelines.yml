@@ -9,9 +9,9 @@
   - name: tr_ext_webhook
     type: ExternalWebhook
     configuration:
-      webhookName: test_external
+      webhookName: outgoing_hook
       method: "POST"
-      path: "v1/projectIntegrations/3/hook"
+      path: "pipelineSteps/351/trigger"
 #       parameters: "name=$STEP_NAME"
       headers:
         content-type: application/json
