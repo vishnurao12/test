@@ -25,9 +25,9 @@
   
       - name: tr_hook_connection
         type: Bash
-          configuration:
-            inputResources:
-              - name: tr_int_hook
+        configuration:
+          inputResources:
+            - name: tr_int_hook
         execution:
           onExecute:
             - apt-get install -y tree
