@@ -36,6 +36,8 @@
         execution:
           onExecute:
             - printenv
+            - set_payload tr_ext_webhook "{\"test\":\"payload\"}"
+            - export tr_ext_hook_2_skipWebhook="true"
             - apt-get install -y tree
             - echo "Hello world"
           #  - echo ""
