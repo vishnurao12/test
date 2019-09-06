@@ -11,7 +11,7 @@
     configuration:
       webhookName: incoming_hook
 
-pipelines:
+ pipelines:
   - name: tr_hooks_aplenty
     steps:
       - name: tr_start_by_hook
