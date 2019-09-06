@@ -10,8 +10,8 @@ pipelines:
       - name: myScheduledStep
         type: Bash
         configuration: 
-#           inputResources: 
-#             - name: vishnuCronTrigger 
+          inputResources: 
+            - name: vishnuCronTrigger 
           environmentVariables:
             ENV1: value1
             ENV2: value2  
