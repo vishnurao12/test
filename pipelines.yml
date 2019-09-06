@@ -31,10 +31,11 @@
 #           inputResources:
 #             - name: tr_int_hook
           outputResources:
-           # - name: tr_ext_hook_2
+            - name: tr_int_hook
             - name: tr_ext_webhook
         execution:
           onExecute:
+            - printenv
             - apt-get install -y tree
             - echo "Hello world"
           #  - echo ""
