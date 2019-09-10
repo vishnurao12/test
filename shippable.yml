@@ -1,27 +1,22 @@
 resources:
-  - name: testRes
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art
-      buildName: test
-      buildNumber: 1
- 
+   - name: vmIntegrationResource
+     type: VmCluster
+     configuration:
+       sshKey: pem_int
+       targets:
+         - 0.0.0.1
+         - 0.0.0.12
 pipelines:
-  - name: pipeline2db
-    steps:          
-      - name: testJenkins_2
-        type: Jenkins
-        configuration:
-          integrations:
-            - name: jenkins
-#           outputResources:
-#             - name: testRes
-  
-      - name: stepB
+  - name: vr_vmclusters
+    steps:
+      - name: vr_step
         type: Bash
         configuration:
-          inputSteps:
-            - name: testJenkins_2
+          inputResources:
+            - name: vmIntegrationResource
+#           outputResources:
+#             - name: tr_int_hook
+#             - name: tr_ext_webhook
         execution:
           onExecute:
-            - echo "executing stepB..."
+            - printenv
