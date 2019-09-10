@@ -2,7 +2,7 @@ resources:
    - name: vmIntegrationResource
      type: VmCluster
      configuration:
-       sshKey: Vm_Cluster
+       sshKey: sshKey_int
        targets:
          - 0.0.0.1
          - 0.0.0.12
