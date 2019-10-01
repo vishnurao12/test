@@ -1,27 +1,23 @@
 resources:
-  - name: testRes
-    type: BuildInfo
+  - name: test_gitRepo
+    type: GitRepo
     configuration:
-      sourceArtifactory: art
-      buildName: test
-      buildNumber: 1
+      path: PIP/automation
+      gitProvider: bbs
  
 pipelines:
   - name: pipeline2db
-    steps:          
-      - name: testJenkins_2
-        type: Jenkins
-        configuration:
-          integrations:
-            - name: jenkins
-#           outputResources:
-#             - name: testRes
-  
+    steps:   
       - name: stepB
         type: Bash
         configuration:
-          inputSteps:
-            - name: testJenkins_2
+          inputResources:
+            - name: test_gitRepo
+          integrations:
+            - name: apiToken
         execution:
           onExecute:
-            - echo "executing stepB..."
+            - printenv
+            - pushd $res_test_gitRepo_resourcePath/tests
+            - ./test.sh $int_test_gitRepo_api_url $int_test_gitRepo_su_user_Token $int_test_gitRepo_ow_user_Token $int_test_gitRepo_me_user_Token
+            - popd
