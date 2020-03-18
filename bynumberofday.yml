@@ -1,0 +1,10 @@
+pipelines:
+  - name: bynumberofday
+    steps:
+      - name: bynumberofday1
+        type: Bash
+        configuration: 
+          nodePool:Bynumberofday
+        execution:
+          onExecute:
+            - printenv
